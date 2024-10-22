@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronRight, ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import projectData from '../data.json';
 import Projects from '../components/Projects';
 import Form from '../components/formSection';
@@ -27,9 +27,22 @@ const industryFilters = [
 ];
 
 const Works = () => {
-  const [activeCategory, setActiveCategory] = useState('All projects');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [activeCategory, setActiveCategory] = useState(searchParams.get('filter') || 'All projects');
   const [activeIndustry, setActiveIndustry] = useState('All industries');
   const [visibleProjects, setVisibleProjects] = useState(4);
+
+  // Effect to handle incoming filter parameter
+  useEffect(() => {
+    const filterParam = searchParams.get('filter');
+    if (filterParam) {
+      if (projectCategories.includes(filterParam)) {
+        setActiveCategory(filterParam);
+      } else if (industryFilters.includes(filterParam)) {
+        setActiveIndustry(filterParam);
+      }
+    }
+  }, [searchParams]);
 
   const filteredProjects = projectData.projects.filter((project) => {
     const categoryMatch =
@@ -43,10 +56,32 @@ const Works = () => {
     setVisibleProjects((prevVisible) => Math.min(prevVisible + 4, filteredProjects.length));
   };
 
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category);
+    if (category === 'All projects') {
+      searchParams.delete('filter');
+    } else {
+      searchParams.set('filter', category);
+    }
+    setSearchParams(searchParams);
+    setVisibleProjects(4); // Reset visible projects when changing category
+  };
+
+  const handleIndustryChange = (industry) => {
+    setActiveIndustry(industry);
+    if (industry === 'All industries') {
+      searchParams.delete('filter');
+    } else {
+      searchParams.set('filter', industry);
+    }
+    setSearchParams(searchParams);
+    setVisibleProjects(4); // Reset visible projects when changing industry
+  };
+
   return (
     <>
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 mb-10">
-        <div className="mb-4 flex items-center text-sm text-gray-500">
+        <div className="mb-4 flex items-center text-sm text-gray-500 mt-10">
           <Link to="/">Home</Link>
           <ChevronRight className="w-4 h-4 mx-2" />
           <span>Projects</span>
@@ -64,7 +99,7 @@ const Works = () => {
                       ? 'bg-black text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
-                  onClick={() => setActiveCategory(category)}
+                  onClick={() => handleCategoryChange(category)}
                 >
                   {category}
                 </button>
@@ -85,7 +120,7 @@ const Works = () => {
                       ? 'bg-yellow-300 text-black'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
-                  onClick={() => setActiveIndustry(industry)}
+                  onClick={() => handleIndustryChange(industry)}
                 >
                   {industry}
                 </button>
@@ -106,8 +141,7 @@ const Works = () => {
               onClick={showMoreProjects}
               className="bg-orange-500 text-white rounded-full p-4 flex items-center justify-center hover:bg-orange-600 transition-colors"
             >
-              <ChevronDown className=" w-6 h-6 mr-2" />
-              
+              <ChevronDown className="w-6 h-6 mr-2" />
               Show more
             </button>
           </div>
