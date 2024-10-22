@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'SyneReg';
+    src: url('./assets/fonts/Syne-Regular.ttf') format('truetype'); /* Adjust the path if needed */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SyneBold';
+    src: url('./assets/fonts/Syne-Bold.ttf') format('truetype'); /* Adjust the path if needed */
+    font-weight: normal;
+    font-style: normal;
+}
+  
+
+*{
+    font-family: 'SyneReg';
+}
+
+.custom-circle {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;      /* Adjust the size of the circle */
+    height: 150px;     /* Adjust the size of the circle */
+    border-radius: 50%;
+    background-color: #173D73; /* Circle background color */
+    color: white;
+    font-size: 20px;   /* Adjust text size */
+    font-weight: bold;
+    text-decoration: none;
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .custom-circle:hover {
+    transform: scale(1.1); /* Scale the circle slightly on hover */
+  }
+  
+  .custom-circle span {
+    display: block;
+    text-align: center;
+    padding: 10px;    /* Adjust padding for better positioning */
+  }
+  
+  .custom-circle::after {
+    content: '→';        /* The arrow symbol */
+    position: absolute;
+    right: -30px;        /* Adjust to place it near the circle */
+    font-size: 30px;     /* Adjust arrow size */
+    color: #173D73;      /* Arrow color */
+    transition: right 0.3s ease;
+  }
+  
+  .custom-circle:hover::after {
+    right: -40px;        /* Moves arrow on hover */
+  }
+  

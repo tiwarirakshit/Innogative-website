@@ -1,0 +1,34 @@
+{
+    "projects": [
+      {
+        "title": "Tabela - a management system for Restaurants",
+        "type": ["SaaS", "Web app"],
+        "description": "Tabela is an advanced management system designed specifically for restaurants. With Tabela, restaurant staff can easily keep track of their reservations and tables in real time."
+      },
+      {
+        "title": "Sway Finance - cash management application",
+        "type": ["FinTech", "Branding", "Mobile app"],
+        "description": "Real-time cash management at your fingertips."
+      },
+      {
+        "title": "Blueheart - relationship happiness app",
+        "type": ["Healthcare", "Mobile app"],
+        "description": "Take the stress out of sex with anxiety-reducing touch therapy created by experts."
+      },
+      {
+        "title": "E-manager - Promo website for mobile app for e-sim management",
+        "type": ["Smart Solutions", "Website"],
+        "description": "Highlighting the application and its advantages in a competitive market."
+      },
+      {
+        "title": "Assetario - Branding for the SaaS platform",
+        "type": ["SaaS", "Web app", "Website", "Branding", "3D motion design"],
+        "description": "AI-powered Platform for App Personalization."
+      },
+      {
+        "title": "Core Developer - the platform for learning how to program",
+        "type": ["Education", "Web app"],
+        "description": "The platform that helps people learn different programming languages."
+      }
+    ]
+  }

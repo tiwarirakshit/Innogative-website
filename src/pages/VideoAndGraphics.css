@@ -1,0 +1,65 @@
+
+body{
+    /* overflow-x: hide; */
+}
+.video-and-graphics-container {
+    position: relative;
+    height: 90vh;
+    width: 100vw;
+    background-color: black;
+    overflow: hidden;
+  }
+  
+  .preview-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1; /* Ensures the preview is below the carousel */
+  }
+  
+  .preview-media {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
+  
+  .preview-placeholder {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .carousel-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    z-index: 2; /* Ensures the carousel is above the preview */
+    padding-bottom: 20px;
+    overflow: hidden;
+    /* background-color: rgba(0, 0, 0, 0.5); Optional: semi-transparent background */
+  }
+  
+  .carousel-item {
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .carousel-thumbnail {
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  @media (max-width: 768px) {
+    .carousel-thumbnail {
+      height: 70px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .carousel-thumbnail {
+      height: 50px;
+    }
+  }
+  

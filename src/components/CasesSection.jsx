@@ -1,0 +1,133 @@
+import React from "react";
+
+export default function Cases() {
+  const portfolioItems = [
+    {
+      title: "Tabela - a management system for Restaurants",
+      description:
+        "Tabela is an advanced management system designed specifically for restaurants. With Tabela, restaurant staff can easily keep track of their reservations and tables in real time.",
+      image:
+        "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2023/09/Cover-all-cases.png.webp",
+      tags: ["SaaS", "Web app"],
+      link: "#",
+    },
+    {
+      title: "Sway Finance - cash management application",
+      description: "Real-time cash management at your fingertips.",
+      image:
+        "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2023/05/cover-7retina.jpg.webp",
+      tags: ["FinTech", "Branding", "Mobile app"],
+      link: "#",
+    },
+    {
+      title: "Tabela - a management system for Restaurants",
+      description:
+        "Tabela is an advanced management system designed specifically for restaurants. With Tabela, restaurant staff can easily keep track of their reservations and tables in real time.",
+      image:
+        "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2023/09/Cover-all-cases.png.webp",
+      tags: ["SaaS", "Web app"],
+      link: "#",
+    },
+    {
+      title: "Sway Finance - cash management application",
+      description: "Real-time cash management at your fingertips.",
+      image:
+        "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2023/05/cover-7retina.jpg.webp",
+      tags: ["FinTech", "Branding", "Mobile app"],
+      link: "#",
+    }
+  ];
+
+  return (
+    <section className="px-4 py-16 bg-white">
+      <div className="max-w-7xl mx-auto">
+      <div className="flex justify-between">
+        <p className="text-gray-600 mb-4">Selected works</p>
+
+        <p className="text-4xl md:text-5xl lg:text-8xl leading-[10px] font-bold mb-16">
+          See <span className="text-orange-500 leading-[50px]">the results</span>
+          <br />
+          of our work
+          <br />
+          across <span className="text-orange-500 relative leading-3">industries</span>
+        </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {portfolioItems.map((item, index) => (
+            <div key={index} className="group relative">
+              <div className="relative overflow-hidden rounded-lg aspect-video md:aspect-square lg:aspect-video  ">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="object-cover object-center w-full h-full transition-transform duration-300 group-hover:scale-105"
+                />
+                {/* Decorative elements */}
+                {index === 0 && (
+                  <div className="absolute inset-0 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-12 h-12 border-t-4 border-l-4 border-yellow-300"></div>
+                    <div className="absolute bottom-0 right-0 w-12 h-12 border-b-4 border-r-4 border-yellow-300"></div>
+                  </div>
+                )}
+                {index === 1 && (
+                  <div className="absolute inset-0 z-10 pointer-events-none">
+                    <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 rounded-full opacity-50 blur-xl"></div>
+                    <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full opacity-50 blur-xl"></div>
+                  </div>
+                )}
+              </div>
+
+              <div className="mt-6 ">
+                <div className="flex justify-around items-center">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {item.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <a
+                  href={item.link}
+                  className="inline-flex items-center text-white bg-black rounded-full px-3 py-2 font-semibold group-hover:text-orange-500 transition-colors"
+                >
+                 
+                  <svg
+                    className="w-4 h-4 ml-2 mr-1 -rotate-45"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5 12H19M19 12L12 5M19 12L12 19"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  See case
+                </a>
+                </div>
+                <p className="text-gray-600 mb-4">{item.description}</p>
+                
+              </div>
+            </div>
+          ))}
+        </div>
+
+<div className="w-full flex justify-center items-center">
+
+        <button className="w-48 h-48 bg-orange-500 rounded-full">
+          -> All Projects
+        </button>
+</div>
+      </div>
+    </section>
+  );
+}
