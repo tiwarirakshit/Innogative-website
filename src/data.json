@@ -1,34 +1,49 @@
 {
-    "projects": [
-      {
-        "title": "Tabela - a management system for Restaurants",
-        "type": ["SaaS", "Web app"],
-        "description": "Tabela is an advanced management system designed specifically for restaurants. With Tabela, restaurant staff can easily keep track of their reservations and tables in real time."
-      },
-      {
-        "title": "Sway Finance - cash management application",
-        "type": ["FinTech", "Branding", "Mobile app"],
-        "description": "Real-time cash management at your fingertips."
-      },
-      {
-        "title": "Blueheart - relationship happiness app",
-        "type": ["Healthcare", "Mobile app"],
-        "description": "Take the stress out of sex with anxiety-reducing touch therapy created by experts."
-      },
-      {
-        "title": "E-manager - Promo website for mobile app for e-sim management",
-        "type": ["Smart Solutions", "Website"],
-        "description": "Highlighting the application and its advantages in a competitive market."
-      },
-      {
-        "title": "Assetario - Branding for the SaaS platform",
-        "type": ["SaaS", "Web app", "Website", "Branding", "3D motion design"],
-        "description": "AI-powered Platform for App Personalization."
-      },
-      {
-        "title": "Core Developer - the platform for learning how to program",
-        "type": ["Education", "Web app"],
-        "description": "The platform that helps people learn different programming languages."
-      }
-    ]
-  }
+  "projects": [
+    {
+      "id": 1,
+      "title": "Tabela - a management system for Restaurants",
+      "type": ["Web app", "SaaS"],
+      "description": "Tabela is a comprehensive management system designed specifically for restaurants. It streamlines operations, from table reservations to order management, helping restaurant owners and staff provide better service and increase efficiency.",
+      "imageUrl": "https://picsum.photos/seed/project1/1200/800",
+      "client": "RestaurantTech Inc.",
+      "date": "October 2023"
+    },
+    {
+      "id": 2,
+      "title": "FinTrack - Personal Finance Dashboard",
+      "type": ["Website", "FinTech"],
+      "description": "FinTrack is a user-friendly personal finance dashboard that helps individuals track their expenses, set budgets, and achieve financial goals. With intuitive visualizations and AI-powered insights, users can make informed decisions about their money.",
+      "imageUrl": "https://picsum.photos/seed/project2/1200/800",
+      "client": "FinTech Solutions Ltd.",
+      "date": "September 2023"
+    },
+    {
+      "id": 3,
+      "title": "HealthHub - Patient Management App",
+      "type": ["Mobile app", "Healthcare"],
+      "description": "HealthHub is a comprehensive patient management app that allows healthcare providers to streamline their workflows, manage patient records, and improve communication with patients. The app includes features such as appointment scheduling, secure messaging, and medication reminders.",
+      "imageUrl": "https://picsum.photos/seed/project3/1200/800",
+      "client": "MedTech Innovations",
+      "date": "August 2023"
+    },
+    {
+      "id": 4,
+      "title": "EduConnect - Online Learning Platform",
+      "type": ["Website", "Education"],
+      "description": "EduConnect is an innovative online learning platform that connects students with expert tutors across various subjects. The platform features interactive video lessons, real-time collaboration tools, and adaptive learning algorithms to personalize the educational experience for each student.",
+      "imageUrl": "https://picsum.photos/seed/project4/1200/800",
+      "client": "Global Education Network",
+      "date": "July 2023"
+    },
+    {
+      "id": 5,
+      "title": "CryptoVerse - Web3 Exploration Game",
+      "type": ["3D motion design", "Web3"],
+      "description": "CryptoVerse is an immersive Web3 exploration game that introduces players to the world of cryptocurrencies and blockchain technology. Through stunning 3D environments and interactive challenges, players learn about decentralized finance, NFTs, and the potential of Web3 technologies.",
+      "imageUrl": "https://picsum.photos/seed/project5/1200/800",
+      "client": "BlockChain Gamers Inc.",
+      "date": "June 2023"
+    }
+  ]
+}
