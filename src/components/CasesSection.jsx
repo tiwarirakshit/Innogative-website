@@ -1,64 +1,31 @@
 import React from "react";
+import projectData from '../data.json';
 
 export default function Cases() {
-  const portfolioItems = [
-    {
-      title: "Tabela - a management system for Restaurants",
-      description:
-        "Tabela is an advanced management system designed specifically for restaurants. With Tabela, restaurant staff can easily keep track of their reservations and tables in real time.",
-      image:
-        "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2023/09/Cover-all-cases.png.webp",
-      tags: ["SaaS", "Web app"],
-      link: "#",
-    },
-    {
-      title: "Sway Finance - cash management application",
-      description: "Real-time cash management at your fingertips.",
-      image:
-        "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2023/05/cover-7retina.jpg.webp",
-      tags: ["FinTech", "Branding", "Mobile app"],
-      link: "#",
-    },
-    {
-      title: "Tabela - a management system for Restaurants",
-      description:
-        "Tabela is an advanced management system designed specifically for restaurants. With Tabela, restaurant staff can easily keep track of their reservations and tables in real time.",
-      image:
-        "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2023/09/Cover-all-cases.png.webp",
-      tags: ["SaaS", "Web app"],
-      link: "#",
-    },
-    {
-      title: "Sway Finance - cash management application",
-      description: "Real-time cash management at your fingertips.",
-      image:
-        "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2023/05/cover-7retina.jpg.webp",
-      tags: ["FinTech", "Branding", "Mobile app"],
-      link: "#",
-    }
-  ];
+  // Extract the first four items from the portfolioData
+  const portfolioItems = projectData.projects.slice(0, 4);
 
   return (
     <section className="px-4 py-16 bg-white">
       <div className="max-w-7xl mx-auto">
-      <div className="flex justify-between">
-        <p className="text-gray-600 mb-4">Selected works</p>
+        <div className="flex justify-between">
+          <p className="text-gray-600 mb-4">Selected works</p>
 
-        <p className="text-4xl md:text-5xl lg:text-8xl leading-[10px] font-bold mb-16">
-          See <span className="text-orange-500 leading-[50px]">the results</span>
-          <br />
-          of our work
-          <br />
-          across <span className="text-orange-500 relative leading-3">industries</span>
-        </p>
+          <p className="text-4xl md:text-5xl lg:text-8xl leading-[10px] font-bold mb-16">
+            See <span className="text-orange-500 leading-[50px]">the results</span>
+            <br />
+            of our work
+            <br />
+            across <span className="text-orange-500 relative leading-3">industries</span>
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {portfolioItems.map((item, index) => (
-            <div key={index} className="group relative">
-              <div className="relative overflow-hidden rounded-lg aspect-video md:aspect-square lg:aspect-video  ">
+            <div key={item.id} className="group relative">
+              <div className="relative overflow-hidden rounded-lg aspect-video md:aspect-square lg:aspect-video">
                 <img
-                  src={item.image}
+                  src={item.imageUrl}
                   alt={item.title}
                   className="object-cover object-center w-full h-full transition-transform duration-300 group-hover:scale-105"
                 />
@@ -77,12 +44,12 @@ export default function Cases() {
                 )}
               </div>
 
-              <div className="mt-6 ">
+              <div className="mt-6">
                 <div className="flex justify-around items-center">
                   <div>
                     <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {item.tags.map((tag, tagIndex) => (
+                      {item.type.map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
                           className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
@@ -93,40 +60,37 @@ export default function Cases() {
                     </div>
                   </div>
                   <a
-                  href={item.link}
-                  className="inline-flex items-center text-white bg-black rounded-full px-3 py-2 font-semibold group-hover:text-orange-500 transition-colors"
-                >
-                 
-                  <svg
-                    className="w-4 h-4 ml-2 mr-1 -rotate-45"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                    href="#"
+                    className="inline-flex items-center text-white bg-black rounded-full px-3 py-2 font-semibold group-hover:text-orange-500 transition-colors"
                   >
-                    <path
-                      d="M5 12H19M19 12L12 5M19 12L12 19"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  See case
-                </a>
+                    <svg
+                      className="w-4 h-4 ml-2 mr-1 -rotate-45"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5 12H19M19 12L12 5M19 12L12 19"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    See case
+                  </a>
                 </div>
                 <p className="text-gray-600 mb-4">{item.description}</p>
-                
               </div>
             </div>
           ))}
         </div>
 
-<div className="w-full flex justify-center items-center">
-
-        <button className="w-48 h-48 bg-orange-500 rounded-full">
-          -> All Projects
-        </button>
-</div>
+        <div className="w-full flex justify-center items-center">
+          <button className="w-48 h-48 bg-orange-500 rounded-full">
+            -> All Projects
+          </button>
+        </div>
       </div>
     </section>
   );
