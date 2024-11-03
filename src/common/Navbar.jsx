@@ -108,8 +108,9 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <NavLink to="/graphics">Video/Graphics</NavLink>
-          <NavLink to="/contact">Contact Us</NavLink>
+          {/* <NavLink to="/blogs">Blogs</NavLink> */}
+          <NavLink className="hover-target" to="/graphics">Video/Graphics</NavLink>
+          <NavLink className="hover-target" to="/contact">Contact Us</NavLink>
         </div>
 
         {/* Get In Touch Button */}

@@ -19,45 +19,59 @@
 
 *{
     font-family: 'SyneReg';
+    cursor: none;
 }
 
+/* Base style for the circle */
 .custom-circle {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;      /* Adjust the size of the circle */
-    height: 150px;     /* Adjust the size of the circle */
-    border-radius: 50%;
-    background-color: #173D73; /* Circle background color */
-    color: white;
-    font-size: 20px;   /* Adjust text size */
-    font-weight: bold;
-    text-decoration: none;
-    position: absolute;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .custom-circle:hover {
-    transform: scale(1.1); /* Scale the circle slightly on hover */
-  }
-  
-  .custom-circle span {
-    display: block;
-    text-align: center;
-    padding: 10px;    /* Adjust padding for better positioning */
-  }
-  
-  .custom-circle::after {
-    content: '→';        /* The arrow symbol */
-    position: absolute;
-    right: -30px;        /* Adjust to place it near the circle */
-    font-size: 30px;     /* Adjust arrow size */
-    color: #173D73;      /* Arrow color */
-    transition: right 0.3s ease;
-  }
-  
-  .custom-circle:hover::after {
-    right: -40px;        /* Moves arrow on hover */
-  }
-  
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: fixed;
+  cursor: pointer;
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+/* Style for the home section (larger circle) */
+.home-style {
+  width: 150px;      /* Size of the circle in home section */
+  height: 150px;
+  background-color: #d4ca56; /* Circle background color in home section */
+  color: black;
+  font-size: 14px;   /* Adjust text size */
+  text-decoration: none;
+}
+
+/* Style for the other sections (smaller circle with a border) */
+.other-style {
+  width: 15px;       /* Small size for other sections */
+  height: 15px;
+  background-color: transparent; /* Transparent background */
+  border: 2px solid orange; /* Orange border */
+  color: transparent;  /* Hide the text */
+}
+
+/* Hover effect remains the same for both styles */
+.custom-circle:hover {
+  transform: scale(1.1); /* Scale slightly on hover */
+}
+
+/* Text inside the circle for home style */
+.home-style span {
+  display: block;
+  text-align: center;
+  padding: 10px;    /* Adjust padding for better positioning */
+}
+
+/* Hide the span text in the other style */
+.other-style span {
+  display: none; /* Hide text when in other section */
+}
+.custom-circle:hover {
+  transform: scale(1.1);
+}
+
+
+
+
