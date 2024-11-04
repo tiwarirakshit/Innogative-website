@@ -226,7 +226,7 @@ const Home = () => {
   return (
     <>
         <a href="#contact" id="custom-circle" className="custom-circle z-[5000]">
-          <span>-> Let's Talk</span>
+          <span> Let's Talk</span>
         </a>
       <div id="banner" className="h-screen bg-[#121214] w-full relative ">
         <div className="absolute z-[100] w-full h-full flex flex-col items-center justify-center opacity-1">
@@ -588,9 +588,7 @@ const Home = () => {
             {/* Button Text */}
             <span className="relative z-10 transition-all duration-500 ease-in-out group-hover:text-black">
               <span className="group-hover:hidden">Get a quote</span>
-              <span className="hidden group-hover:inline">
-              -> Talk with us
-              </span>
+              <span className="hidden group-hover:inline"> Talk with us</span>
             </span>
 
           </button>
