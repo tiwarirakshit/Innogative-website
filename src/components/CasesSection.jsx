@@ -1,9 +1,10 @@
 import React from "react";
 import projectData from '../data.json';
-
+import { useNavigate } from "react-router-dom";
 export default function Cases() {
   // Extract the first four items from the portfolioData
-  const portfolioItems = projectData.projects.slice(0, 4);
+  const projects = projectData.projects.slice(0, 4);
+  const navigate=useNavigate();
 
   return (
     <section className="px-4 py-16 bg-white">
@@ -21,7 +22,7 @@ export default function Cases() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {portfolioItems.map((item, index) => (
+          {projects.map((item, index) => (
             <div key={item.id} className="group relative">
               <div className="relative overflow-hidden rounded-lg aspect-video md:aspect-square lg:aspect-video">
                 <img
@@ -87,8 +88,11 @@ export default function Cases() {
         </div>
 
         <div className="w-full flex justify-center items-center">
-          <button className="w-48 h-48 bg-orange-500 rounded-full">
-            -> All Projects
+          <button className="w-48 h-48 bg-orange-500 rounded-full"
+           onClick={() => navigate('/works')}
+          >
+           {'-> All Projects'}
+
           </button>
         </div>
       </div>

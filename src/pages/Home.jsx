@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import testimonialsData from '../testimonials.json';
+import { useNavigate } from "react-router-dom";
 
 const testimonialsettings = {
   dots: true,
@@ -83,6 +84,7 @@ const websiteDesign = {
 
 
 const Home = () => {
+  const navigate=useNavigate();
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
@@ -92,25 +94,144 @@ const Home = () => {
 
   useEffect(() => {
     const circle = document.getElementById('custom-circle');
+    let mouseX = 0, mouseY = 0;
+    let circleX = 0, circleY = 0;
+    const speed = 0.2; // Speed of following the mouse (0.1 = slow, 1 = instant)
 
+    // Update target position on mouse move
     document.addEventListener('mousemove', (e) => {
-      const mouseX = e.pageX;
-      const mouseY = e.pageY;
-
-      // Update the position of the circle
-      circle.style.left = `${mouseX}px`;
-      circle.style.top = `${mouseY}px`;
+        mouseX = e.clientX; // Use clientX for viewport-relative coordinates
+        mouseY = e.clientY; // Use clientY for viewport-relative coordinates
     });
-  })
+
+    // Smooth movement using requestAnimationFrame
+    const smoothMove = () => {
+        // Calculate the difference and apply the speed factor
+        circleX += (mouseX - circleX) * speed;
+        circleY += (mouseY - circleY) * speed;
+
+        // Update the circle position
+        circle.style.left = `${circleX}px`;
+        circle.style.top = `${circleY}px`;
+
+        requestAnimationFrame(smoothMove); // Keep the animation going
+    };
+
+    smoothMove(); // Start the animation
+
+    return () => {
+        document.removeEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+    };
+}, []);
+
+
+
+
+  useEffect(() => {
+    const circle = document.getElementById('custom-circle');
+    const bannerSection = document.getElementById('banner'); // Assuming your home section has this id
+    const homeSection = document.getElementById('home'); // Assuming your home section has this id
+    const otherSection = document.getElementById('other'); // Example for other sections
+
+    const observerOptions = {
+      root: null, // Use the viewport as the root
+      threshold: 0.5, // 50% of the section must be visible for it to be considered "in view"
+    };
+
+    // IntersectionObserver callback
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target.id === 'home') {
+            circle.classList.add('home-style');
+            circle.classList.remove('other-style');
+          } else if(entry.target.id === 'banner') {
+            circle.classList.add('other-style');
+            circle.classList.remove('home-style');
+          }
+          else{
+            circle.classList.add('other-style');
+            circle.classList.remove('home-style');
+          }
+        }
+      });
+    };
+
+    // Create the observer
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe both home and other sections
+    if (homeSection) observer.observe(homeSection);
+    if (otherSection) observer.observe(otherSection);
+    if(bannerSection) observer.observe(bannerSection);
+
+    return () => {
+      // Clean up the observer on unmount
+      if (homeSection) observer.unobserve(homeSection);
+      if (otherSection) observer.unobserve(otherSection);
+      if(bannerSection) observer.unobserve(bannerSection);
+    };
+  }, []);
+
+
+
+
+  useEffect(() => {
+    const circle = document.getElementById('custom-circle');
+    const hoverTargets = document.querySelectorAll('.hover-target');
+  
+    // Function to change the cursor on hover
+    const handleMouseEnter = (e) => {
+      circle.style.width = '80px'; // Increase size
+      circle.style.height = '80px';
+      circle.style.border = '2px solid orange'; // Add border for small circle
+
+      circle.style.backgroundColor = 'transparent'; // Change background color
+      circle.style.fontSize = '14px'; // Show text inside circle
+      circle.querySelector('span').style.display = 'block'; // Show the span text
+      circle.querySelector('span').textContent = e.target.getAttribute('data-text') || "Let's Talk"; // Change text dynamically based on data-text attribute
+    };
+  
+    // Function to reset the cursor when mouse leaves the element
+    const handleMouseLeave = () => {
+      circle.style.width = '15px'; // Reset size
+      circle.style.height = '15px';
+      circle.style.border = '2px solid orange'; // Add border for small circle
+      circle.style.backgroundColor = 'transparent'; // Reset background color
+      circle.style.fontSize = '0'; // Hide text inside circle
+      circle.querySelector('span').style.display = 'none'; // Hide the span text
+    };
+  
+    // Add event listeners to each hover-target
+    hoverTargets.forEach((target) => {
+      target.addEventListener('mouseenter', handleMouseEnter);
+      target.addEventListener('mouseleave', handleMouseLeave);
+    });
+  
+    // Cleanup event listeners when component unmounts
+    return () => {
+      hoverTargets.forEach((target) => {
+        target.removeEventListener('mouseenter', handleMouseEnter);
+        target.removeEventListener('mouseleave', handleMouseLeave);
+      });
+    };
+  }, []);
+  
+
+
 
   return (
     <>
-      {/* <a href="#contact" id="custom-circle" className="custom-circle">
-        <span>Let's Talk</span>
-      </a> */}
-      <div className="h-screen bg-[#121214] w-full relative ">
+        <a href="#contact" id="custom-circle" className="custom-circle z-[5000]">
+          <span>{'-> Talk with us'}
+</span>
+        </a>
+      <div id="banner" className="h-screen bg-[#121214] w-full relative ">
         <div className="absolute z-[100] w-full h-full flex flex-col items-center justify-center opacity-1">
-          <p className="text-white text-8xl">Innogative</p>
+          <p className="text-white text-8xl hover-target">Innogative</p>
           <p className="text-white font-light font-sans text-sm tracking-[13px] mt-3 uppercase">Grow with Innovation</p>
         </div>
         <div className="absolute z-[10] w-full h-full bg-[#121214] opacity-[0.7]">
@@ -130,7 +251,7 @@ const Home = () => {
       </div>
 
 
-      <div className="min-h-screen flex items-center justify-center bg-customblack"
+      <div id="home" className="min-h-screen flex items-center justify-center bg-customblack"
 
       >
         <section className="text-white w-10/12 mx-auto">
@@ -209,7 +330,7 @@ const Home = () => {
       {/* Company's logo needed to be added  here  which are moving */}
 
       {/* ---------- Services Section --------   */}
-      <section className="p-8">
+      <section id="other" className="p-8">
         <div className="max-w-7xl mx-auto">
           <p className="text-2xl font-semi-bold tracking-widest   mb-2">
             Services
@@ -281,8 +402,10 @@ const Home = () => {
               </div>
             </div>
 
-            <button className="w-full lg:w-48 h-48 lg:mt-12 cursor-pointer bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black transition-colors duration-300 flex-shrink-0">
-              All services ->
+            <button 
+            className="w-full lg:w-48 h-48 lg:mt-12 cursor-pointer bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black transition-colors duration-300 flex-shrink-0"
+            onClick={() => navigate("/services")}>
+              {'All services ->'}
             </button>
           </div>
         </div>
@@ -466,7 +589,9 @@ const Home = () => {
             {/* Button Text */}
             <span className="relative z-10 transition-all duration-500 ease-in-out group-hover:text-black">
               <span className="group-hover:hidden">Get a quote</span>
-              <span className="hidden group-hover:inline">-> Talk with us</span>
+              <span className="hidden group-hover:inline">
+              -> Talk with us
+              </span>
             </span>
 
           </button>

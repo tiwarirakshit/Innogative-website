@@ -1,6 +1,8 @@
 import React from "react";
 import Principles from "../components/Principles";
+import { useNavigate } from "react-router-dom";
 const AboutUs = () => {
+  const navigate=useNavigate();
   return (
     <div className="">
     {/* Section 1: Hero Section with Product Development Info */}
@@ -118,7 +120,7 @@ const AboutUs = () => {
                   clipRule="evenodd"
                 />
               </svg>
-              <span>View Our Projects</span>
+              <span onClick={() => navigate("/works")}>View Our Projects</span>
             </button>
           </div>
   
@@ -141,7 +143,7 @@ const AboutUs = () => {
                   clipRule="evenodd"
                 />
               </svg>
-              <span>View Our Projects</span>
+              <span onClick={() => navigate("/services")} >View Our Services</span>
             </button>
           </div>
         </div>
