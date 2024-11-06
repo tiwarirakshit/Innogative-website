@@ -226,8 +226,7 @@ const Home = () => {
   return (
     <>
         <a href="#contact" id="custom-circle" className="custom-circle z-[5000]">
-          <span>{'-> Talk with us'}
-</span>
+          <span>-> Let's Talk</span>
         </a>
       <div id="banner" className="h-screen bg-[#121214] w-full relative ">
         <div className="absolute z-[100] w-full h-full flex flex-col items-center justify-center opacity-1">
