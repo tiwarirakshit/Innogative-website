@@ -129,7 +129,7 @@ const Navbar = () => {
             <img
               src={Headline}
               alt="Underline"
-              className="absolute mt-2 w-full h-2 object-cover"
+              className="absolute  w-24 h-2 "
             />
           )}
         </div>

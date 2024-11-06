@@ -6,6 +6,7 @@ export default {
   ],
   theme: {
     extend: {
+      scrollBehavior: ['smooth'],
       colors: {
         'customblack': '#121214',
       },

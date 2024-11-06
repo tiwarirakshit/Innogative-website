@@ -1,15 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Brain, MessageSquare, Code2 } from 'lucide-react';
 import DesignServices from '../components/DesignServices';
 import Features from '../components/Features';
 import Discovery from '../components/Discovery';
-import StickyNavbar from '../common/StickyNavbar'; // Ensure correct path to StickyNavbar
+import StickyNavbar from '../common/StickyNavbar';
 import DevelopmentServices from '../components/DevelopmentServices';
 import Form from '../components/formSection';
 import AwardsAndFactsSection from '../components/AwardsSection';
 
 const Services = ({ setIsNavbarVisible }) => {
+  const contactRef = useRef(null); // Reference to the contact section
+
+  const scrollToContact = () => {
+    contactRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const stickyNavPosition = document.querySelector('.sticky-nav').offsetTop;
@@ -54,7 +60,9 @@ const Services = ({ setIsNavbarVisible }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative group justify-self-start md:justify-self-center">
                 <div className="w-48 h-48 bg-[#e5fb52] rounded-full flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105">
-                  <button className="flex items-center gap-2 text-zinc-900 font-semibold text-lg">
+                  <button 
+                    onClick={scrollToContact} // Attach click handler
+                    className="flex items-center gap-2 text-zinc-900 font-semibold text-lg">
                     Let's talk
                     <ArrowRight className="w-5 h-5" />
                   </button>
@@ -94,57 +102,56 @@ const Services = ({ setIsNavbarVisible }) => {
 
       {/* How We Work Section */}
       <section id="work" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="relative mb-20">
-          
-          <div className="relative text-center">
-            <h2 className="sm:text-4xl md:text-5xl font-bold tracking-tight">
-              Did you face{' '}
-              <span className="text-orange-500 ">miscommunication</span> between
-              <br />
-              design & development
-              <br />
-              teams?
-            </h2>
-            <p className="mt-8 text-xl text-gray-600 max-w-3xl mx-auto">
-              Our developers and designers cooperate closely to overcome any challenges.
-            </p>
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+          <div className="relative mb-20">
+            <div className="relative text-center">
+              <h2 className="sm:text-4xl md:text-5xl font-bold tracking-tight">
+                Did you face{' '}
+                <span className="text-orange-500 ">miscommunication</span> between
+                <br />
+                design & development
+                <br />
+                teams?
+              </h2>
+              <p className="mt-8 text-xl text-gray-600 max-w-3xl mx-auto">
+                Our developers and designers cooperate closely to overcome any challenges.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
+            <div className="group p-8 rounded-2xl transition-all duration-300 hover:bg-gray-50">
+              <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-200 transition-colors duration-300">
+                <MessageSquare className="w-7 h-7 text-orange-600" />
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">Efficient Team Communication</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Our development team is in frequent contact with our designers. Thanks to this, any problems are tackled rapidly at source.
+              </p>
+            </div>
+
+            <div className="group p-8 rounded-2xl transition-all duration-300 hover:bg-gray-50">
+              <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-200 transition-colors duration-300">
+                <Brain className="w-7 h-7 text-orange-600" />
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">Research-Driven Success</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Thorough research at both the beginning of a project and during the discovery stage is key to success. This includes business analysis for large products, as it minimizes the number of edits that are needed.
+              </p>
+            </div>
+
+            <div className="group p-8 rounded-2xl transition-all duration-300 hover:bg-gray-50">
+              <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-200 transition-colors duration-300">
+                <Code2 className="w-7 h-7 text-orange-600" />
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">Future-Proof Development</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Our developers are highly trained, and their designs can always be scaled in the future.
+              </p>
+            </div>
           </div>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
-          <div className="group p-8 rounded-2xl transition-all duration-300 hover:bg-gray-50">
-            <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-200 transition-colors duration-300">
-              <MessageSquare className="w-7 h-7 text-orange-600" />
-            </div>
-            <h3 className="text-2xl font-semibold mb-4">Efficient Team Communication</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Our development team is in frequent contact with our designers. Thanks to this, any problems are tackled rapidly at source.
-            </p>
-          </div>
-
-          <div className="group p-8 rounded-2xl transition-all duration-300 hover:bg-gray-50">
-            <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-200 transition-colors duration-300">
-              <Brain className="w-7 h-7 text-orange-600" />
-            </div>
-            <h3 className="text-2xl font-semibold mb-4">Research-Driven Success</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Thorough research at both the beginning of a project and during the discovery stage is key to success. This includes business analysis for large products, as it minimizes the number of edits that are needed.
-            </p>
-          </div>
-
-          <div className="group p-8 rounded-2xl transition-all duration-300 hover:bg-gray-50">
-            <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-200 transition-colors duration-300">
-              <Code2 className="w-7 h-7 text-orange-600" />
-            </div>
-            <h3 className="text-2xl font-semibold mb-4">Future-Proof Development</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Our developers are highly trained, and their designs can always be scaled in the future.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
       {/* Empty sections for remaining nav items */}
       <section id="cases" className="min-h-screen bg-gray-50">
@@ -163,7 +170,8 @@ const Services = ({ setIsNavbarVisible }) => {
         <AwardsAndFactsSection/>
       </section>
 
-      <section id="contact" className="min-h-screen bg-white">
+      {/* Contact Section */}
+      <section id="contact" ref={contactRef} className="min-h-screen bg-white">
         <Form/>
       </section>
     </>

@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import testimonialsData from '../testimonials.json';
+import { useNavigate } from "react-router-dom";
 
 const testimonialsettings = {
   dots: true,
@@ -83,6 +84,7 @@ const websiteDesign = {
 
 
 const Home = () => {
+  const navigate=useNavigate();
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
@@ -399,8 +401,10 @@ const Home = () => {
               </div>
             </div>
 
-            <button className="w-full lg:w-48 h-48 lg:mt-12 cursor-pointer bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black transition-colors duration-300 flex-shrink-0">
-              All services ->
+            <button 
+            className="w-full lg:w-48 h-48 lg:mt-12 cursor-pointer bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black transition-colors duration-300 flex-shrink-0"
+            onClick={() => navigate("/services")}>
+              {'All services ->'}
             </button>
           </div>
         </div>
@@ -584,7 +588,9 @@ const Home = () => {
             {/* Button Text */}
             <span className="relative z-10 transition-all duration-500 ease-in-out group-hover:text-black">
               <span className="group-hover:hidden">Get a quote</span>
-              <span className="hidden group-hover:inline">-> Talk with us</span>
+              <span className="hidden group-hover:inline">
+              -> Talk with us
+              </span>
             </span>
 
           </button>
