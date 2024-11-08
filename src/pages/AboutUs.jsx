@@ -1,10 +1,49 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Principles from "../components/Principles";
 import { useNavigate } from "react-router-dom";
 const AboutUs = () => {
-  const navigate=useNavigate();
+
+  useEffect(() => {
+    const circle = document.getElementById('custom-circle');
+    let mouseX = 0, mouseY = 0;
+    let circleX = 0, circleY = 0;
+    const speed = 0.2; // Speed of following the mouse (0.1 = slow, 1 = instant)
+
+    // Update target position on mouse move
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX; // Use clientX for viewport-relative coordinates
+      mouseY = e.clientY; // Use clientY for viewport-relative coordinates
+    });
+
+    // Smooth movement using requestAnimationFrame
+    const smoothMove = () => {
+      // Calculate the difference and apply the speed factor
+      circleX += (mouseX - circleX) * speed;
+      circleY += (mouseY - circleY) * speed;
+
+      // Update the circle position
+      circle.style.left = `${circleX}px`;
+      circle.style.top = `${circleY}px`;
+
+      requestAnimationFrame(smoothMove); // Keep the animation going
+    };
+
+    smoothMove(); // Start the animation
+
+    return () => {
+      document.removeEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+    };
+  }, []);
   return (
-    <div className="">
+    <>
+    
+    <a href="#contact" id="custom-circle" className="custom-circle other-style z-[5000]">
+        <span>-> Let's Talk</span>
+      </a>
+      <div className="">
     {/* Section 1: Hero Section with Product Development Info */}
     <section className="bg-black text-white lg:p-8">
       <div className="container mx-auto w-10/12">
@@ -150,7 +189,7 @@ const AboutUs = () => {
       </div>
     </section>
   </div>
-  
+  </>
   );
 };
 

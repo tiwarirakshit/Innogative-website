@@ -338,10 +338,10 @@ const Home = () => {
             Services
           </p>
           <h2 className="text-7xl font-bold mb-12 ">
-            Boost <span className="text-orange-500">your</span> business
+            Boost <span className="text-blue-500">your</span> business
             <br />
             with our{" "}
-            <span className="text-orange-500 ">key services</span>
+            <span className="text-blue-500 ">key services</span>
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
@@ -403,6 +403,9 @@ const Home = () => {
                 />
               </div>
             </div>
+
+            <button className="w-full lg:w-48 h-48 lg:mt-12 cursor-pointer bg-blue-500 text-white rounded-full flex items-center justify-center text-lg hover:bg-black transition-colors duration-300 flex-shrink-0">
+              All services ->
             <button 
             className="relative z-10 pointer-events-auto w-full lg:w-48 h-48 lg:mt-12 cursor-pointer bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black hover:text-white transition-colors duration-300 flex-shrink-0"
             onClick={() => {
@@ -421,8 +424,8 @@ const Home = () => {
         <div className="text-left mb-10 mx-auto w-10/12">
           <p className="text-2xl">Industries</p>
           <h2 className="text-7xl font-bold text-gray-800 w-1/2 tracking-wide">
-            Our <span className="text-orange-500 ">main</span> areas
-            <br />of <span className="text-orange-500">expertise</span>
+            Our <span className="text-blue-500 ">main</span> areas
+            <br />of <span className="text-blue-500">expertise</span>
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 w-10/12 mx-auto">
@@ -556,8 +559,8 @@ const Home = () => {
       {/*----------Mission Section -------------  */}
       <section className="bg-[#121214] text-white mt-12 p-2 px-32 pt-20">
         <div className="text-7xl font-semibold">
-          <p>What do <span className="text-orange-500">people say</span></p>
-          <p className="text-orange-500">about us?</p>
+          <p>What do <span className="text-blue-500">people say</span></p>
+          <p className="text-blue-500">about us?</p>
         </div>
 
         {/* Slick Carousel for Testimonials */}
@@ -569,7 +572,7 @@ const Home = () => {
                   <div className="h-20 w-20 mr-10 rounded-full bg-white"></div>
                 </div>
                 <div className="h-[300px] w-[500px] border border-zinc-500 rounded-xl px-5 py-5">
-                  <p className="text-orange-500 text-6xl font-mono ">"</p>
+                  <p className="text-blue-500 text-6xl font-mono ">"</p>
                   <p className="text-zinc-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus praesentium doloremque dignissimos libero dolor recusandae fugit asperiores doloribus quo ratione. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum, voluptatum. Lorem ipsum dolor sit amet.</p>
                   <div className="flex mt-5 items-center">
                     <div className="h-14 w-14 rounded-full mr-2 overflow-hidden bg-white "><img src="" alt="" /></div>

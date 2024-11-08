@@ -36,8 +36,48 @@ const Services = ({ setIsNavbarVisible }) => {
     };
   }, [setIsNavbarVisible]);
 
+
+
+  useEffect(() => {
+    const circle = document.getElementById('custom-circle');
+    let mouseX = 0, mouseY = 0;
+    let circleX = 0, circleY = 0;
+    const speed = 0.2; // Speed of following the mouse (0.1 = slow, 1 = instant)
+
+    // Update target position on mouse move
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX; // Use clientX for viewport-relative coordinates
+      mouseY = e.clientY; // Use clientY for viewport-relative coordinates
+    });
+
+    // Smooth movement using requestAnimationFrame
+    const smoothMove = () => {
+      // Calculate the difference and apply the speed factor
+      circleX += (mouseX - circleX) * speed;
+      circleY += (mouseY - circleY) * speed;
+
+      // Update the circle position
+      circle.style.left = `${circleX}px`;
+      circle.style.top = `${circleY}px`;
+
+      requestAnimationFrame(smoothMove); // Keep the animation going
+    };
+
+    smoothMove(); // Start the animation
+
+    return () => {
+      document.removeEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+    };
+  }, []);
+
   return (
     <>
+      <a href="#contact" id="custom-circle" className="custom-circle other-style z-[5000]">
+        <span>-> Let's Talk</span>
+      </a>
       <section className="min-h-screen flex items-center justify-center bg-zinc-900 py-32">
         <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 lg:px-24">
           <div className="flex flex-col gap-16 max-w-6xl mx-auto">
@@ -50,7 +90,7 @@ const Services = ({ setIsNavbarVisible }) => {
                   full-cycle studio
                   <div className="absolute top-full left-0 right-0 -mt-2">
                     <svg className="w-full" viewBox="0 0 400 20" fill="none">
-                      <path d="M2 17C133.333 7.66667 267.667 3.33333 399 4" stroke="#f97316" strokeWidth="3" strokeLinecap="round"/>
+                      <path d="M2 17C133.333 7.66667 267.667 3.33333 399 4" stroke="#f97316" strokeWidth="3" strokeLinecap="round" />
                     </svg>
                   </div>
                 </span>
@@ -97,13 +137,14 @@ const Services = ({ setIsNavbarVisible }) => {
 
       {/* Development Services Section */}
       <section id="development">
-        <DevelopmentServices/>
+        <DevelopmentServices />
       </section>
 
       {/* How We Work Section */}
       <section id="work" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative mb-20">
+
             <div className="relative text-center">
               <h2 className="sm:text-4xl md:text-5xl font-bold tracking-tight">
                 Did you face{' '}
@@ -167,12 +208,11 @@ const Services = ({ setIsNavbarVisible }) => {
       </section>
 
       <section id="awards" className="min-h-screen bg-gray-50">
-        <AwardsAndFactsSection/>
+        <AwardsAndFactsSection />
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" ref={contactRef} className="min-h-screen bg-white">
-        <Form/>
+      <section id="contact" className="min-h-screen bg-white">
+        <Form />
       </section>
     </>
   );

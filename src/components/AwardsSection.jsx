@@ -53,7 +53,7 @@ const AwardsAndFactsSection = () => {
         {/* Facts Section */}
         <div className="text-center mb-12 flex w-full px-32 text-start">
           <h2 className=" font-bold mb-4 flex items-start text-6xl">
-            <p>Innogative <span className="text-orange-500">facts</span> <br /> and <span className="text-orange-500">figures</span></p>
+            <p>Innogative <span className="text-blue-500">facts</span> <br /> and <span className="text-blue-500">figures</span></p>
           </h2>
         </div>
 
