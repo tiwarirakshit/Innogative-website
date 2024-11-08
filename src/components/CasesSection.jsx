@@ -1,14 +1,14 @@
 import React from "react";
 import projectData from '../data.json';
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 export default function Cases() {
   // Extract the first four items from the portfolioData
   const projects = projectData.projects.slice(0, 4);
   const navigate=useNavigate();
 
   return (
-    <section className="px-4 py-16 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section className=" px-4 py-16 bg-white">
+      <div className="relative z-10 pointer-events-auto max-w-7xl mx-auto">
         <div className="flex justify-between">
           <p className="text-gray-600 mb-4">Selected works</p>
 
@@ -60,8 +60,8 @@ export default function Cases() {
                       ))}
                     </div>
                   </div>
-                  <a
-                    href="#"
+                  <Link
+                     to={`/works/${item.id}`} 
                     className="inline-flex items-center text-white bg-black rounded-full px-3 py-2 font-semibold group-hover:text-orange-500 transition-colors"
                   >
                     <svg
@@ -79,7 +79,7 @@ export default function Cases() {
                       />
                     </svg>
                     See case
-                  </a>
+                  </Link>
                 </div>
                 <p className="text-gray-600 mb-4">{item.description}</p>
               </div>
@@ -88,12 +88,14 @@ export default function Cases() {
         </div>
 
         <div className="w-full flex justify-center items-center">
-          <button className="w-48 h-48 bg-orange-500 rounded-full"
-           onClick={() => navigate('/works')}
-          >
-           {'-> All Projects'}
-
-          </button>
+        <button 
+            className="relative z-10 pointer-events-auto w-full lg:w-48 h-48 lg:mt-12 cursor-pointer bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black hover:text-white transition-colors duration-300 flex-shrink-0"
+            onClick={() => {
+    
+    navigate('/works');
+  }}>
+              {'All Projects ->'}
+            </button>
         </div>
       </div>
     </section>

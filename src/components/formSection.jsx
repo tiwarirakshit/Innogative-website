@@ -136,11 +136,11 @@ export default function Form() {
       image: "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2024/10/ks.png.webp",
     },
     {
-      name: "",
+      name: "Palion",
       role: "",
-      title: "",
-      email: "palion@phenomenon-studio.com",
-      showIcons: false,
+      title: "Project Talk",
+      email: "palion@phenomenon.com",
+      showIcons: true,
       image: "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2024/10/ks.png.webp",
     },
   ];
