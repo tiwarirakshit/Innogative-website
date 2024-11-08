@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import testimonialsData from '../testimonials.json';
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const testimonialsettings = {
   dots: true,
@@ -225,9 +226,9 @@ const Home = () => {
 
   return (
     <>
-        <a href="#contact" id="custom-circle" className="custom-circle z-[5000]">
+        <Link to="#contact" id="custom-circle" className="custom-circle z-[5000]">
           <span>-> Let's Talk</span>
-        </a>
+        </Link>
       <div id="banner" className="h-screen bg-[#121214] w-full relative ">
         <div className="absolute z-[100] w-full h-full flex flex-col items-center justify-center opacity-1">
           <p className="text-white text-8xl hover-target">Innogative</p>
@@ -400,10 +401,12 @@ const Home = () => {
                 />
               </div>
             </div>
-
             <button 
-            className="w-full lg:w-48 h-48 lg:mt-12 cursor-pointer bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black transition-colors duration-300 flex-shrink-0"
-            onClick={() => navigate("/services")}>
+            className="relative z-10 pointer-events-auto w-full lg:w-48 h-48 lg:mt-12 cursor-pointer bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black hover:text-white transition-colors duration-300 flex-shrink-0"
+            onClick={() => {
+    
+    navigate('/services');
+  }}>
               {'All services ->'}
             </button>
           </div>
@@ -580,13 +583,16 @@ const Home = () => {
         </div>
 
         <div className="w-full h-[300px] mt-20 mb-20 flex items-center justify-center">
-          <button className="relative text-6xl w-full h-full font-bold border border-yellow-200 rounded-full overflow-hidden group">
+          <button 
+          className="relative text-6xl w-full h-full font-bold border border-yellow-200 rounded-full overflow-hidden group"
+          onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+          >
 
             {/* Background Circle */}
             <span className="absolute inset-0 bg-yellow-200 rounded-full transform scale-0 group-hover:scale-150 group-hover:animate-expand-circle transition-all duration-500 ease-out"></span>
 
             {/* Button Text */}
-            <span className="relative z-10 transition-all duration-500 ease-in-out group-hover:text-black">
+            <span className="relative z-10 pointer-events-auto transition-all duration-500 ease-in-out group-hover:text-black">
               <span className="group-hover:hidden">Get a quote</span>
               <span className="hidden group-hover:inline">
               -> Talk with us
@@ -601,7 +607,9 @@ const Home = () => {
       <AwardsAndFactsSection />
 
       {/* --------- Form Section ------------  */}
-      <Form />
+      <div id="contact" className="relative z-10 pointer-events-auto "> {/* Add ID for #contact link */}
+        <Form />
+      </div>
     </>
   );
 };
