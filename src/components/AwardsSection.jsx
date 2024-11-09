@@ -35,6 +35,7 @@ const AwardsAndFactsSection = () => {
     <section className="bg-[#121214] text-white py-8 md:py-10">
       <div className="container mx-auto px-4 md:px-5">
         {/* Facts Section */}
+
         <div className="text-center mb-8 md:mb-12 w-full px-4 md:px-32">
           <h2 className="font-bold text-4xl md:text-6xl text-start">
             <p>

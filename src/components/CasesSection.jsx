@@ -13,11 +13,11 @@ export default function Cases() {
           <p className="text-gray-600 mb-4">Selected works</p>
 
           <p className="text-4xl md:text-5xl lg:text-8xl leading-[10px] font-bold mb-16">
-            See <span className="text-orange-500 leading-[50px]">the results</span>
+            See <span className="text-blue-500 leading-[50px]">the results</span>
             <br />
             of our work
             <br />
-            across <span className="text-orange-500 relative leading-3">industries</span>
+            across <span className="text-blue-500 relative leading-3">industries</span>
           </p>
         </div>
 
@@ -61,8 +61,8 @@ export default function Cases() {
                     </div>
                   </div>
                   <Link
-                     to={`/works/${item.id}`} 
-                    className="inline-flex items-center text-white bg-black rounded-full px-3 py-2 font-semibold group-hover:text-orange-500 transition-colors"
+                    to={`/works/${item.id}`} 
+                    className="inline-flex items-center text-white bg-black rounded-full px-3 py-2 font-semibold group-hover:text-blue-500 transition-colors"
                   >
                     <svg
                       className="w-4 h-4 ml-2 mr-1 -rotate-45"
@@ -89,12 +89,10 @@ export default function Cases() {
 
         <div className="w-full flex justify-center items-center">
         <button 
-            className="relative z-10 pointer-events-auto w-full lg:w-48 h-48 lg:mt-12 cursor-pointer bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black hover:text-white transition-colors duration-300 flex-shrink-0"
-            onClick={() => {
-    
-    navigate('/works');
-  }}>
-              {'All Projects ->'}
+              onClick={() => navigate('/works')}
+              className="relative z-10 w-full lg:w-48 h-32 lg:h-48 lg:mt-12 bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black hover:text-white transition-colors duration-300"
+            >
+              All Projects ->
             </button>
         </div>
       </div>

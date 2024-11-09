@@ -222,9 +222,11 @@ const Home = () => {
 
   return (
     <>
+
       <Link to="#contact" id="custom-circle" className="custom-circle z-[5000] hidden md:block">
         <span>-> Let's Talk</span>
       </Link>
+
 
       <div id="banner" className="h-screen bg-[#121214] w-full relative">
         <div className="absolute z-[100] w-full h-full flex flex-col items-center justify-center opacity-1 px-4">
@@ -284,10 +286,12 @@ const Home = () => {
 
       <section id="other" className="p-4 md:p-8">
         <div className="max-w-7xl mx-auto">
+
           <p className="text-xl md:text-2xl font-semibold tracking-widest mb-4">Services</p>
           <h2 className="text-4xl md:text-7xl font-bold mb-8 md:mb-12">
             Boost <span className="text-orange-500">your</span> business<br />
             with our <span className="text-orange-500">key services</span>
+
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
@@ -327,6 +331,8 @@ const Home = () => {
               </div>
             </div>
 
+            
+
             <button 
               onClick={() => navigate('/services')}
               className="relative z-10 w-full lg:w-48 h-32 lg:h-48 lg:mt-12 bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black hover:text-white transition-colors duration-300"
@@ -338,6 +344,7 @@ const Home = () => {
       </section>
 
       <Cases />
+
 
       <section className="mt-20 p-4 md:p-8">
         <div className="text-left mb-10 mx-auto w-full md:w-10/12">
@@ -416,15 +423,18 @@ const Home = () => {
         </div>
       </section>
 
+
       <section className="bg-[#121214] text-white mt-20 p-4 md:p-8 lg:px-32 pt-20">
         <div className="text-4xl md:text-7xl font-semibold">
           <p>What do <span className="text-orange-500">people say</span></p>
           <p className="text-orange-500">about us?</p>
+
         </div>
 
         <div className="mt-12">
           <Slider {...testimonialsettings}>
             {testimonials.map((testimonial, index) => (
+
               <div key={index} className="px-4">
                 <div className="relative p-8 md:p-20">
                   <div className="absolute w-full flex items-center justify-center top-7">
@@ -442,6 +452,7 @@ const Home = () => {
                         <p className="capitalize text-sm md:text-base">name of person</p>
                         <p className="text-xs md:text-sm text-zinc-400">what they do</p>
                       </div>
+
                     </div>
                   </div>
                 </div>
@@ -458,7 +469,11 @@ const Home = () => {
             <span className="absolute inset-0 bg-yellow-200 rounded-full transform scale-0 group-hover:scale-150 group-hover:animate-expand-circle transition-all duration-500 ease-out"></span>
             <span className="relative z-10 pointer-events-auto transition-all duration-500 ease-in-out group-hover:text-black">
               <span className="group-hover:hidden">Get a quote</span>
+
               <span className="hidden group-hover:inline">-> Talk with us</span>
+
+              
+
             </span>
           </button>
         </div>
