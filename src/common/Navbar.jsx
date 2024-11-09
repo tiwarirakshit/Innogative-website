@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Headline from '../assets/headerline.png';
 
@@ -8,6 +8,8 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const dropdownRef = useRef(null);
+  const timeoutRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,36 +20,87 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    setIsMobileDropdownOpen(false); // Close mobile dropdown when menu is toggled
+    setIsMobileDropdownOpen(false);
   };
 
   const handleLinkClick = (linkName) => {
     setActiveLink(linkName);
-    setIsOpen(false); // Close mobile menu on link click
-    setIsMobileDropdownOpen(false); // Close dropdown if open
-  };
-
-  const handleDropdownToggle = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    setIsOpen(false);
+    setIsMobileDropdownOpen(false);
   };
 
   const handleCompanyClick = () => {
     navigate('/company');
     setActiveLink('/company');
-    setIsDropdownOpen(false); // Close dropdown
+    setIsDropdownOpen(false);
+    setIsOpen(false);
   };
 
-  const toggleMobileDropdown = () => {
+  const toggleMobileDropdown = (e) => {
+    e.stopPropagation();
     setIsMobileDropdownOpen(!isMobileDropdownOpen);
+  };
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setIsDropdownOpen(true);
+    }, 200);
+  };
+
+  const handleMouseLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 300);
+  };
+
+  const handleDropdownMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setIsDropdownOpen(true);
+  };
+
+  const handleDropdownMouseLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 300);
   };
 
   const NavLink = ({ to, children }) => (
     <div className="relative">
       <Link
         to={to}
-        className={`hover:text-orange-500 ${activeLink === to ? 'text-orange-500' : ''}`}
+        className={`hover:text-orange-500 transition-colors duration-200 ${activeLink === to ? 'text-orange-500' : ''}`}
         onClick={() => handleLinkClick(to)}
       >
         {children}
@@ -63,7 +116,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className={`fixed w-full z-[1000] ${isSticky ? 'bg-gray-800' : 'bg-[#121214]'} text-white py-4 transition-colors`}>
+    <nav className={`fixed w-full z-[1000] ${isSticky ? 'bg-gray-800' : 'bg-[#121214]'} text-white py-4 transition-colors duration-300`}>
       <div className="container flex justify-between items-center w-11/12 mx-auto">
         {/* Logo */}
         <div className="text-2xl font-bold cursor-pointer z-[1000]">
@@ -83,41 +136,60 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-16 z-[1000]">
           <NavLink to="/works">Works</NavLink>
           <NavLink to="/services">Services</NavLink>
-          <div className="relative group">
+
+          {/* Company Dropdown */}
+          <div 
+            className="relative group"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            ref={dropdownRef}
+          >
             <button
-              className={`hover:text-orange-500 ${activeLink === '/company' ? 'text-orange-500' : ''}`}
-              onClick={handleDropdownToggle}
-              onMouseEnter={() => setIsDropdownOpen(true)}
+              className={`hover:text-orange-500 transition-colors duration-200 ${activeLink === '/company' ? 'text-orange-500' : ''}`}
             >
               Company
             </button>
             {isDropdownOpen && (
-              <div 
-                className="absolute top-8 left-[-680px] bg-[#121214] text-white p-8 rounded-lg shadow-lg w-[100vw] flex space-x-12 z-50 justify-center items-center"
-                onMouseLeave={() => setIsDropdownOpen(false)}
+              <div
+                className="absolute top-8 left-[-680px] bg-[#121214] text-white p-8 rounded-lg shadow-lg w-[100vw] flex space-x-12 z-50 justify-center items-center transition-opacity duration-300"
+                onMouseEnter={handleDropdownMouseEnter}
+                onMouseLeave={handleDropdownMouseLeave}
               >
-                <button className="bg-yellow-400 text-black py-4 px-8 rounded-full flex items-center space-x-2">
+                <button className=" bg-yellow-400 text-black py-4 px-8 rounded-full flex items-center space-x-2 hover:bg-yellow-500 transition-colors duration-200"
+                onClick={()=>navigate('/contact')}>
                   <span>&#10132;</span>
                   <span>Let's Talk</span>
                 </button>
-                <div className="flex flex-col space-y-2">
+                <div className="flex flex-col space-y-4">
                   <h4 className="font-bold text-gray-500 text-lg">Behind the Brand</h4>
-                  <Link to="/company" className="hover:text-yellow-400" onClick={handleCompanyClick}>About Us</Link>
-                  <Link to="/team-and-advisors" className="hover:text-yellow-400" onClick={() => setIsDropdownOpen(false)}>Team and Advisors</Link>
+                  <Link 
+                    to="/company" 
+                    className="hover:text-yellow-400 transition-colors duration-200" 
+                    onClick={handleCompanyClick}
+                  >
+                    About Us
+                  </Link>
+                  <Link 
+                    to="/team-and-advisors" 
+                    className="hover:text-yellow-400 transition-colors duration-200" 
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    Team and Advisors
+                  </Link>
                 </div>
               </div>
             )}
           </div>
-          {/* <NavLink to="/blogs">Blogs</NavLink> */}
-          <NavLink className="hover-target" to="/graphics">Video/Graphics</NavLink>
-          <NavLink className="hover-target" to="/contact">Contact Us</NavLink>
+
+          <NavLink to="/graphics">Video/Graphics</NavLink>
+          <NavLink to="/contact">Contact Us</NavLink>
         </div>
 
         {/* Get In Touch Button */}
         <div className="hidden md:block">
-          <Link 
-            to="/contact" 
-            className={`flex items-center space-x-2 bg-[#121214] px-4 py-2 rounded-full ${
+          <Link
+            to="/contact"
+            className={`flex items-center space-x-2 bg-[#121214] px-4 py-2 rounded-full transition-colors duration-200 ${
               activeLink === "/contact-button" ? 'text-red-500' : 'text-white hover:text-orange-500'
             }`}
             onClick={() => handleLinkClick("/contact-button")}
@@ -129,15 +201,15 @@ const Navbar = () => {
             <img
               src={Headline}
               alt="Underline"
-              className="absolute  w-24 h-2 "
+              className="absolute w-24 h-2"
             />
           )}
         </div>
       </div>
 
-      {/* Mobile Nav Links */}
+      {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden absolute top-0 left-0 w-full h-full bg-black z-20">
+        <div className="md:hidden absolute top-0 left-0 w-full h-screen bg-black z-20">
           <div className="flex flex-col items-start p-8 space-y-8">
             <button className="text-3xl self-end" onClick={toggleMenu}>
               &#10005;
@@ -146,7 +218,7 @@ const Navbar = () => {
               <div key={to} className="w-full relative">
                 <Link
                   to={to}
-                  className={`text-2xl flex w-full justify-between ${activeLink === to ? 'text-red-500' : 'hover:text-orange-500'}`}
+                  className={`text-2xl flex w-full justify-between transition-colors duration-200 ${activeLink === to ? 'text-red-500' : 'hover:text-orange-500'}`}
                   onClick={() => handleLinkClick(to)}
                 >
                   {text} <span>+</span>
@@ -165,14 +237,26 @@ const Navbar = () => {
             <div className="w-full relative">
               <button
                 onClick={toggleMobileDropdown}
-                className={`text-2xl flex justify-between w-full ${activeLink === '/company' ? 'text-red-500' : 'hover:text-orange-500'}`}
+                className={`text-2xl flex justify-between w-full transition-colors duration-200 ${activeLink === '/company' ? 'text-red-500' : 'hover:text-orange-500'}`}
               >
                 Company <span>{isMobileDropdownOpen ? '-' : '+'}</span>
               </button>
               {isMobileDropdownOpen && (
                 <div className="pl-4 mt-2 space-y-2 flex flex-col">
-                  <Link to="/company" className="text-lg hover:text-yellow-400" onClick={() => { handleLinkClick('/company'); toggleMenu(); }}>About Us</Link>
-                  <Link to="/team-and-advisors" className="text-lg hover:text-yellow-400" onClick={() => { handleLinkClick('/team-and-advisors'); toggleMenu(); }}>Team and Advisors</Link>
+                  <Link 
+                    to="/company" 
+                    className="text-lg hover:text-yellow-400 transition-colors duration-200" 
+                    onClick={() => { handleLinkClick('/company'); toggleMenu(); }}
+                  >
+                    About Us
+                  </Link>
+                  <Link 
+                    to="/team-and-advisors" 
+                    className="text-lg hover:text-yellow-400 transition-colors duration-200" 
+                    onClick={() => { handleLinkClick('/team-and-advisors'); toggleMenu(); }}
+                  >
+                    Team and Advisors
+                  </Link>
                 </div>
               )}
             </div>

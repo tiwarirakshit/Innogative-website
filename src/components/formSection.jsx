@@ -6,7 +6,6 @@ export default function Form() {
     name: "",
     email: "",
     project: "",
-    budget: "",
     source: "",
     file: null,
   };
@@ -146,8 +145,8 @@ export default function Form() {
   ];
 
   return (
-    <div className="bg-zinc-900 p-8 text-white min-h-screen">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-zinc-900 p-8  text-white min-h-screen">
+      <div className="max-w-7xl mx-auto md:mt-20">
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Form Section */}
           <div className="flex-1">
@@ -184,7 +183,7 @@ export default function Form() {
                   value={formData.project}
                   onChange={handleInputChange}
                   placeholder="Tell us about your project"
-                  className="w-full bg-transparent border-b border-zinc-700 pb-2 outline-none focus:border-zinc-500 transition-colors resize-none"
+                  className="w-full leading-tight bg-transparent border-b border-zinc-700  outline-none focus:border-zinc-500 transition-colors resize-none"
                   maxLength={1000}
                   required
                 />
@@ -243,20 +242,6 @@ export default function Form() {
                     </div>
                   </div>
                 )}
-              </div>
-
-              <div>
-                <h3 className="mb-4 text-zinc-300">
-                  What is your budget for this project?
-                </h3>
-                <input 
-                  type="text" 
-                  name="budget"
-                  value={formData.budget}
-                  onChange={handleInputChange}
-                  className="w-full md:w-auto pl-5 bg-transparent border border-zinc-700 rounded-full h-10"
-                  placeholder="₹ Enter your budget"
-                />
               </div>
 
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">

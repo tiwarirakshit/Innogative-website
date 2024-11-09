@@ -60,8 +60,8 @@ export default function Cases() {
                       ))}
                     </div>
                   </div>
-                  <a
-                    href="#"
+                  <Link
+                    to={`/works/${item.id}`} 
                     className="inline-flex items-center text-white bg-black rounded-full px-3 py-2 font-semibold group-hover:text-blue-500 transition-colors"
                   >
                     <svg
@@ -88,9 +88,12 @@ export default function Cases() {
         </div>
 
         <div className="w-full flex justify-center items-center">
-          <button className="w-48 h-48 bg-blue-500 text-white rounded-full">
-            -> All Projects
-          </button>
+        <button 
+              onClick={() => navigate('/works')}
+              className="relative z-10 w-full lg:w-48 h-32 lg:h-48 lg:mt-12 bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black hover:text-white transition-colors duration-300"
+            >
+              All Projects ->
+            </button>
         </div>
       </div>
     </section>

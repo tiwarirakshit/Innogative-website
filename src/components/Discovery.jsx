@@ -11,7 +11,7 @@ const features = [
   'Interaction patterns'
 ];
 
-const Discovery = () => {
+const Discovery = ({ scrollToContact }) => {
   return (
     <section className="bg-[#1A1A1A] text-white py-20 mx-auto ">
       <div className="container mx-auto px-4 w-10/12">
@@ -27,7 +27,7 @@ const Discovery = () => {
                   loop 
                   muted 
                   playsInline
-                  className="w-full h-[500px] rounded-2xl object-cover" // Set height here
+                  className="w-full h-[500px] rounded-2xl object-cover"
                 >
                   <source 
                     src="https://cdn.phenomenonstudio.com/wp-content/uploads/2021/10/Services_webm2-2.webm" 
@@ -55,7 +55,10 @@ const Discovery = () => {
               </p>
             </div>
 
-            <button className="bg-white text-black px-6 py-3 rounded-full font-medium flex items-center gap-2 hover:bg-orange-500 hover:text-white transition-colors duration-300 mb-12">
+            <button 
+              onClick={scrollToContact} // Attach click handler here
+              className="bg-white text-black px-6 py-3 rounded-full font-medium flex items-center gap-2 hover:bg-orange-500 hover:text-white transition-colors duration-300 mb-12"
+            >
               Learn more
               <ArrowUpRight className="w-4 h-4" />
             </button>
