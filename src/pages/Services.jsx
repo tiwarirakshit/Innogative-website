@@ -29,16 +29,6 @@
         }
       };
 
-<<<<<<< HEAD
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-=======
-
-      window.addEventListener('scroll', handleScroll);
->>>>>>> 3a386c0f84cde05ef7b69a41c358f288a2cd57d3
-
-
       return () => {
         window.removeEventListener('scroll', handleScroll);
       };
@@ -162,41 +152,6 @@
         </section>
 
 
-<<<<<<< HEAD
-      {/* Design Services Section */}
-      <section id="web" className="min-h-screen">
-        <DesignServices />
-        <Features />
-      </section>
-
-      {/* Design Services Section */}
-      <section id="personal" className="min-h-screen">
-        <DesignServices />
-        <Features />
-      </section>
-
-      {/* Development Services Section */}
-      <section id="development">
-        <DevelopmentServices />
-      </section>
-
-      {/* Design Services Section */}
-      <section id="design" className="min-h-screen">
-        <DesignServices />
-        <Features />
-      </section>
-
-      
-
-      {/* Empty sections for remaining nav items */}
-      <section id="cases" className="min-h-screen bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <h2 className="text-4xl font-bold text-center">Our Cases</h2>
-        </div>
-      </section>
-
-    
-=======
         {/* Empty sections for remaining nav items */}
         <section id="cases" className="min-h-screen bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
@@ -223,6 +178,5 @@
     );
   };
 
->>>>>>> 3a386c0f84cde05ef7b69a41c358f288a2cd57d3
 
   export default Services;
