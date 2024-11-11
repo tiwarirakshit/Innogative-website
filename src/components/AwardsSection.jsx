@@ -6,6 +6,7 @@ const IMAGES = {
   mobile: "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2024/10/image-292.png.webp"
 };
 
+
 const AWARDS = [
   { 
     name: "UX Design Awards", 
@@ -32,7 +33,7 @@ const AWARDS = [
     description: "The Most Reviewed Company in Switzerland 2023",
     link: "#manifest" 
   }
-];
+
 
 const FACTS = [
   { label: "Revenue increased for clients", value: "$100K" },

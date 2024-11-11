@@ -16,6 +16,7 @@ const Services = ({ setIsNavbarVisible }) => {
     contactRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
+
   useEffect(() => {
     // Scroll to top on component mount
     window.scrollTo(0, 0);
@@ -89,6 +90,7 @@ const Services = ({ setIsNavbarVisible }) => {
       <section className="sticky-nav">
         <StickyNavbar onVisibilityChange={setIsNavbarVisible} />
       </section>
+
 
       {/* Design Services */}
       <section id="design" className="min-h-screen">
@@ -173,10 +175,12 @@ const Services = ({ setIsNavbarVisible }) => {
         </div>
       </section>
 
+
       {/* Awards */}
       <section id="awards" className="min-h-screen bg-gray-50">
         <AwardsAndFactsSection />
       </section>
+
 
       {/* Contact */}
       <section id="contact" ref={contactRef} className="min-h-screen bg-white">
@@ -185,5 +189,6 @@ const Services = ({ setIsNavbarVisible }) => {
     </>
   );
 };
+
 
 export default Services;

@@ -78,9 +78,10 @@ export default function Cases() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    
-                    See case
-                  </Link>
+
+                    </Link>
+
+                   
                 </div>
                 <p className="text-gray-600 mb-4">{item.description}</p>
               </div>
@@ -95,7 +96,7 @@ export default function Cases() {
                  overflow-hidden focus:outline-none focus:ring-4 focus:ring-orange-300 
                  transition-transform duration-300 ease-in-out transform hover:scale-105"
             >
-              All Projects ->
+              All Projects
             </button>
         </div>
       </div>
