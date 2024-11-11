@@ -339,7 +339,9 @@ const Home = () => {
 
             <button 
               onClick={() => navigate('/services')}
-              className="relative z-10 w-full lg:w-48 h-32 lg:h-48 lg:mt-12 bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black hover:text-white transition-colors duration-300"
+              className="relative z-10 w-48 h-48 bg-orange-500 text-white rounded-full flex items-center justify-center text-lg font-semibold 
+                 overflow-hidden focus:outline-none focus:ring-4 focus:ring-orange-300 
+                 transition-transform duration-300 ease-in-out transform hover:scale-105"
             >
               All services
             </button>
@@ -429,34 +431,30 @@ const Home = () => {
 
 
       <section className="bg-[#121214] text-white mt-20 p-4 md:p-8 lg:px-32 pt-20">
-        <div className="text-4xl md:text-7xl font-semibold">
+      <div className="text-4xl md:text-7xl font-semibold">
           <p>What do <span className="text-orange-500">people say</span></p>
           <p className="text-orange-500">about us?</p>
-
         </div>
 
         <div className="mt-12">
           <Slider {...testimonialsettings}>
             {testimonials.map((testimonial, index) => (
-
-              <div key={index} className="px-4">
-                <div className="relative p-8 md:p-20">
+              <div key={index} className="px-2 sm:px-4">
+                <div className="relative p-4 sm:p-8 md:p-20">
                   <div className="absolute w-full flex items-center justify-center top-7">
-                    <div className="h-16 w-16 md:h-20 md:w-20 mr-10 rounded-full bg-white"></div>
+                    <div className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 mr-6 sm:mr-10 rounded-full bg-white"></div>
                   </div>
-                  <div className="h-auto md:h-[300px] w-full md:w-[500px] border border-zinc-500 rounded-xl p-4 md:p-5">
-                    <p className="text-4xl md:text-6xl font-mono text-orange-500">"</p>
-                    <p className="text-sm md:text-base text-zinc-400">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus praesentium doloremque dignissimos 
-                      libero dolor recusandae fugit asperiores doloribus quo ratione.
+                  <div className="h-auto md:h-[300px] w-full md:w-[500px] border border-zinc-500 rounded-xl p-3 sm:p-4 md:p-5">
+                    <p className="text-3xl sm:text-4xl md:text-6xl font-mono text-orange-500">"</p>
+                    <p className="text-xs sm:text-sm md:text-base text-zinc-400">
+                      {testimonial.content || "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus praesentium doloremque dignissimos libero dolor recusandae fugit asperiores doloribus quo ratione."}
                     </p>
-                    <div className="flex mt-4 md:mt-5 items-center">
-                      <div className="h-12 w-12 md:h-14 md:w-14 rounded-full mr-2 overflow-hidden bg-white"></div>
+                    <div className="flex mt-3 sm:mt-4 md:mt-5 items-center">
+                      <div className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-full mr-2 overflow-hidden bg-white"></div>
                       <div className="flex flex-col">
-                        <p className="capitalize text-sm md:text-base">name of person</p>
-                        <p className="text-xs md:text-sm text-zinc-400">what they do</p>
+                        <p className="capitalize text-xs sm:text-sm md:text-base">{testimonial.name || "name of person"}</p>
+                        <p className="text-xs md:text-sm text-zinc-400">{testimonial.role || "what they do"}</p>
                       </div>
-
                     </div>
                   </div>
                 </div>
