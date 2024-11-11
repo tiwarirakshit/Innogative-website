@@ -13,7 +13,7 @@ export default function Cases() {
           <p className="text-gray-600 mb-4">Selected works</p>
 
           <p className="text-4xl md:text-5xl lg:text-8xl leading-[10px] font-bold mb-16">
-            See <span className="text-blue-500 leading-[50px]">the results</span>
+            See <span className="text-blue-500 leading-[50px] ">the results</span>
             <br />
             of our work
             <br />
@@ -78,9 +78,9 @@ export default function Cases() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    </a>
+                    
                     See case
-                  
+                  </Link>
                 </div>
                 <p className="text-gray-600 mb-4">{item.description}</p>
               </div>
@@ -91,7 +91,9 @@ export default function Cases() {
         <div className="w-full flex justify-center items-center">
         <button 
               onClick={() => navigate('/works')}
-              className="relative z-10 w-full lg:w-48 h-32 lg:h-48 lg:mt-12 bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black hover:text-white transition-colors duration-300"
+              className="relative z-10 w-48 h-48 bg-orange-500 text-white rounded-full flex items-center justify-center text-lg font-semibold 
+                 overflow-hidden focus:outline-none focus:ring-4 focus:ring-orange-300 
+                 transition-transform duration-300 ease-in-out transform hover:scale-105"
             >
               All Projects ->
             </button>

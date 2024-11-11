@@ -1,5 +1,14 @@
 import React, { useState, useRef } from "react";
-import { FaCopy, FaFile, FaFilePdf, FaFileWord, FaFileImage, FaTimes } from "react-icons/fa";
+import {
+  FaCopy,
+  FaFile,
+  FaFilePdf,
+  FaFileWord,
+  FaFileImage,
+  FaTimes,
+  FaWhatsapp,
+  FaEnvelope
+} from "react-icons/fa";
 
 export default function Form() {
   const initialFormState = {
@@ -25,9 +34,9 @@ export default function Form() {
   };
 
   const getFileIcon = (fileType) => {
-    if (fileType.startsWith('image/')) return FaFileImage;
-    if (fileType === 'application/pdf') return FaFilePdf;
-    if (fileType.includes('word')) return FaFileWord;
+    if (fileType.startsWith("image/")) return FaFileImage;
+    if (fileType === "application/pdf") return FaFilePdf;
+    if (fileType.includes("word")) return FaFileWord;
     return FaFile;
   };
 
@@ -40,11 +49,11 @@ export default function Form() {
       }));
 
       // Create preview for images
-      if (file.type.startsWith('image/')) {
+      if (file.type.startsWith("image/")) {
         const reader = new FileReader();
         reader.onloadend = () => {
           setFilePreview({
-            type: 'image',
+            type: "image",
             url: reader.result,
             name: file.name,
             size: (file.size / 1024 / 1024).toFixed(2), // Convert to MB
@@ -55,7 +64,7 @@ export default function Form() {
         // For non-image files, just show the file info
         const FileIcon = getFileIcon(file.type);
         setFilePreview({
-          type: 'document',
+          type: "document",
           icon: FileIcon,
           name: file.name,
           size: (file.size / 1024 / 1024).toFixed(2), // Convert to MB
@@ -71,17 +80,18 @@ export default function Form() {
     }));
     setFilePreview(null);
     if (fileInputRef.current) {
-      fileInputRef.current.value = '';
+      fileInputRef.current.value = "";
     }
   };
 
   const handleCopyEmail = (email) => {
-    navigator.clipboard.writeText(email)
+    navigator.clipboard
+      .writeText(email)
       .then(() => {
-        console.log('Email copied to clipboard');
+        console.log("Email copied to clipboard");
       })
       .catch((err) => {
-        console.error('Failed to copy email:', err);
+        console.error("Failed to copy email:", err);
       });
   };
 
@@ -132,27 +142,31 @@ export default function Form() {
       title: "Project Talk",
       email: "director@innogative.in",
       showIcons: true,
-      image: "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2024/10/ks.png.webp",
+      image:
+        "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2024/10/ks.png.webp",
     },
     {
       name: "Palion",
       role: "",
       title: "Project Talk",
-      email: "palion@phenomenon.com",
+      email: "palion@phennon.in",
       showIcons: true,
-      image: "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2024/10/ks.png.webp",
+      image:
+        "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2024/10/ks.png.webp",
     },
   ];
 
   return (
-    <div className="bg-zinc-900 p-8  text-white min-h-screen">
+    <div className="bg-zinc-900 p-8 text-white min-h-screen">
       <div className="max-w-7xl mx-auto md:mt-20">
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Form Section */}
           <div className="flex-1">
             <p className="text-sm mb-4">Contact us</p>
             <h1 className="text-[#e2ff6f] text-5xl font-semibold mb-12">
-              Ready to bring<br />your idea to life?
+              Ready to bring
+              <br />
+              your idea to life?
             </h1>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -183,7 +197,7 @@ export default function Form() {
                   value={formData.project}
                   onChange={handleInputChange}
                   placeholder="Tell us about your project"
-                  className="w-full leading-tight bg-transparent border-b border-zinc-700  outline-none focus:border-zinc-500 transition-colors resize-none"
+                  className="w-full leading-tight bg-transparent border-b border-zinc-700 outline-none focus:border-zinc-500 transition-colors resize-none"
                   maxLength={1000}
                   required
                 />
@@ -216,11 +230,11 @@ export default function Form() {
                   <div className="mt-4 p-4 border border-zinc-700 rounded-lg">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
-                        {filePreview.type === 'image' ? (
+                        {filePreview.type === "image" ? (
                           <div className="w-16 h-16 rounded overflow-hidden">
-                            <img 
-                              src={filePreview.url} 
-                              alt="Preview" 
+                            <img
+                              src={filePreview.url}
+                              alt="Preview"
                               className="w-full h-full object-cover"
                             />
                           </div>
@@ -228,8 +242,12 @@ export default function Form() {
                           <filePreview.icon className="w-8 h-8 text-zinc-400" />
                         )}
                         <div>
-                          <p className="text-sm font-medium text-zinc-300">{filePreview.name}</p>
-                          <p className="text-xs text-zinc-500">{filePreview.size} MB</p>
+                          <p className="text-sm font-medium text-zinc-300">
+                            {filePreview.name}
+                          </p>
+                          <p className="text-xs text-zinc-500">
+                            {filePreview.size} MB
+                          </p>
                         </div>
                       </div>
                       <button
@@ -263,7 +281,8 @@ export default function Form() {
                   </svg>
                 </button>
                 <p className="text-zinc-500 text-sm">
-                  By clicking this button you accept Terms of Service and Privacy Policy
+                  By clicking this button you accept Terms of Service and
+                  Privacy Policy
                 </p>
               </div>
 
@@ -302,51 +321,39 @@ export default function Form() {
                     <h3 className="font-medium">
                       {member.title} {member.name && `- ${member.name}`}
                     </h3>
-                    {member.role && <p className="text-zinc-400">{member.role}</p>}
+                    {member.role && (
+                      <p className="text-zinc-400">{member.role}</p>
+                    )}
                   </div>
                 </div>
-                <div className="mt-4 flex flex-row gap-2">
-                  <button 
+                <div className="mt-4 flex flex-col sm:flex-row gap-2">
+                  <button
                     type="button"
-                    className="flex gap-2 items-center justify-center px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800 transition-colors text-sm"
+                    className="flex-1 sm:flex-none flex gap-2 items-center justify-center px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800 transition-colors text-sm"
                     onClick={() => handleCopyEmail(member.email)}
                   >
                     <FaCopy className="w-4 h-4" />
-                    {member.email}
+                    <span className="truncate">{member.email}</span>
                   </button>
                   {member.showIcons && (
-                    <>
-                      <button 
+                    <div className="flex gap-2 justify-center sm:justify-start">
+                      <button
                         type="button"
-                        className="p-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800 transition-colors"
+                        className="sm:flex-none p-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800 transition-colors"
+                        onClick={() =>
+                          window.open("https://wa.me/?text=", "_blank")
+                        }
                       >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
-                        </svg>
+                        <FaWhatsapp className="w-6 h-6" />
                       </button>
-                      <button 
+                      <button
                         type="button"
-                        className="p-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800 transition-colors"
+                        className="sm:flex-none p-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800 transition-colors"
+                        onClick={() => window.open("mailto:?", "_blank")}
                       >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
-                        </svg>
+                        <FaEnvelope className="w-6 h-6" />
                       </button>
-                    </>
+                    </div>
                   )}
                 </div>
               </div>
