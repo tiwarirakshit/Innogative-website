@@ -8,7 +8,9 @@ const AboutUs = () => {
     let mouseX = 0, mouseY = 0;
     let circleX = 0, circleY = 0;
     const speed = 0.2; // Speed of following the mouse (0.1 = slow, 1 = instant)
-
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
     // Update target position on mouse move
     document.addEventListener('mousemove', (e) => {
       mouseX = e.clientX; // Use clientX for viewport-relative coordinates

@@ -37,13 +37,10 @@ const StickyNavbar = ({ onVisibilityChange }) => {
   }, [onVisibilityChange]);
 
   const navItems = [
-    { id: 'design', label: 'Design Services' },
-    { id: 'discovery', label: 'Discovery Phase' },
+    { id: 'web', label: 'Web Services' },
+    { id: 'personal', label: 'Personal Branding' },
     { id: 'development', label: 'Development Services' },
-    { id: 'work', label: 'How We Work' },
-    { id: 'cases', label: 'Cases' },
-    { id: 'reviews', label: 'Reviews' },
-    { id: 'awards', label: 'Awards' },
+    { id: 'design', label: 'Designing Services' },
     { id: 'contact', label: 'Get in Touch' },
   ];
 

@@ -10,6 +10,9 @@ const TeamAndAdvisors = () => {
   const navigate = useNavigate();
   const [advisors, setAdvisors] = useState([]);
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
     const fetchAdvisors = async () => {
       // Simulate API call
       const response = await new Promise((resolve) => {

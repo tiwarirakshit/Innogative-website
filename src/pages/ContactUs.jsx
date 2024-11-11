@@ -2,6 +2,9 @@ import React,{useState,useEffect} from 'react'
 import Form from '../components/formSection'
 const ContactUs = () => {
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
     const circle = document.getElementById('custom-circle');
     let mouseX = 0, mouseY = 0;
     let circleX = 0, circleY = 0;

@@ -78,8 +78,9 @@ export default function Cases() {
                         strokeLinejoin="round"
                       />
                     </svg>
+                    </a>
                     See case
-                  </Link>
+                  
                 </div>
                 <p className="text-gray-600 mb-4">{item.description}</p>
               </div>

@@ -31,7 +31,9 @@ const Works = () => {
   const [activeCategory, setActiveCategory] = useState(searchParams.get('filter') || 'All projects');
   const [activeIndustry, setActiveIndustry] = useState('All industries');
   const [visibleProjects, setVisibleProjects] = useState(4);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   // Effect to handle incoming filter parameter
   useEffect(() => {
     const filterParam = searchParams.get('filter');

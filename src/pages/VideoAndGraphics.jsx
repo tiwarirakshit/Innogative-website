@@ -6,7 +6,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 const VideoAndGraphics = () => {
   const [selectedMedia, setSelectedMedia] = useState(null);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const mediaItems = [
     { type: 'image', src: 'https://picsum.photos/500/300?random=1' },
     { type: 'image', src: 'https://picsum.photos/500/300?random=2' },

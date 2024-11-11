@@ -85,12 +85,16 @@ const websiteDesign = {
 
 
 const Home = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
     // Load testimonials from the JSON file
     setTestimonials(testimonialsData);
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
@@ -101,32 +105,32 @@ const Home = () => {
 
     // Update target position on mouse move
     document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX; // Use clientX for viewport-relative coordinates
-        mouseY = e.clientY; // Use clientY for viewport-relative coordinates
+      mouseX = e.clientX; // Use clientX for viewport-relative coordinates
+      mouseY = e.clientY; // Use clientY for viewport-relative coordinates
     });
 
     // Smooth movement using requestAnimationFrame
     const smoothMove = () => {
-        // Calculate the difference and apply the speed factor
-        circleX += (mouseX - circleX) * speed;
-        circleY += (mouseY - circleY) * speed;
+      // Calculate the difference and apply the speed factor
+      circleX += (mouseX - circleX) * speed;
+      circleY += (mouseY - circleY) * speed;
 
-        // Update the circle position
-        circle.style.left = `${circleX}px`;
-        circle.style.top = `${circleY}px`;
+      // Update the circle position
+      circle.style.left = `${circleX}px`;
+      circle.style.top = `${circleY}px`;
 
-        requestAnimationFrame(smoothMove); // Keep the animation going
+      requestAnimationFrame(smoothMove); // Keep the animation going
     };
 
     smoothMove(); // Start the animation
 
     return () => {
-        document.removeEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
+      document.removeEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
     };
-}, []);
+  }, []);
 
 
 
@@ -149,11 +153,11 @@ const Home = () => {
           if (entry.target.id === 'home') {
             circle.classList.add('home-style');
             circle.classList.remove('other-style');
-          } else if(entry.target.id === 'banner') {
+          } else if (entry.target.id === 'banner') {
             circle.classList.add('other-style');
             circle.classList.remove('home-style');
           }
-          else{
+          else {
             circle.classList.add('other-style');
             circle.classList.remove('home-style');
           }
@@ -167,13 +171,13 @@ const Home = () => {
     // Observe both home and other sections
     if (homeSection) observer.observe(homeSection);
     if (otherSection) observer.observe(otherSection);
-    if(bannerSection) observer.observe(bannerSection);
+    if (bannerSection) observer.observe(bannerSection);
 
     return () => {
       // Clean up the observer on unmount
       if (homeSection) observer.unobserve(homeSection);
       if (otherSection) observer.unobserve(otherSection);
-      if(bannerSection) observer.unobserve(bannerSection);
+      if (bannerSection) observer.unobserve(bannerSection);
     };
   }, []);
 
@@ -183,7 +187,7 @@ const Home = () => {
   useEffect(() => {
     const circle = document.getElementById('custom-circle');
     const hoverTargets = document.querySelectorAll('.hover-target');
-  
+
     // Function to change the cursor on hover
     const handleMouseEnter = (e) => {
       circle.style.width = '80px'; // Increase size
@@ -195,7 +199,7 @@ const Home = () => {
       circle.querySelector('span').style.display = 'block'; // Show the span text
       circle.querySelector('span').textContent = e.target.getAttribute('data-text') || "Let's Talk"; // Change text dynamically based on data-text attribute
     };
-  
+
     // Function to reset the cursor when mouse leaves the element
     const handleMouseLeave = () => {
       circle.style.width = '15px'; // Reset size
@@ -205,13 +209,13 @@ const Home = () => {
       circle.style.fontSize = '0'; // Hide text inside circle
       circle.querySelector('span').style.display = 'none'; // Hide the span text
     };
-  
+
     // Add event listeners to each hover-target
     hoverTargets.forEach((target) => {
       target.addEventListener('mouseenter', handleMouseEnter);
       target.addEventListener('mouseleave', handleMouseLeave);
     });
-  
+
     // Cleanup event listeners when component unmounts
     return () => {
       hoverTargets.forEach((target) => {
@@ -220,16 +224,16 @@ const Home = () => {
       });
     };
   }, []);
-  
+
 
 
 
   return (
     <>
 
-        <Link to="#contact" id="custom-circle" className="custom-circle z-[5000]">
-          <span>-> Let's Talk</span>
-        </Link>
+      <Link to="#contact" id="custom-circle" className="custom-circle z-[5000]">
+        <span>-> Let's Talk</span>
+      </Link>
 
       <div id="banner" className="h-screen bg-[#121214] w-full relative ">
         <div className="absolute z-[100] w-full h-full flex flex-col items-center justify-center opacity-1">
@@ -406,14 +410,15 @@ const Home = () => {
 
             <button className="w-full lg:w-48 h-48 lg:mt-12 cursor-pointer bg-blue-500 text-white rounded-full flex items-center justify-center text-lg hover:bg-black transition-colors duration-300 flex-shrink-0">
               All services ->
-            <button 
-            className="relative z-10 pointer-events-auto w-full lg:w-48 h-48 lg:mt-12 cursor-pointer bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black hover:text-white transition-colors duration-300 flex-shrink-0"
-            onClick={() => {
-    
-    navigate('/services');
-  }}>
-              {'All services ->'}
-            </button>
+              <button
+                className="relative z-10 pointer-events-auto w-full lg:w-48 h-48 lg:mt-12 cursor-pointer bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black hover:text-white transition-colors duration-300 flex-shrink-0"
+                onClick={() => {
+
+                  navigate('/services');
+                }}>
+                {'All services ->'}
+              </button>
+              </button>
           </div>
         </div>
       </section>
@@ -588,9 +593,9 @@ const Home = () => {
         </div>
 
         <div className="w-full h-[300px] mt-20 mb-20 flex items-center justify-center">
-          <button 
-          className="relative text-6xl w-full h-full font-bold border border-yellow-200 rounded-full overflow-hidden group"
-          onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+          <button
+            className="relative text-6xl w-full h-full font-bold border border-yellow-200 rounded-full overflow-hidden group"
+            onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
           >
 
             {/* Background Circle */}
