@@ -78,7 +78,7 @@ export default function Cases() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    </a>
+                    </Link>
                     See case
                   
                 </div>
@@ -93,7 +93,7 @@ export default function Cases() {
               onClick={() => navigate('/works')}
               className="relative z-10 w-full lg:w-48 h-32 lg:h-48 lg:mt-12 bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black hover:text-white transition-colors duration-300"
             >
-              All Projects ->
+              All Projects
             </button>
         </div>
       </div>
