@@ -228,7 +228,7 @@ const Home = () => {
     <>
 
       <Link to="#contact" id="custom-circle" className="custom-circle z-[5000] hidden md:block">
-        <span>-> Let's Talk</span>
+        <span> Let's Talk</span>
       </Link>
 
 
@@ -341,7 +341,7 @@ const Home = () => {
               onClick={() => navigate('/services')}
               className="relative z-10 w-full lg:w-48 h-32 lg:h-48 lg:mt-12 bg-orange-500 text-black rounded-full flex items-center justify-center text-lg hover:bg-black hover:text-white transition-colors duration-300"
             >
-              All services ->
+              All services
             </button>
           </div>
         </div>
@@ -474,9 +474,7 @@ const Home = () => {
             <span className="relative z-10 pointer-events-auto transition-all duration-500 ease-in-out group-hover:text-black">
               <span className="group-hover:hidden">Get a quote</span>
 
-              <span className="hidden group-hover:inline">-> Talk with us</span>
-
-              
+              <span className="hidden group-hover:inline"> Talk with us</span>
 
             </span>
           </button>
