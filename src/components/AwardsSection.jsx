@@ -4,15 +4,11 @@ const image2 = "https://phenomenonstudio.com/wp-content/webp-express/webp-images
 const image = "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2024/10/Awards-1-1.png.webp";
 
 const awards = [
-<<<<<<< HEAD
-  
-=======
   { name: "UX Design Awards", description: "Nomination" },
   { name: "Awwwards", description: "Honorable mentions" },
   { name: "Behance", description: "Featured in different galleries" },
   { name: "UpCity", description: "Featured on UpCity" },
   { name: "The Manifest", description: "The Most Reviewed Company in Switzerland 2023" },
->>>>>>> 3a386c0f84cde05ef7b69a41c358f288a2cd57d3
 ];
 
 const facts = [
