@@ -41,7 +41,7 @@ const ContactUs = () => {
   return (
     <>
 <a href="#contact" id="custom-circle" className="custom-circle other-style z-[5000]">
-        <span>-> Let's Talk</span>
+        <span> Let's Talk</span>
       </a>
     <div>
       <Form/>
