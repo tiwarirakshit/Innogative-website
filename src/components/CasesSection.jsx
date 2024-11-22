@@ -1,10 +1,12 @@
 import React from "react";
-import projectData from '../data.json';
-import { useNavigate,Link } from "react-router-dom";
+import projectData from "../data.json";
+import { useNavigate, Link } from "react-router-dom";
+import { ArrowRight } from 'lucide-react';
+
 export default function Cases() {
   // Extract the first four items from the portfolioData
   const projects = projectData.projects.slice(0, 4);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   return (
     <section className=" px-4 py-16 bg-white">
@@ -13,11 +15,13 @@ export default function Cases() {
           <p className="text-gray-600 mb-4">Selected works</p>
 
           <p className="text-4xl md:text-5xl lg:text-8xl leading-[10px] font-bold mb-16">
-            See <span className="text-blue-500 leading-[50px] ">the results</span>
+            See{" "}
+            <span className="text-blue-500 leading-[50px] ">the results</span>
             <br />
             of our work
             <br />
-            across <span className="text-blue-500 relative leading-3">industries</span>
+            across{" "}
+            <span className="text-blue-500 relative leading-3">industries</span>
           </p>
         </div>
 
@@ -61,7 +65,7 @@ export default function Cases() {
                     </div>
                   </div>
                   <Link
-                    to={`/works/${item.id}`} 
+                    to={`/works/${item.id}`}
                     className="inline-flex items-center text-white bg-black rounded-full px-3 py-2 font-semibold group-hover:text-blue-500 transition-colors"
                   >
                     <svg
@@ -78,10 +82,8 @@ export default function Cases() {
                         strokeLinejoin="round"
                       />
                     </svg>
-
-                    </Link>
-
-                   
+                    See Case
+                  </Link>
                 </div>
                 <p className="text-gray-600 mb-4">{item.description}</p>
               </div>
@@ -90,14 +92,12 @@ export default function Cases() {
         </div>
 
         <div className="w-full flex justify-center items-center">
-        <button 
-              onClick={() => navigate('/works')}
-              className="relative z-10 w-48 h-48 bg-orange-500 text-white rounded-full flex items-center justify-center text-lg font-semibold 
-                 overflow-hidden focus:outline-none focus:ring-4 focus:ring-orange-300 
-                 transition-transform duration-300 ease-in-out transform hover:scale-105"
-            >
-              All Projects
-            </button>
+          <button className="w-48 h-48   rounded-full bg-orange-500 relative overflow-hidden group transition-colors duration-700 hover:bg-transparent" onClick={() => navigate("/works")}>
+            <span className="absolute inset-0 w-full h-full bg-yellow-300 scale-0 group-hover:scale-100 transition-transform duration-700 ease-in-out rounded-full origin-center" />
+            <span className="relative z-10 flex items-center justify-center w-full h-full text-black text-xl">
+            <ArrowRight height={18} />  All Projects
+            </span>
+          </button>
         </div>
       </div>
     </section>

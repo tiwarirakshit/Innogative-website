@@ -48,7 +48,7 @@ const Projects = ({ projects }) => {
                   to={`/works/${project.id}`} 
                   className="inline-flex items-center gap-1 bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition text-sm"
                 >
-                  <ArrowUpRight className='w-5 h-5' />
+                  <ArrowUpRight className='w-5 h-5 ' />
                   See case
                 </Link>
               </div>
