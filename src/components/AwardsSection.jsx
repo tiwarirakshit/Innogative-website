@@ -34,7 +34,9 @@ const AWARDS = [
     link: "#manifest" 
   }
 
-]
+];
+
+
 const FACTS = [
   { label: "Revenue increased for clients", value: "$100K" },
   { label: "Launched Projects", value: "200+" },

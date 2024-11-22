@@ -48,7 +48,7 @@ const TeamAndAdvisors = () => {
   return (
     <>
     <a href="#contact" id="custom-circle" className="custom-circle other-style z-[5000]">
-        <span>-> Let's Talk</span>
+        <span> Let's Talk</span>
       </a>
       <section className="bg-gray-900 text-white py-20 px-4 md:px-8 lg:px-24 ">
         <div className="flex flex-col lg:flex-row items-center lg:justify-between mx-auto w-10/12 relative">
