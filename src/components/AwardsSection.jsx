@@ -33,7 +33,9 @@ const AWARDS = [
     description: "The Most Reviewed Company in Switzerland 2023",
     link: "#manifest" 
   }
+
 ];
+
 
 const FACTS = [
   { label: "Revenue increased for clients", value: "$100K" },

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Play } from 'lucide-react';
 
 const ProjectPage = ({ projects }) => {
   const { id } = useParams();
@@ -25,7 +25,6 @@ const ProjectPage = ({ projects }) => {
   }
 
   const handleTypeClick = (type) => {
-    // Check if type is a project category or industry
     navigate(`/works?filter=${encodeURIComponent(type)}`);
   };
 
@@ -58,14 +57,35 @@ const ProjectPage = ({ projects }) => {
         </div>
         
         {/* Main Project Image */}
-        <div className="relative w-full aspect-video mb-16 overflow-hidden rounded-2xl">
+        <div className="relative w-full aspect-video mb-8 overflow-hidden rounded-2xl">
           <img 
             src={project.imageUrl} 
             alt={project.title} 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400/50 to-transparent"></div>
+          
         </div>
+
+        {/* Additional Images Grid - Single Line with Hidden Scrollbar */}
+        {project.images && project.images.length > 0 && (
+          <div className="mb-16">
+            <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-4 snap-x">
+              {project.images.map((image, index) => (
+                <div 
+                  key={index}
+                  className="relative w-64 flex-none aspect-[4/3] overflow-hidden rounded-xl snap-start"
+                >
+                  <img 
+                    src={image} 
+                    alt={`${project.title} - Image ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
         
         {/* Project Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -75,6 +95,22 @@ const ProjectPage = ({ projects }) => {
               <h2 className="text-2xl font-bold mb-4">Project Overview</h2>
               <p className="text-gray-700 leading-relaxed">{project.description}</p>
             </section>
+
+            {/* Video Section */}
+            {project.videoUrl && (
+              <section className="mt-12">
+                <h2 className="text-2xl font-bold mb-6">Project Showcase</h2>
+                <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-gray-900">
+                  <iframe
+                    src={project.videoUrl}
+                    className="absolute inset-0 w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={`${project.title} showcase video`}
+                  ></iframe>
+                </div>
+              </section>
+            )}
             
             {project.challenge && (
               <section>
@@ -163,7 +199,6 @@ const ProjectPage = ({ projects }) => {
         
         {/* Navigation */}
         <div className="mt-16 flex justify-between items-center pt-8 border-t border-gray-200">
-          {/* Optional: Add prev/next project navigation here */}
           <Link 
             to="/works"
             className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"

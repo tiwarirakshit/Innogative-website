@@ -2,47 +2,431 @@
   "projects": [
     {
       "id": 1,
-      "title": "Tabela - a management system for Restaurants",
+      "title": "Aasabie",
       "type": ["Web app", "SaaS"],
-      "description": "Tabela is a comprehensive management system designed specifically for restaurants. It streamlines operations, from table reservations to order management, helping restaurant owners and staff provide better service and increase efficiency.",
-      "imageUrl": "https://picsum.photos/seed/project1/1200/800",
-      "client": "RestaurantTech Inc.",
+      "description": "Aasabie – India’s First MSME & Start-up B-Hub At Aasabie, we are dedicated to empowering India’s micro, small, and medium enterprises (MSMEs) and start-ups with the resources, support, and opportunities they need to thrive.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/z2DeMT-kDR_Screenshot%202024-11-20%20at%202.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/Pkkk-Y5RP_Screenshot%202024-11-20%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/-qj2pKdEt_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/0VdnvCrUk7_Screenshot%202024-11-20%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/xmGphgE8F_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/mZdPNA6mrW_Screenshot%202024-11-18%20at%202.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "Aasabie",
       "date": "October 2023"
     },
     {
       "id": 2,
-      "title": "FinTrack - Personal Finance Dashboard",
+      "title": "Architects Creation",
       "type": ["Website", "FinTech"],
-      "description": "FinTrack is a user-friendly personal finance dashboard that helps individuals track their expenses, set budgets, and achieve financial goals. With intuitive visualizations and AI-powered insights, users can make informed decisions about their money.",
-      "imageUrl": "https://picsum.photos/seed/project2/1200/800",
-      "client": "FinTech Solutions Ltd.",
+      "description": "The Team Architects Creation has evolved into a dedicated team of professionals committed to design excellence and offering comprehensive service in the field of Architecture, Interior Designing and Project Consultation.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/CapFBnLx6p_Screenshot%202024-11-18%20at%202.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/yrJBPZ2kL_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/j85vHXaa9b_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/Y8izfiwEG4_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/GWw1R6-R1r_Screenshot%202024-11-18%20at%202.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "Architects Creation",
       "date": "September 2023"
     },
     {
       "id": 3,
-      "title": "HealthHub - Patient Management App",
+      "title": "Argham Knowledge Services",
       "type": ["Mobile app", "Healthcare"],
-      "description": "HealthHub is a comprehensive patient management app that allows healthcare providers to streamline their workflows, manage patient records, and improve communication with patients. The app includes features such as appointment scheduling, secure messaging, and medication reminders.",
-      "imageUrl": "https://picsum.photos/seed/project3/1200/800",
-      "client": "MedTech Innovations",
+      "description": "Argham Knowledge Services is a Telecom Company based in Jabalpur.",
+      "imageUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/CQptohoLtf_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/VM4cfD7tXg_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/RQL35ApWF_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/oEFNO2GO5d_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/JlvS9dgIUf_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/k5kFhyRIDT_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/RzNdrpO299_Screenshot%202024-11-18%20at%202.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "Argham Knowledge Services",
       "date": "August 2023"
     },
     {
       "id": 4,
-      "title": "EduConnect - Online Learning Platform",
+      "title": "Bambooram",
       "type": ["Website", "Education"],
-      "description": "EduConnect is an innovative online learning platform that connects students with expert tutors across various subjects. The platform features interactive video lessons, real-time collaboration tools, and adaptive learning algorithms to personalize the educational experience for each student.",
-      "imageUrl": "https://picsum.photos/seed/project4/1200/800",
-      "client": "Global Education Network",
+      "description": "Bambooram is established  with a vision to bind all the moving pieces associated ‘from Bamboo farming to manufacturing products’ using bamboo.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/he2j8S9KOM_Screenshot%202024-11-18%20at%202.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/1otAohjZz_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/0UjAO9w044_Screenshot%202024-11-18%20at%202.webp",
+
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/VeNgZsHkWL_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/119GYBvP1n_Screenshot%202024-11-18%20at%202.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "Bambooram",
       "date": "July 2023"
     },
     {
       "id": 5,
-      "title": "CryptoVerse - Web3 Exploration Game",
+      "title": "Bhaskar Energy",
       "type": ["3D motion design", "Web3"],
-      "description": "CryptoVerse is an immersive Web3 exploration game that introduces players to the world of cryptocurrencies and blockchain technology. Through stunning 3D environments and interactive challenges, players learn about decentralized finance, NFTs, and the potential of Web3 technologies.",
-      "imageUrl": "https://picsum.photos/seed/project5/1200/800",
+      "description": "Bhaskar Energy is Solar Company which wants to minimize the carbon footprint.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/2WfhHb9m5X_Screenshot%202024-11-18%20at%202.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/jVPYXZpZQz_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/3Be9JU8dLF_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/DPZV4L-dE_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/lnmVYWAtsJ_Screenshot%202024-11-18%20at%202.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
       "client": "BlockChain Gamers Inc.",
+      "date": "June 2023"
+    },
+    {
+      "id": 6,
+      "title": "BK Inspiration",
+      "type": ["3D motion design", "Web3"],
+      "description": "BK Inspiration.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/ot86kpvwn_Screenshot%202024-11-18%20at%202.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/6UI4ikHz5y_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/_jU3rMlrsc_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/NL8SiRagUG_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/ipErfHgg2x_Screenshot%202024-11-18%20at%202.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "BlockChain Gamers Inc.",
+      "date": "June 2023"
+    },
+    {
+      "id": 7,
+      "title": "Blue Ladder",
+      "type": ["3D motion design", "Web3"],
+      "description": "Blue Ladder Engineers offers its Clients one-stop, comprehensive engineering services not found at other electrical construction companies. We operate under a true design-build model and can manage projects from the initial concept development stage to final installation. Quality and service gives our clients a better value add, in shorter timetables and lower costs.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/0yzk4cn-On_Screenshot%202024-11-18%20at%202.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/fbdjXJPfsJ_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/-jzUviX9o_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/syIVu3VnWV_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/WEmgQRNrWz_Screenshot%202024-11-18%20at%202.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "BlockChain Gamers Inc.",
+      "date": "June 2023"
+    },
+    {
+      "id": 8,
+      "title": "Connecting World",
+      "type": ["3D motion design", "Web3"],
+      "description": "Connecting World is one of India’s prominent financial services groups, specialising in providing a spectrum of businesses to corporations, financial institutions, high net-worth individuals and retail investors.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/wXzLZnVcnw_Screenshot%202024-11-18%20at%202.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/rzkay69b4d_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/YkEeZZHw7U_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/dQlDa1rle_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/JAGLraG_G6_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/o25ulehb-3_Screenshot%202024-11-18%20at%202.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "Connecting World",
+      "date": "June 2023"
+    },
+    {
+      "id": 9,
+      "title": "DeKnotters",
+      "type": ["3D motion design", "Web3"],
+      "description": "DeKnotters learning Solutions is a global leader in Career Transitioning, Talent Management and Leadership Development. We help organizations attract, develop and retain their talent in a rapidly transforming business environment – enabling business and talent agility.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/QVO3EZ81bw_Screenshot%202024-11-18%20at%202.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/zA12ctm8Iu_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/qBcetRmoj_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/_xIP6yE2_L_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/C1vzFgkhDS_Screenshot%202024-11-18%20at%202.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "DeKnotters",
+      "date": "June 2023"
+    },
+    {
+      "id": 10,
+      "title": "DNCCL",
+      "type": ["3D motion design", "Web3"],
+      "description": "Day Night Courier Cargo Logistic (DNCCl) service is a new brand in the courier world, a company floated by experts from the same field with rich two decades of experience.Being a fast growing Industry, the courier market has seen only few players tapping the huge potential leaving more space for new vibrant players.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/p4GlgGEqyJ_Screenshot%202024-11-18%20at%202.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/MbxaVPEea_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/yxywmNcScc_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/Khw5FezsCJ_Screenshot%202024-11-18%20at%202.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "DNCCL",
+      "date": "June 2023"
+    },
+    {
+      "id": 11,
+      "title": "Don Bosco",
+      "type": ["3D motion design", "Web3"],
+      "description": "Don Bosco Public School is a Co-Educational, CBSE Affiliated, English Medium Senior Secondary, Purely Residential School for boys and girls from different states, different calibers, different surroundings, different religions, different ways of life and languages and different traditions from class III to XII come together to this home far away from home where they live together, learn together, come up in life together with a feeling of oneness, that we are the proud citizens of this country.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/fnAcuFeB03_Screenshot%202024-11-18%20at%203.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/uV7awYxJeB_Screenshot%202024-11-18%20at%203.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/-SluS5yITR_Screenshot%202024-11-18%20at%203.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/AQxHE1yz9_Screenshot%202024-11-18%20at%203.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/UuQfkbV-gU_Screenshot%202024-11-18%20at%203.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/GwUPg6lVF5_Screenshot%202024-11-18%20at%203.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "Don Bosco",
+      "date": "June 2023"
+    },
+    {
+      "id": 12,
+      "title": "EAL Works",
+      "type": ["3D motion design", "Web3"],
+      "description": "We are pleased to introduce our self M/s Earth acid linings in the field of anti corrosive lining since 2019, we are dealing in the same field with different organizations for the last 14 years.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/aBO5TyNjQu_Screenshot%202024-11-18%20at%204.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/JBa5UHx5Gp_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/YPEXGeVl7I_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/wH7TAo1MO_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/1J_sFNMNbc_Screenshot%202024-11-18%20at%204.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "EAL Works",
+      "date": "June 2023"
+    },
+    {
+      "id": 13,
+      "title": "EBSH",
+      "type": ["3D motion design", "Web3"],
+      "description": "With our proven strategies and innovative approach, we'll help you unlock your business's full potential and achieve long-term success in a rapidly evolving marketplace",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/aBO5TyNjQu_Screenshot%202024-11-18%20at%204.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/NSJgR7I7td_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/HNnphGTC9_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/eZK1L2mIw_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/qVFwRIdL4K_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/YhsMazhQUM_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/p_LQBIeTSO_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/PLuIRwBFF9_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/K2JRfX0oc3_Screenshot%202024-11-18%20at%204.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "EBSH",
+      "date": "June 2023"
+    },
+    {
+      "id": 14,
+      "title": "JPM Systemus",
+      "type": ["3D motion design", "Web3"],
+      "description": "JPM Systems is founded in 2022 based on the idea that the IT recruiting and staffing industry could be improved. We regularly challenge the status and employ innovative methods.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/mkf4NTkSu1_Screenshot%202024-11-18%20at%204.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/Jtd8jdcVhT_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/oqfRNEz4jD_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/asLFa07ivl_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/DbnDKTinq_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/EmY56-Je5h_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/y__pnLXUa7_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/uwrWxpalGo_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/5w9COzQExH_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/a-ygDM8gbF_Screenshot%202024-11-18%20at%204.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/_1E1pFdZhy_Screenshot%202024-11-18%20at%204.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "JPM Systemus",
+      "date": "June 2023"
+    },
+    {
+      "id": 15,
+      "title": "Karnavati Retreat",
+      "type": ["3D motion design", "Web3"],
+      "description": "Splendid Getaway for Nature Lovers Looking for a place that can mesmerize you.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/asIhQGdGOL_Screenshot%202024-11-19%20at%2011.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/OksLsft-BU_Screenshot%202024-11-19%20at%2011.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/kpYzYjznmy_Screenshot%202024-11-19%20at%2011.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/UmgtCtLi4Q_Screenshot%202024-11-19%20at%2011.webp",
+
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/2NhpaJwiq_Screenshot%202024-11-19%20at%2011.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/eV7oJX8cL-_Screenshot%202024-11-19%20at%2011.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/SD7I6bnLzy_Screenshot%202024-11-19%20at%2011.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "Karnavati Retreat",
+      "date": "June 2023"
+    },
+    {
+      "id": 16,
+      "title": "Munchkinss Preschool",
+      "type": ["3D motion design", "Web3"],
+      "description": "At Munchkinss Preschool Bhopal , we offers best  daycare services in Bhopal. A safe, fun, and educational environment for your child’s growth.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/hwZPs5quT_Screenshot%202024-11-19%20at%2011.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/QvbgTEz0np_Screenshot%202024-11-19%20at%2011.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/J18ZSR5Jbb_Screenshot%202024-11-19%20at%2011.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/90ZeYmmcjB_Screenshot%202024-11-19%20at%2011.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/DXVva2xSlb_Screenshot%202024-11-19%20at%2011.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/fyPQ5ZQLYE_Screenshot%202024-11-19%20at%2011.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/E9DwIWF4Pp_Screenshot%202024-11-19%20at%2011.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "Munchkinss Preschool",
+      "date": "June 2023"
+    },
+    {
+      "id": 17,
+      "title": "Option Trade Experts",
+      "type": ["3D motion design", "Web3"],
+      "description": "Established since 2008, our option trading company has been a beacon of excellence. Committed to shaping proficient traders, our mission is fueled by empowerment through education.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/NdapgjxnON_Screenshot%202024-11-19%20at%205.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/tADEyrvzyo_Screenshot%202024-11-19%20at%205.webp",
+
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/q1sNh6X8V__Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/KTtiHAnv8_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/IrMOV8qbSR_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/PjIpnDJWJC_Screenshot%202024-11-19%20at%205.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "Option Trade Experts",
+      "date": "June 2023"
+    },
+    {
+      "id": 18,
+      "title": "Saathi Baster",
+      "type": ["3D motion design", "Web3"],
+      "description": "Saathi is a non-governmental organisation working with the vulnerable communities of Bastar, Chhattisgarh, in helping them live a life with dignity. It focuses on issues of craft-based livelihoods, health, education, and accessibility to essential services in the Left Wing Extremism (LWE)-affected regions.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/nnAomHSfNn_Screenshot%202024-11-19%20at%205.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/t-X616DBoM_Screenshot%202024-11-19%20at%205.webp",
+
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/y899kMtJd_Screenshot%202024-11-19%20at%205.webp",
+
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/38J87gHqd-_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/E3GQiqMOK5_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/6_7iRjFi0e_Screenshot%202024-11-19%20at%205.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "Saathi Baster",
+      "date": "June 2023"
+    },
+    {
+      "id": 19,
+      "title": "Shakti Stone Crusher",
+      "type": ["3D motion design", "Web3"],
+      "description": "Shakti Stone Crusher",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/lnAs2O0NXY_Screenshot%202024-11-19%20at%205.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/IgDOR6zso_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/fGiyKQhOy8_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/oUhX3WPLRf_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/yLSOPSI4Bd_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/jlmZx9YDln_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/t_bCyUHnHo_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/CdVnPywJiH_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/dppZHuYF9z_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/fPLvRTehGg_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/HkAY_xbbI0_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/zDbS7OPEd5_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/3w-yIFdYxh_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/LYs_rA4aj_Screenshot%202024-11-19%20at%205.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "Shakti Stone Crusher",
+      "date": "June 2023"
+    },
+    {
+      "id": 20,
+      "title": "South Avenue Mall",
+      "type": ["3D motion design", "Web3"],
+      "description": "Welcome to South Avenue Mall, the premier shopping and entertainment destination in Jabalpur! Opened in 2009, South Avenue Mall is the city's first mall and multiplex, bringing a modern lifestyle experience to the heart of Jabalpur, the third largest city in Madhya Pradesh.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/FWYdbD-NWC_Screenshot%202024-11-19%20at%205.webp",
+      "images": [
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/q-5GRTXsPJ_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/1aJaf2Y7GK_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/2oadtJ51K8_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/JTN0clOrwr_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/YfW-BYRZqW_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/QlifIDGRdE_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/QJjuBV_SpL_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/YlE1dALlBr_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/IJIcJ9k6W_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/rTxFMRwYId_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/U6r3gjPsWJ_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/GCPyaXhBUV_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/WMq2P5vbjG_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/kEdbLyHXzT_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/Xh-fWSSfUE_Screenshot%202024-11-19%20at%205.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "South Avenue Mall",
+      "date": "June 2023"
+    },
+    {
+      "id": 21,
+      "title": "Vallaree",
+      "type": ["3D motion design", "Web3"],
+      "description": "Vallaree is more than just an intimate and hygiene care brand—it’s a story of love, family, and empowerment. Born in Bihar, Vallaree is a heartfelt creation by Rina Das and her daughter, Sakshi Das. Together, they envisioned a brand that would not only meet the intimate care needs of both men and women but also make everyone feel confident, included, and empowered.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/xsOUcq-W58_Screenshot%202024-11-19%20at%205.webp",
+      "images": [
+        
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/qP5ZQBTgm-_Screenshot%202024-11-19%20at%205.webp",
+        
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/QeuACpZGil_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/CHZcVCK6gd_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/zKW-2pCi9s_Screenshot%202024-11-19%20at%205.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/Ol_Y7ocvqR_Screenshot%202024-11-19%20at%205.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "Vallaree",
+      "date": "June 2023"
+    },
+    {
+      "id": 22,
+      "title": "DG Mining",
+      "type": ["3D motion design", "Web3"],
+      "description": "DG Mining",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/0k1aoOzhSC_Screenshot%202024-11-18%20at%202.webp",
+      "images": [
+        
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/_QTTw-9xnG_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/z1f8nfS7M4_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/b3v6Fd0VMZ_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/44CVDU1j6_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/4iRgNU_MHe_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/5x_rWiel5u_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/eanTkpdhKt_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/SHtjjEMTta_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/ZOyclyNXma_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/2ETDzSEz8T_Screenshot%202024-11-18%20at%202.webp",
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/Esht57HOvA_Screenshot%202024-11-18%20at%202.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "DG Mining",
+      "date": "June 2023"
+    },
+    {
+      "id": 23,
+      "title": "Dsrd Institute",
+      "type": ["3D motion design", "Web3"],
+      "description": "This institute is to assess the candidates and impart the training on “Career Development Program” with relevant technical skills and behavioural aspects for achieving their career goals after completion of their education.",
+      "imageUrl": "https://innogativebucket.s3.ap-south-1.amazonaws.com/QtW4-KYSJL_Screenshot%202024-11-18%20at%203.webp",
+      "images": [
+        
+        "https://innogativebucket.s3.ap-south-1.amazonaws.com/A0w6x7Dl6U_Screenshot%202024-11-18%20at%203.webp",
+                "https://innogativebucket.s3.ap-south-1.amazonaws.com/lHavkCCKl_Screenshot%202024-11-18%20at%203.webp",
+                "https://innogativebucket.s3.ap-south-1.amazonaws.com/6ibejpvG7p_Screenshot%202024-11-18%20at%203.webp",
+                "https://innogativebucket.s3.ap-south-1.amazonaws.com/kqYO3qhhsv_Screenshot%202024-11-18%20at%203.webp",
+                "https://innogativebucket.s3.ap-south-1.amazonaws.com/3u-o8uR81x_Screenshot%202024-11-18%20at%203.webp",
+                "https://innogativebucket.s3.ap-south-1.amazonaws.com/xa4aXBABUo_Screenshot%202024-11-18%20at%203.webp",
+                "https://innogativebucket.s3.ap-south-1.amazonaws.com/fPft7J44TP_Screenshot%202024-11-18%20at%203.webp"
+      ],
+      "videoUrl": "https://player.vimeo.com/video/555521832",
+      "client": "Dsrd Institute",
       "date": "June 2023"
     }
   ]
