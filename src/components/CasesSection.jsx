@@ -12,7 +12,7 @@ export default function Cases() {
     <section className=" px-4 py-16 bg-white">
       <div className="relative z-10 pointer-events-auto max-w-7xl mx-auto">
         <div className="flex justify-between">
-          <p className="text-gray-600 mb-4">Selected works</p>
+          <p className="text-gray-600 mb-4 text-xl">Selected works</p>
 
           <p className="text-4xl md:text-5xl lg:text-8xl leading-[10px] font-bold mb-16">
             See{" "}

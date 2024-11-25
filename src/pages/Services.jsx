@@ -8,6 +8,7 @@ import StickyNavbar from '../common/StickyNavbar';
 import DevelopmentServices from '../components/DevelopmentServices';
 import Form from '../components/formSection';
 import AwardsAndFactsSection from '../components/AwardsSection';
+import { Link } from "react-router-dom";
 
 const Services = ({ setIsNavbarVisible }) => {
   const contactRef = useRef(null);
@@ -42,10 +43,103 @@ const Services = ({ setIsNavbarVisible }) => {
     };
   }, [setIsNavbarVisible]);
 
+
+  useEffect(() => {
+    const circle = document.getElementById("custom-circle");
+    let mouseX = 0,
+      mouseY = 0;
+    let circleX = 0,
+      circleY = 0;
+    const speed = 0.2;
+
+    const handleMouseMove = (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+
+    const smoothMove = () => {
+      circleX += (mouseX - circleX) * speed;
+      circleY += (mouseY - circleY) * speed;
+
+      if (circle) {
+        circle.style.left = `${circleX}px`;
+        circle.style.top = `${circleY}px`;
+      }
+
+      requestAnimationFrame(smoothMove);
+    };
+
+    smoothMove();
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  useEffect(() => {
+    const circle = document.getElementById("custom-circle");
+    const sections = ["banner", "home", "other"];
+    circle.classList.add("other-style");
+  }, []);
+
+  useEffect(() => {
+    const circle = document.getElementById("custom-circle");
+    const hoverTargets = document.querySelectorAll(".hover-target");
+
+    const handleMouseEnter = (e) => {
+      if (circle) {
+        circle.style.width = "80px";
+        circle.style.height = "80px";
+        circle.style.border = "2px solid orange";
+        circle.style.backgroundColor = "transparent";
+        circle.style.fontSize = "14px";
+        const span = circle.querySelector("span");
+        if (span) {
+          span.style.display = "block";
+          span.textContent = e.target.getAttribute("data-text") || "Let's Talk";
+        }
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (circle) {
+        circle.style.width = "15px";
+        circle.style.height = "15px";
+        circle.style.border = "2px solid orange";
+        circle.style.backgroundColor = "transparent";
+        circle.style.fontSize = "0";
+        const span = circle.querySelector("span");
+        if (span) {
+          span.style.display = "none";
+        }
+      }
+    };
+
+    hoverTargets.forEach((target) => {
+      target.addEventListener("mouseenter", handleMouseEnter);
+      target.addEventListener("mouseleave", handleMouseLeave);
+    });
+
+    return () => {
+      hoverTargets.forEach((target) => {
+        target.removeEventListener("mouseenter", handleMouseEnter);
+        target.removeEventListener("mouseleave", handleMouseLeave);
+      });
+    };
+  }, []);
+
   return (
     <>
+    <Link
+        to="#contact"
+        id="custom-circle"
+        className="custom-circle z-[5000] hidden md:block"
+      >
+      </Link>
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center bg-zinc-900 py-32">
+      <section  className="min-h-screen flex items-center justify-center bg-zinc-900 py-32">
         <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 lg:px-24">
           <div className="flex flex-col gap-16 max-w-6xl mx-auto">
             <div className="relative">
@@ -92,94 +186,31 @@ const Services = ({ setIsNavbarVisible }) => {
       </section>
 
 
+      {/* Web Services */}
+      <section id="web" className="min-h-screen">
+        <DesignServices />
+        <Features />
+      </section>
+
+      {/* Personal Branding Services */}
+      <section id="personal">
+        <DevelopmentServices />
+      </section>
+
+
+      {/* Development Services */}
+      <section id="development" className="min-h-screen">
+        <DesignServices />
+        <Features />
+      </section> 
+      
       {/* Design Services */}
       <section id="design" className="min-h-screen">
         <DesignServices />
         <Features />
       </section>
 
-      {/* Discovery Phase */}
-      <section id="discovery">
-        <Discovery scrollToContact={scrollToContact} />
-      </section>
-
-      {/* Development Services */}
-      <section id="development">
-        <DevelopmentServices />
-      </section>
-
-      {/* How We Work */}
-      <section id="work" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-          <div className="relative mb-20">
-            <div className="relative text-center">
-              <h2 className="sm:text-4xl md:text-5xl font-bold tracking-tight">
-                Did you face{' '}
-                <span className="text-orange-500">miscommunication</span> between
-                <br />
-                design & development
-                <br />
-                teams?
-              </h2>
-              <p className="mt-8 text-xl text-gray-600 max-w-3xl mx-auto">
-                Our developers and designers cooperate closely to overcome any challenges.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
-            <div className="group p-8 rounded-2xl transition-all duration-300 hover:bg-gray-50">
-              <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-200 transition-colors duration-300">
-                <MessageSquare className="w-7 h-7 text-orange-600" />
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">Efficient Team Communication</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Our development team is in frequent contact with our designers. Thanks to this, any problems are tackled rapidly at source.
-              </p>
-            </div>
-
-            <div className="group p-8 rounded-2xl transition-all duration-300 hover:bg-gray-50">
-              <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-200 transition-colors duration-300">
-                <Brain className="w-7 h-7 text-orange-600" />
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">Research-Driven Success</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Thorough research at both the beginning of a project and during the discovery stage is key to success. This includes business analysis for large products, as it minimizes the number of edits that are needed.
-              </p>
-            </div>
-
-            <div className="group p-8 rounded-2xl transition-all duration-300 hover:bg-gray-50">
-              <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-200 transition-colors duration-300">
-                <Code2 className="w-7 h-7 text-orange-600" />
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">Future-Proof Development</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Our developers are highly trained, and their designs can always be scaled in the future.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Cases */}
-      <section id="cases" className="min-h-screen bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <h2 className="text-4xl font-bold text-center">Our Cases</h2>
-        </div>
-      </section>
-
-      {/* Reviews */}
-      <section id="reviews" className="min-h-screen bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <h2 className="text-4xl font-bold text-center">Client Reviews</h2>
-        </div>
-      </section>
-
-
-      {/* Awards */}
-      <section id="awards" className="min-h-screen bg-gray-50">
-        <AwardsAndFactsSection />
-      </section>
+      
 
 
       {/* Contact */}

@@ -140,16 +140,7 @@ export default function Form() {
       name: "Rakshit Tiwari",
       role: "",
       title: "Project Talk",
-      email: "director@innogative.in",
-      showIcons: true,
-      image:
-        "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2024/10/ks.png.webp",
-    },
-    {
-      name: "Palion",
-      role: "",
-      title: "Project Talk",
-      email: "palion@phennon.in",
+      email: "info@innogative.in",
       showIcons: true,
       image:
         "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2024/10/ks.png.webp",

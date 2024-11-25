@@ -8,32 +8,7 @@ const IMAGES = {
 
 
 const AWARDS = [
-  { 
-    name: "UX Design Awards", 
-    description: "Nomination",
-    link: "#ux-awards" 
-  },
-  { 
-    name: "Awwwards", 
-    description: "Honorable mentions",
-    link: "#awwwards" 
-  },
-  { 
-    name: "Behance", 
-    description: "Featured in different galleries",
-    link: "#behance" 
-  },
-  { 
-    name: "UpCity", 
-    description: "Featured on UpCity",
-    link: "#upcity" 
-  },
-  { 
-    name: "The Manifest", 
-    description: "The Most Reviewed Company in Switzerland 2023",
-    link: "#manifest" 
-  }
-
+ 
 ];
 
 
