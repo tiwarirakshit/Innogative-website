@@ -34,9 +34,10 @@
 
 /* Base style for the circle */
 .custom-circle {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
   border-radius: 50%;
   position: fixed;
   cursor: pointer;
@@ -51,6 +52,9 @@
   color: black;
   font-size: 14px;   /* Adjust text size */
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Style for the other sections (smaller circle with a border) */

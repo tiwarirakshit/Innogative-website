@@ -236,7 +236,7 @@ const Home = () => {
         id="custom-circle"
         className="custom-circle z-[5000] hidden md:block"
       >
-        <span> Let's Talk</span>
+        <span className="h-full w-full flex items-center justify-center mt-12 text-lg"> Let's Talk</span>
       </Link>
 
       <div id="banner" className="h-screen bg-[#121214] w-full relative">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, Play } from 'lucide-react';
 
@@ -6,6 +6,92 @@ const ProjectPage = ({ projects }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const project = projects.find(p => p.id === parseInt(id));
+
+  useEffect(() => {
+    const circle = document.getElementById("custom-circle");
+    let mouseX = 0,
+      mouseY = 0;
+    let circleX = 0,
+      circleY = 0;
+    const speed = 0.2;
+
+    const handleMouseMove = (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+
+    const smoothMove = () => {
+      circleX += (mouseX - circleX) * speed;
+      circleY += (mouseY - circleY) * speed;
+
+      if (circle) {
+        circle.style.left = `${circleX}px`;
+        circle.style.top = `${circleY}px`;
+      }
+
+      requestAnimationFrame(smoothMove);
+    };
+
+    smoothMove();
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  useEffect(() => {
+    const circle = document.getElementById("custom-circle");
+    const sections = ["banner", "home", "other"];
+    circle.classList.add("other-style");
+  }, []);
+
+  useEffect(() => {
+    const circle = document.getElementById("custom-circle");
+    const hoverTargets = document.querySelectorAll(".hover-target");
+
+    const handleMouseEnter = (e) => {
+      if (circle) {
+        circle.style.width = "80px";
+        circle.style.height = "80px";
+        circle.style.border = "2px solid orange";
+        circle.style.backgroundColor = "transparent";
+        circle.style.fontSize = "14px";
+        const span = circle.querySelector("span");
+        if (span) {
+          span.style.display = "block";
+          span.textContent = e.target.getAttribute("data-text") || "Let's Talk";
+        }
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (circle) {
+        circle.style.width = "15px";
+        circle.style.height = "15px";
+        circle.style.border = "2px solid orange";
+        circle.style.backgroundColor = "transparent";
+        circle.style.fontSize = "0";
+        const span = circle.querySelector("span");
+        if (span) {
+          span.style.display = "none";
+        }
+      }
+    };
+
+    hoverTargets.forEach((target) => {
+      target.addEventListener("mouseenter", handleMouseEnter);
+      target.addEventListener("mouseleave", handleMouseLeave);
+    });
+
+    return () => {
+      hoverTargets.forEach((target) => {
+        target.removeEventListener("mouseenter", handleMouseEnter);
+        target.removeEventListener("mouseleave", handleMouseLeave);
+      });
+    };
+  }, []);
 
   if (!project) {
     return (
@@ -30,6 +116,12 @@ const ProjectPage = ({ projects }) => {
 
   return (
     <>
+     <Link
+        to="#contact"
+        id="custom-circle"
+        className="custom-circle z-[5000] hidden md:block"
+      >
+      </Link>
       <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Breadcrumb */}
         <div className="mb-4 flex items-center text-sm text-gray-500 mt-10">
