@@ -33,7 +33,7 @@ const PrinciplesSection = () => {
           </h2>
           <h2 className="text-6xl font-bold mb-6">behind</h2>
           <p className="text-gray-600 max-w-md">
-            Phenomenon is a team of like-minded professionals who are united by similar
+            Innogative is a team of like-minded professionals who are united by similar
             goals, principles, values and approaches to what we do.
           </p>
         </div>
