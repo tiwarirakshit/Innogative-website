@@ -55,7 +55,7 @@ const TeamAndAdvisors = () => {
           {/* Left Text Section */}
           <div className="text-center lg:text-left lg:max-w-lg space-y-8">
             <h1 className="text-4xl md:text-7xl font-bold leading-tight">
-              Phenomenon <span className="text-orange-500">Team</span> &
+              Innogative <span className="text-orange-500">Team</span> &
               Advisors
             </h1>
             <p className="text-gray-400 mt-4">
