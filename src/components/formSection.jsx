@@ -138,13 +138,13 @@ export default function Form() {
   const teamMembers = [
     {
       name: "Rakshit Tiwari",
-      role: "",
+      role: "Founder",
       title: "Project Talk",
-      email: "info@innogative.in",
+      email: "director@innogative.in",
       showIcons: true,
       image:
         "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2024/10/ks.png.webp",
-    },
+    }
   ];
 
   return (
@@ -332,7 +332,7 @@ export default function Form() {
                         type="button"
                         className="sm:flex-none p-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800 transition-colors"
                         onClick={() =>
-                          window.open("https://wa.me/?text=", "_blank")
+                          window.open("https://wa.me/+917024298174/", "_blank")
                         }
                       >
                         <FaWhatsapp className="w-6 h-6" />
@@ -340,7 +340,7 @@ export default function Form() {
                       <button
                         type="button"
                         className="sm:flex-none p-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800 transition-colors"
-                        onClick={() => window.open("mailto:?", "_blank")}
+                        onClick={() => window.open("mailto:director@innogative.in", "_blank")}
                       >
                         <FaEnvelope className="w-6 h-6" />
                       </button>
