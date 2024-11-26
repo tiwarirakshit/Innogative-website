@@ -110,7 +110,7 @@ const AboutUs = () => {
                 </h3>
                 <div className="space-y-4">
                   <p className="text-gray-600 text-lg">
-                    Founded in 2019 as a Ukrainian design & development studio, Phenomenon
+                    Founded in 2019 as a Ukrainian design & development studio, Innogative
                     has grown into a top-rated international agency with offices in
                     Ukraine, Poland, Estonia, and Switzerland.
                   </p>
