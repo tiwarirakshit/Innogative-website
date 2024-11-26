@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, Play } from 'lucide-react';
 
@@ -6,6 +6,37 @@ const ProjectPage = ({ projects }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const project = projects.find(p => p.id === parseInt(id));
+  const scrollContainerRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const slideInterval = useRef(null);
+
+  // Combine main image with additional images for slideshow
+  const allImages = project ? [project.imageUrl, ...(project.images || [])] : [];
+
+  useEffect(() => {
+    // Start the slideshow
+    if (allImages.length > 1) {
+      slideInterval.current = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => 
+          prevIndex === allImages.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 5000); // Change image every 5 seconds
+    }
+
+    return () => {
+      if (slideInterval.current) {
+        clearInterval(slideInterval.current);
+      }
+    };
+  }, [allImages.length]);
+
+  // Reset slideshow when changing projects
+  useEffect(() => {
+    setCurrentImageIndex(0);
+  }, [project]);
 
   useEffect(() => {
     const circle = document.getElementById("custom-circle");
@@ -93,6 +124,41 @@ const ProjectPage = ({ projects }) => {
     };
   }, []);
 
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleImageClick = (index) => {
+    setCurrentImageIndex(index);
+    // Reset the interval when manually changing images
+    if (slideInterval.current) {
+      clearInterval(slideInterval.current);
+      slideInterval.current = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => 
+          prevIndex === allImages.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 5000);
+    }
+  };
+
   if (!project) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -116,7 +182,7 @@ const ProjectPage = ({ projects }) => {
 
   return (
     <>
-     <Link
+      <Link
         to="#contact"
         id="custom-circle"
         className="custom-circle z-[5000] hidden md:block"
@@ -148,29 +214,68 @@ const ProjectPage = ({ projects }) => {
           ))}
         </div>
         
-        {/* Main Project Image */}
-        <div className="relative w-full aspect-video mb-8 overflow-hidden rounded-2xl">
-          <img 
-            src={project.imageUrl} 
-            alt={project.title} 
-            className="w-full h-full object-cover"
-          />
-          
+        {/* Main Project Image with Slideshow */}
+        <div className="relative w-full aspect-video mb-8 overflow-hidden rounded-2xl group">
+          {allImages.map((image, index) => (
+            <img 
+              key={index}
+              src={image} 
+              alt={`${project.title} - Slide ${index + 1}`}
+              className={`absolute w-full h-full object-cover transition-opacity duration-500 ${
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          ))}
+          {/* Slide indicators */}
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            {allImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleImageClick(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentImageIndex 
+                    ? 'bg-white w-4' 
+                    : 'bg-white/50 hover:bg-white/75'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* Additional Images Grid - Single Line with Hidden Scrollbar */}
+        {/* Additional Images Grid - Single Line with Hidden Scrollbar and Drag Scroll */}
         {project.images && project.images.length > 0 && (
           <div className="mb-16">
-            <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-4 snap-x">
-              {project.images.map((image, index) => (
+            <div
+              ref={scrollContainerRef}
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              className={`
+                flex gap-4 overflow-x-auto scrollbar-hide pb-4 snap-x cursor-grab
+                ${isDragging ? 'cursor-grabbing select-none' : ''}
+              `}
+              style={{
+                scrollBehavior: isDragging ? 'auto' : 'smooth',
+                WebkitOverflowScrolling: 'touch'
+              }}
+            >
+              {allImages.map((image, index) => (
                 <div 
                   key={index}
-                  className="relative w-64 flex-none aspect-[4/3] overflow-hidden rounded-xl snap-start"
+                  onClick={() => handleImageClick(index)}
+                  className={`
+                    relative w-64 flex-none aspect-[4/3] overflow-hidden rounded-xl snap-start cursor-pointer
+                    ${currentImageIndex === index ? 'ring-2 ring-blue-500' : ''}
+                  `}
+                  style={{ userSelect: 'none' }}
                 >
                   <img 
                     src={image} 
                     alt={`${project.title} - Image ${index + 1}`}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    draggable="false"
                   />
                   <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300"></div>
                 </div>
