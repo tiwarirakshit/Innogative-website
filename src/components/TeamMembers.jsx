@@ -5,13 +5,13 @@ const teamMembers = [
     name: 'Polina Chebanova',
     title: 'Co-founder',
     image: 'https://phenomenonstudio.com/wp-content/uploads/2024/09/1.jpg',
-    description: `An experienced manager who oversees Phenomenon customer relations and leads the team behind it. Polina also has deep expertise in design, having created numerous successful products in the past.`,
+    description: `An experienced manager who oversees Innogative customer relations and leads the team behind it. Polina also has deep expertise in design, having created numerous successful products in the past.`,
   },
   {
     name: 'Valerii Filimonov',
     title: 'CEO & Co-founder',
     image: 'https://phenomenonstudio.com/wp-content/uploads/2024/09/2.jpg',
-    description: `CEO of Phenomenon Studio, Valerii brings leadership experience and has helped shape the company into what it is today. His vision drives the company's innovation.`,
+    description: `CEO of Innogative Studio, Valerii brings leadership experience and has helped shape the company into what it is today. His vision drives the company's innovation.`,
   },
   {
     name: 'Yuliia Apanasenko',
