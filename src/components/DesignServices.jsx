@@ -43,7 +43,7 @@ const DesignServices = () => {
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-6xl font-bold">
-            <span className="text-orange-500">Design</span> services
+            <span className="text-orange-500">Web</span> services
           </h2>
         </div>
         

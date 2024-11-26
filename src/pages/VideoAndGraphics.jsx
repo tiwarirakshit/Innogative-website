@@ -1,14 +1,10 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import './VideoAndGraphics.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const VideoAndGraphics = () => {
-  const [selectedMedia, setSelectedMedia] = useState(null);
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   const mediaItems = [
     { type: 'image', src: 'https://picsum.photos/500/300?random=1' },
     { type: 'image', src: 'https://picsum.photos/500/300?random=2' },
@@ -19,8 +15,14 @@ const VideoAndGraphics = () => {
     { type: 'image', src: 'https://picsum.photos/500/300?random=7' },
     { type: 'image', src: 'https://picsum.photos/500/300?random=8' },
     { type: 'image', src: 'https://picsum.photos/500/300?random=9' },
-    // Add more items here
   ];
+
+  // Initialize selectedMedia with the first item
+  const [selectedMedia, setSelectedMedia] = useState(mediaItems[0]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const settings = {
     dots: false,
@@ -55,58 +57,50 @@ const VideoAndGraphics = () => {
     setSelectedMedia(media);
   };
 
-
   useEffect(() => {
     const circle = document.getElementById('custom-circle');
     let mouseX = 0, mouseY = 0;
     let circleX = 0, circleY = 0;
-    const speed = 0.2; // Speed of following the mouse (0.1 = slow, 1 = instant)
+    const speed = 0.2;
 
-    // Update target position on mouse move
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX; // Use clientX for viewport-relative coordinates
-      mouseY = e.clientY; // Use clientY for viewport-relative coordinates
-    });
+    const handleMouseMove = (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
 
-    // Smooth movement using requestAnimationFrame
+    document.addEventListener('mousemove', handleMouseMove);
+
     const smoothMove = () => {
-      // Calculate the difference and apply the speed factor
       circleX += (mouseX - circleX) * speed;
       circleY += (mouseY - circleY) * speed;
 
-      // Update the circle position
-      circle.style.left = `${circleX}px`;
-      circle.style.top = `${circleY}px`;
+      if (circle) {
+        circle.style.left = `${circleX}px`;
+        circle.style.top = `${circleY}px`;
+      }
 
-      requestAnimationFrame(smoothMove); // Keep the animation going
+      requestAnimationFrame(smoothMove);
     };
 
-    smoothMove(); // Start the animation
+    smoothMove();
 
     return () => {
-      document.removeEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-      });
+      document.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
   return (
     <>
       <a href="#contact" id="custom-circle" className="custom-circle other-style z-[5000]">
-        <span> Let's Talk</span>
+        <span>Let's Talk</span>
       </a>
-      <div className="video-and-graphics-container overflow-hidden">
+      <div className="video-and-graphics-container overflow-hidden ">
         {/* Full-Screen Preview */}
-        <div className="preview-container brightness-75">
-          {selectedMedia ? (
-            selectedMedia.type === 'image' ? (
-              <img src={selectedMedia.src} alt="Preview" className="preview-media w-full h-full object-cover " />
-            ) : (
-              <video src={selectedMedia.src} controls autoPlay className="preview-media" />
-            )
+        <div className="preview-container brightness-75 ">
+          {selectedMedia.type === 'image' ? (
+            <img src={selectedMedia.src} alt="Preview" className="preview-media w-[70vw] h-[70vh] object-cover rounded-lg" />
           ) : (
-            <div className="preview-placeholder">Select a media to preview</div>
+            <video src={selectedMedia.src} controls autoPlay className="preview-media" />
           )}
         </div>
 

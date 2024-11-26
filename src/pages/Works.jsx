@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronRight, ChevronDown } from 'lucide-react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { ChevronRight } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import projectData from '../data.json';
 import Projects from '../components/Projects';
 import Form from '../components/formSection';
-
 
 const projectCategories = [
   'All projects',
@@ -28,11 +27,14 @@ const Works = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [activeCategory, setActiveCategory] = useState(searchParams.get('filter') || 'All projects');
   const [activeIndustry, setActiveIndustry] = useState('All industries');
-  const [visibleProjects, setVisibleProjects] = useState(4);
+  const [visibleProjects, setVisibleProjects] = useState(8);
+  const [loading, setLoading] = useState(false);
+  const loader = useRef(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  // Effect to handle incoming filter parameter
+
   useEffect(() => {
     const filterParam = searchParams.get('filter');
     if (filterParam) {
@@ -52,9 +54,31 @@ const Works = () => {
     return categoryMatch && industryMatch;
   });
 
-  const showMoreProjects = () => {
-    setVisibleProjects((prevVisible) => Math.min(prevVisible + 4, filteredProjects.length));
-  };
+  const handleObserver = useCallback((entries) => {
+    const target = entries[0];
+    if (target.isIntersecting && !loading) {
+      setLoading(true);
+      // Simulate loading delay
+      setTimeout(() => {
+        setVisibleProjects((prev) => Math.min(prev + 4, filteredProjects.length));
+        setLoading(false);
+      }, 500);
+    }
+  }, [loading, filteredProjects.length]);
+
+  useEffect(() => {
+    const option = {
+      root: null,
+      rootMargin: "20px",
+      threshold: 0
+    };
+    const observer = new IntersectionObserver(handleObserver, option);
+    if (loader.current) observer.observe(loader.current);
+    
+    return () => {
+      if (loader.current) observer.unobserve(loader.current);
+    };
+  }, [handleObserver]);
 
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
@@ -64,7 +88,7 @@ const Works = () => {
       searchParams.set('filter', category);
     }
     setSearchParams(searchParams);
-    setVisibleProjects(4); // Reset visible projects when changing category
+    setVisibleProjects(8); // Reset visible projects when changing category
   };
 
   const handleIndustryChange = (industry) => {
@@ -75,12 +99,8 @@ const Works = () => {
       searchParams.set('filter', industry);
     }
     setSearchParams(searchParams);
-    setVisibleProjects(4); // Reset visible projects when changing industry
+    setVisibleProjects(8); // Reset visible projects when changing industry
   };
-
-
-
-
 
   useEffect(() => {
     const circle = document.getElementById("custom-circle");
@@ -170,7 +190,7 @@ const Works = () => {
 
   return (
     <>
-     <Link
+      <Link
         to="#contact"
         id="custom-circle"
         className="custom-circle z-[5000] hidden md:block"
@@ -232,14 +252,8 @@ const Works = () => {
         )}
 
         {visibleProjects < filteredProjects.length && (
-          <div className="flex justify-center mt-24">
-            <button
-              onClick={showMoreProjects}
-              className="bg-orange-500 text-white rounded-full p-4 flex items-center justify-center hover:bg-orange-600 transition-colors"
-            >
-              <ChevronDown className="w-6 h-6 mr-2" />
-              Show more
-            </button>
+          <div ref={loader} className="flex justify-center py-8">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500"></div>
           </div>
         )}
       </section>

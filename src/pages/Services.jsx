@@ -9,7 +9,8 @@ import DevelopmentServices from '../components/DevelopmentServices';
 import Form from '../components/formSection';
 import AwardsAndFactsSection from '../components/AwardsSection';
 import { Link } from "react-router-dom";
-
+import PersonalBranding from '../components/PersonalBranding';
+import EditAndDesign from '../components/EditAndDesign';
 const Services = ({ setIsNavbarVisible }) => {
   const contactRef = useRef(null);
 
@@ -194,20 +195,19 @@ const Services = ({ setIsNavbarVisible }) => {
 
       {/* Personal Branding Services */}
       <section id="personal">
-        <DevelopmentServices />
+      <PersonalBranding/>
       </section>
 
 
       {/* Development Services */}
       <section id="development" className="min-h-screen">
-        <DesignServices />
-        <Features />
+        
+        <DevelopmentServices />
       </section> 
       
-      {/* Design Services */}
+      {/* Video Editing and  Desinging */}
       <section id="design" className="min-h-screen">
-        <DesignServices />
-        <Features />
+        <EditAndDesign/>
       </section>
 
       

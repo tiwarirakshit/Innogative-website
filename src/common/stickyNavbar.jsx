@@ -54,15 +54,15 @@ const StickyNavbar = ({ onVisibilityChange }) => {
   return (
     <nav
       id="sticky-navbar"
-      className={`w-10/12 mx-auto border-2 rounded-full z-50 transition-all duration-300 ${
+      className={`w-8/12 mx-auto border-2 rounded-full z-50 transition-all duration-300  ${
         window.scrollY > 0
           ? 'fixed top-0 left-0 right-0 bg-white/30 backdrop-blur-md shadow-sm'
           : 'relative bg-white/30 text-black'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-2">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-2 ">
         <div className="flex justify-center">
-          <div className="flex space-x-1 py-4 overflow-x-auto">
+          <div className="flex space-x-1 py-4 overflow-x-auto scrollbar-hide">
             {navItems.map((item) => (
               <button
                 key={item.id}

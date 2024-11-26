@@ -127,8 +127,15 @@ const Navbar = () => {
 
         {/* Hamburger Menu for Small Screens */}
         <div className="md:hidden z-[1000]">
-          <button onClick={toggleMenu}>
-            {isOpen ? <span className="text-3xl">&#10005;</span> : <span className="text-3xl">&#9776;</span>}
+          <button 
+            onClick={toggleMenu}
+            className="p-2 hover:bg-gray-700 rounded-lg transition-colors duration-200"
+          >
+            {isOpen ? (
+              <span className="text-2xl">&#10005;</span>
+            ) : (
+              <span className="text-2xl">&#9776;</span>
+            )}
           </button>
         </div>
 
@@ -151,7 +158,7 @@ const Navbar = () => {
             </button>
             {isDropdownOpen && (
               <div
-                className="absolute top-8 left-[-680px] bg-[#121214] text-white p-8 rounded-lg shadow-lg w-[100vw] flex space-x-12 z-50 justify-center items-center transition-opacity duration-300"
+                className="absolute top-12 left-[-200px] bg-[#121214] text-white p-8 rounded-lg shadow-lg w-[30vw] flex space-x-12 z-50 justify-center items-center transition-opacity duration-300"
                 onMouseEnter={handleDropdownMouseEnter}
                 onMouseLeave={handleDropdownMouseLeave}
               >
@@ -209,60 +216,99 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden absolute top-0 left-0 w-full h-screen bg-black z-20">
-          <div className="flex flex-col items-start p-8 space-y-8">
-            <button className="text-3xl self-end" onClick={toggleMenu}>
+        <div className="md:hidden fixed inset-0 bg-black bg-opacity-95 z-50 overflow-y-auto">
+          <div className="min-h-screen flex flex-col p-6 pt-20">
+            <button 
+              className="absolute top-4 right-4 text-2xl p-2 hover:bg-gray-800 rounded-lg transition-colors duration-200" 
+              onClick={toggleMenu}
+            >
               &#10005;
             </button>
-            {[{ to: '/works', text: 'Works' }, { to: '/services', text: 'Services' }].map(({ to, text }) => (
-              <div key={to} className="w-full relative">
-                <Link
-                  to={to}
-                  className={`text-2xl flex w-full justify-between transition-colors duration-200 ${activeLink === to ? 'text-red-500' : 'hover:text-orange-500'}`}
-                  onClick={() => handleLinkClick(to)}
-                >
-                  {text} <span>+</span>
-                </Link>
-                {activeLink === to && (
-                  <img
-                    src={Headline}
-                    alt="Underline"
-                    className="absolute -bottom-4 left-0 w-full h-2 object-cover"
-                  />
-                )}
-              </div>
-            ))}
-
-            {/* Company Dropdown for Mobile */}
-            <div className="w-full relative">
-              <button
-                onClick={toggleMobileDropdown}
-                className={`text-2xl flex justify-between w-full transition-colors duration-200 ${activeLink === '/company' ? 'text-red-500' : 'hover:text-orange-500'}`}
-              >
-                Company <span>{isMobileDropdownOpen ? '-' : '+'}</span>
-              </button>
-              {isMobileDropdownOpen && (
-                <div className="pl-4 mt-2 space-y-2 flex flex-col">
-                  <Link 
-                    to="/company" 
-                    className="text-lg hover:text-yellow-400 transition-colors duration-200" 
-                    onClick={() => { handleLinkClick('/company'); toggleMenu(); }}
+            
+            <div className="flex flex-col space-y-6">
+              {[
+                { to: '/works', text: 'Works' },
+                { to: '/services', text: 'Services' }
+              ].map(({ to, text }) => (
+                <div key={to} className="border-b border-gray-800 pb-4">
+                  <Link
+                    to={to}
+                    className={`text-xl flex justify-between items-center transition-colors duration-200 ${
+                      activeLink === to ? 'text-orange-500' : 'hover:text-orange-500'
+                    }`}
+                    onClick={() => handleLinkClick(to)}
                   >
-                    About Us
-                  </Link>
-                  <Link 
-                    to="/team-and-advisors" 
-                    className="text-lg hover:text-yellow-400 transition-colors duration-200" 
-                    onClick={() => { handleLinkClick('/team-and-advisors'); toggleMenu(); }}
-                  >
-                    Team and Advisors
+                    {text}
+                    <span className="text-sm">+</span>
                   </Link>
                 </div>
-              )}
-            </div>
+              ))}
 
-            <NavLink to="/graphics">Video/Graphics</NavLink>
-            <NavLink to="/contact">Contact Us</NavLink>
+              {/* Company Dropdown for Mobile */}
+              <div className="border-b border-gray-800 pb-4">
+                <button
+                  onClick={toggleMobileDropdown}
+                  className={`text-xl flex justify-between items-center w-full transition-colors duration-200 ${
+                    activeLink === '/company' ? 'text-orange-500' : 'hover:text-orange-500'
+                  }`}
+                >
+                  Company
+                  <span className="text-sm">{isMobileDropdownOpen ? '-' : '+'}</span>
+                </button>
+                {isMobileDropdownOpen && (
+                  <div className="mt-4 pl-4 space-y-4">
+                    <Link 
+                      to="/company" 
+                      className="block text-gray-300 hover:text-orange-500 transition-colors duration-200" 
+                      onClick={() => { handleLinkClick('/company'); toggleMenu(); }}
+                    >
+                      About Us
+                    </Link>
+                    <Link 
+                      to="/team-and-advisors" 
+                      className="block text-gray-300 hover:text-orange-500 transition-colors duration-200" 
+                      onClick={() => { handleLinkClick('/team-and-advisors'); toggleMenu(); }}
+                    >
+                      Team and Advisors
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <div className="border-b border-gray-800 pb-4">
+                <Link
+                  to="/graphics"
+                  className={`text-xl block transition-colors duration-200 ${
+                    activeLink === '/graphics' ? 'text-orange-500' : 'hover:text-orange-500'
+                  }`}
+                  onClick={() => handleLinkClick('/graphics')}
+                >
+                  Video/Graphics
+                </Link>
+              </div>
+
+              <div className="border-b border-gray-800 pb-4">
+                <Link
+                  to="/contact"
+                  className={`text-xl block transition-colors duration-200 ${
+                    activeLink === '/contact' ? 'text-orange-500' : 'hover:text-orange-500'
+                  }`}
+                  onClick={() => handleLinkClick('/contact')}
+                >
+                  Contact Us
+                </Link>
+              </div>
+
+              {/* Mobile Get in Touch Button */}
+              <Link
+                to="/contact"
+                className="mt-6 flex items-center justify-center space-x-2 bg-orange-500 px-6 py-3 rounded-full text-white hover:bg-orange-600 transition-colors duration-200"
+                onClick={() => { handleLinkClick("/contact-button"); toggleMenu(); }}
+              >
+                <span className="inline-flex items-center justify-center bg-white text-black rounded-full h-6 w-6">&#10132;</span>
+                <span>Get in touch</span>
+              </Link>
+            </div>
           </div>
         </div>
       )}
