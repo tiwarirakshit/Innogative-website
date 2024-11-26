@@ -122,7 +122,7 @@ const TeamAndAdvisors = () => {
                 </span>
               </h2>
               <p className="text-gray-600 mb-6 text-lg">
-                Phenomenon is guided and supported by a distinguished team of
+                Innogative is guided and supported by a distinguished team of
                 best-in-class and accomplished advisors. With their strategic
                 guidance, product vision and business consulting, we empower our
                 customers to adopt a forward-thinking approach, seize
