@@ -1,16 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, Suspense, lazy } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import { Brain, MessageSquare, Code2 } from 'lucide-react';
-import DesignServices from '../components/DesignServices';
-import Features from '../components/Features';
-import Discovery from '../components/Discovery';
-import StickyNavbar from '../common/StickyNavbar';
-import DevelopmentServices from '../components/DevelopmentServices';
-import Form from '../components/formSection';
-import AwardsAndFactsSection from '../components/AwardsSection';
 import { Link } from "react-router-dom";
-import PersonalBranding from '../components/PersonalBranding';
-import EditAndDesign from '../components/EditAndDesign';
+import StickyNavbar from '../common/StickyNavbar';
+
+const DesignServices = lazy(() => import('../components/DesignServices'));
+const Features = lazy(() => import('../components/Features'));
+
+const DevelopmentServices = lazy(() => import('../components/DevelopmentServices'));
+const Form = lazy(() => import('../components/formSection'));
+
+const PersonalBranding = lazy(() => import('../components/PersonalBranding'));
+const EditAndDesign = lazy(() => import('../components/EditAndDesign'));
 const Services = ({ setIsNavbarVisible }) => {
   const contactRef = useRef(null);
 
@@ -81,7 +82,7 @@ const Services = ({ setIsNavbarVisible }) => {
 
   useEffect(() => {
     const circle = document.getElementById("custom-circle");
-    const sections = ["banner", "home", "other"];
+   
     circle.classList.add("other-style");
   }, []);
 
@@ -130,7 +131,10 @@ const Services = ({ setIsNavbarVisible }) => {
       });
     };
   }, []);
-
+  const sectionVariants = (direction) => ({
+    hidden: { opacity: 0, x: direction === 'left' ? -100 : 100 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+  });
   return (
     <>
     <Link
@@ -140,83 +144,148 @@ const Services = ({ setIsNavbarVisible }) => {
       >
       </Link>
       {/* Hero Section */}
-      <section  className="min-h-screen flex items-center justify-center bg-zinc-900 py-32">
-        <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 lg:px-24">
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 py-32">
+        
+        <motion.div
+          className="max-w-[1400px] w-full mx-auto px-6 md:px-12 lg:px-24 "
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           <div className="flex flex-col gap-16 max-w-6xl mx-auto">
             <div className="relative">
               <Sparkles className="text-white absolute -top-8 -left-4 w-8 h-8" />
-              <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight max-w-4xl">
-                Get all the <span className="text-orange-500">benefits</span><br />
-                <span className="text-white">of</span> working with<br />
+              <motion.h1
+                className="text-5xl md:text-7xl font-bold text-white leading-tight max-w-4xl"
+                initial={{ x: -200 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 1 }}
+              >
+                Get all the <span className="text-orange-500">benefits</span>
+                <br />
+                <span className="text-white">of</span> working with
+                <br />
                 <span className="text-orange-500 relative">
                   full-cycle studio
                   <div className="absolute top-full left-0 right-0 -mt-2">
-                    <svg className="w-full" viewBox="0 0 400 20" fill="none">
-                      <path d="M2 17C133.333 7.66667 267.667 3.33333 399 4" stroke="#f97316" strokeWidth="3" strokeLinecap="round"/>
+                    <svg
+                      className="w-full"
+                      viewBox="0 0 400 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M2 17C133.333 7.66667 267.667 3.33333 399 4"
+                        stroke="#f97316"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                      />
                     </svg>
                   </div>
                 </span>
-              </h1>
+              </motion.h1>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="relative group justify-self-start md:justify-self-center">
-                <div className="w-48 h-48 bg-[#e5fb52] rounded-full flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105">
-                  <button 
+              <motion.div
+                className="relative group justify-self-start md:justify-self-center"
+                whileHover={{ scale: 1.1 }}
+              >
+                <div className="w-48 h-48 bg-[#e5fb52] rounded-full flex items-center justify-center cursor-pointer transition-transform duration-300">
+                  <button
                     onClick={scrollToContact}
-                    className="flex items-center gap-2 text-zinc-900 font-semibold text-lg">
+                    className="flex items-center gap-2 text-zinc-900 font-semibold text-lg"
+                  >
                     Let's talk
                     <ArrowRight className="w-5 h-5" />
                   </button>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="max-w-xl">
+              <motion.div
+                className="max-w-xl"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+              >
                 <p className="text-white text-xl leading-relaxed">
-                  Learn more about the team of professionals who care about your product as much as you do and the fields we can help you with.
+                  Learn more about the team of professionals who care about your
+                  product as much as you do and the fields we can help you with.
                 </p>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Sticky Navbar */}
-      <section className="sticky-nav">
+      <section className="sticky-nav shadow-lg">
         <StickyNavbar onVisibilityChange={setIsNavbarVisible} />
       </section>
 
 
-      {/* Web Services */}
-      <section id="web" className="min-h-screen">
-        <DesignServices />
-        <Features />
-      </section>
+     {/* Lazy-loaded sections with animations */}
+     <Suspense fallback={<div>Loading...</div>}>
+     <motion.section
+          id="web"
+          initial="hidden"
+          
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={sectionVariants('left')}
+        >
+          
+          <DesignServices />
+          
+        </motion.section>
 
-      {/* Personal Branding Services */}
-      <section id="personal">
-      <PersonalBranding/>
-      </section>
+        <motion.section
+          id="personal"
+          initial="hidden"
+          
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={sectionVariants('right')}
+        >
+          <PersonalBranding />
+        </motion.section>
 
+        <motion.section
+          id="development"
+          className="min-h-screen"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={sectionVariants('left')}
+        >
+          <DevelopmentServices />
+        </motion.section>
 
-      {/* Development Services */}
-      <section id="development" className="min-h-screen">
-        
-        <DevelopmentServices />
-      </section> 
-      
-      {/* Video Editing and  Desinging */}
-      <section id="design" className="min-h-screen">
-        <EditAndDesign/>
-      </section>
+        <motion.section
+          id="design"
+          className="min-h-screen"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={sectionVariants('right')}
+        >
+          <EditAndDesign />
+        </motion.section>
+      </Suspense>
 
-      
-
-
-      {/* Contact */}
-      <section id="contact" ref={contactRef} className="min-h-screen bg-white">
-        <Form />
-      </section>
+      {/* Contact Section */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <motion.section
+          id="contact"
+          ref={contactRef}
+          className="min-h-screen bg-white"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={sectionVariants('left')}
+        >
+          <Form />
+        </motion.section>
+      </Suspense>
     </>
   );
 };
