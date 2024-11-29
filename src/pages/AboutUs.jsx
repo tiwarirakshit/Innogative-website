@@ -59,9 +59,9 @@ const AboutUs = () => {
         </a>
       </div>
 
-      <div className="min-h-screen pt-16 ">
+      <div className="min-h-screen pt-20 ">
         {/* Section 1: Hero Section */}
-        <section className="bg-black text-white lg:p-8">
+        <section className="bg-black text-white lg:p-8  pt-4">
           <div className="container mx-auto w-10/12">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
               <div className="lg:w-1/2">

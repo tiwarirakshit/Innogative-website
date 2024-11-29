@@ -4,31 +4,38 @@ import { useNavigate, Link } from "react-router-dom";
 import { ArrowRight } from 'lucide-react';
 
 export default function Cases() {
-  // Extract the first four items from the portfolioData
+  
   const projects = projectData.projects.slice(0, 4);
   const navigate = useNavigate();
 
   return (
     <section className=" px-4 py-16 bg-white">
       <div className="relative z-10 pointer-events-auto max-w-7xl mx-auto">
-        <div className="flex justify-between">
-          <p className="text-gray-600 mb-4 text-xl">Selected works</p>
-
-          <p className="text-4xl md:text-5xl lg:text-8xl leading-[10px] font-bold mb-16">
-            See{" "}
-            <span className="text-blue-500 leading-[50px] ">the results</span>
-            <br />
+      <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-2">
+        <h3 className="text-gray-600 text-xl font-medium">
+          Selected works
+        </h3>
+        
+        <div className="max-w-3xl">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+            See{' '}
+            <span className="text-blue-500">the results</span>
+            <br className="hidden md:block" />
             of our work
-            <br />
-            across{" "}
-            <span className="text-blue-500 relative leading-3">industries</span>
-          </p>
+            <br className="hidden md:block" />
+            across{' '}
+            <span className="text-blue-500 relative">
+              industries
+              <div className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500/20 rounded-full"></div>
+            </span>
+          </h2>
         </div>
+      </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((item, index) => (
             <div key={item.id} className="group relative">
-              <div className="relative overflow-hidden rounded-lg aspect-video md:aspect-square lg:aspect-video">
+              <div className="relative overflow-hidden rounded-lg aspect-video md:aspect-square lg:aspect-video ">
                 <img
                   src={item.imageUrl}
                   alt={item.title}
@@ -42,7 +49,7 @@ export default function Cases() {
                   </div>
                 )}
                 {index === 1 && (
-                  <div className="absolute inset-0 z-10 pointer-events-none">
+                  <div className="absolute inset-0 z-10 pointer-events-none ">
                     <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 rounded-full opacity-50 blur-xl"></div>
                     <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full opacity-50 blur-xl"></div>
                   </div>

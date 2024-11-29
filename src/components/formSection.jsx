@@ -148,7 +148,7 @@ export default function Form() {
   ];
 
   return (
-    <div className="bg-zinc-900 p-8 text-white min-h-screen">
+    <div className="bg-zinc-900 p-8 text-white min-h-screen pt-24">
       <div className="max-w-7xl mx-auto md:mt-20">
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Form Section */}

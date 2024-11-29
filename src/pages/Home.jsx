@@ -72,19 +72,19 @@ const services = [
     title: "Website/App Development",
     description:
       "Recapture users and reignite growth by implementing a user-focused product redesign that enhances functionality and user experience. This leads to improved user retention, increased app usage, and a competitive edge by aligning with current user expectations.",
-    image:
-      "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2023/01/ActiveNo-TypeProduct-des-2.png.webp",
+      image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
     image2:
-      "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2023/01/ActiveYes-TypeProduct-des-2.png.webp",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
   },
   {
     title: "MVP Development",
     description:
       "Start generating revenue sooner by developing a functional MVP that prioritizes core features for quick market entry. This approach leads to early monetization opportunities, faster time-to-market, and enhanced adaptability through user feedback.",
-    image:
-      "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2023/05/ActiveNo-TypeBlockchain-1.png.webp",
+      image:
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80&w=800",
     image2:
-      "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2023/05/ActiveYes-TypeBlockchain-1.png.webp",
+      "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=800",
   },
 ];
 
@@ -92,10 +92,10 @@ const websiteDesign = {
   title: "Social Media Management",
   description:
     "Get an eye-catching, optimized website that communicates your values and engages your audience, driving conversions with a compelling online presence.",
-  image:
-    "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2023/01/ActiveNo-TypeNo-code-2.png.webp",
+    image:
+    "https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&fit=crop&q=80&w=800",
   image2:
-    "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2023/01/ActiveYes-TypeNo-code-2.png.webp",
+    "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&q=80&w=800",
 };
 
 const Home = () => {
