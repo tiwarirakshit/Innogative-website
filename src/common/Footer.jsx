@@ -26,10 +26,10 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: <Instagram size={20} />, label: "Instagram", url: "https://instagram.com" },
-    { icon: <Linkedin size={20} />, label: "LinkedIn", url: "https://linkedin.com" },
-    { icon: <Facebook size={20} />, label: "Facebook", url: "https://facebook.com" },
-    { icon: <Twitter size={20} />, label: "X", url: "https://x.com" },
+    { icon: <Instagram size={20} />, label: "Instagram", url: "https://www.instagram.com/innogative/" },
+    { icon: <Linkedin size={20} />, label: "LinkedIn", url: "https://www.linkedin.com/company/innogative/" },
+    { icon: <Facebook size={20} />, label: "Facebook", url: "https://www.facebook.com/innogative" },
+    { icon: <Twitter size={20} />, label: "X", url: "https://x.com/innogative" },
   ];
 
   const navLinks = [
