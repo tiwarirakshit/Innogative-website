@@ -556,71 +556,7 @@ const Home = () => {
               </a>
             </div>
           </div>
-          <div className="relative bg-gray-100 text-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-900 hover:text-white transition duration-300">
-            <h3 className="text-3xl md:text-4xl font-semibold mb-8 md:mb-12">
-              Video Editing
-            </h3>
-            <p className="text-base md:text-xl mb-4">
-              We offer professional video editing services that transform raw
-              footage into engaging, high-quality content. Our solutions include
-              color correction, sound design, and effects to create visually
-              stunning videos for all your marketing and storytelling needs.
-            </p>
-            <div className="absolute top-4 right-4">
-              <a
-                href="#"
-                className="text-xl hover:scale-105 transition transform duration-200"
-              >
-                <svg
-                  fill="none"
-                  height="20"
-                  viewBox="0 0 9 10"
-                  width="15"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clipRule="evenodd"
-                    d="m.455752.5h8.544248v8.54425h-1.28906v-6.34368l-6.799434 6.79943-.911506-.91151 6.79943-6.79943h-6.343678z"
-                    fill="currentColor"
-                    fillRule="evenodd"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div className="relative bg-gray-100 text-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-900 hover:text-white transition duration-300">
-            <h3 className="text-3xl md:text-4xl font-semibold mb-8 md:mb-12">
-              Graphic Designing
-            </h3>
-            <p className="text-base md:text-xl mb-4">
-              We specialize in graphic design solutions that visually
-              communicate your brand message, enhance user engagement, and
-              create memorable experiences. From logos to promotional materials,
-              we craft designs that leave a lasting impact.
-            </p>
-            <div className="absolute top-4 right-4">
-              <a
-                href="#"
-                className="text-xl hover:scale-105 transition transform duration-200"
-              >
-                <svg
-                  fill="none"
-                  height="20"
-                  viewBox="0 0 9 10"
-                  width="15"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clipRule="evenodd"
-                    d="m.455752.5h8.544248v8.54425h-1.28906v-6.34368l-6.799434 6.79943-.911506-.91151 6.79943-6.79943h-6.343678z"
-                    fill="currentColor"
-                    fillRule="evenodd"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </div>
+          
         </div>
       </section>
 
@@ -687,7 +623,7 @@ const Home = () => {
 
       <AwardsAndFactsSection />
 
-      <MediaShowcase />
+      
       <div id="contact" className="relative z-10 pointer-events-auto">
         <Form />
       </div>

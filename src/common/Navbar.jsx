@@ -188,7 +188,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <NavLink to="/graphics">Video/Graphics</NavLink>
+         
           <NavLink to="/contact">Contact Us</NavLink>
         </div>
 

@@ -260,16 +260,7 @@ const Services = ({ setIsNavbarVisible }) => {
           <DevelopmentServices />
         </motion.section>
 
-        <motion.section
-          id="design"
-          className="min-h-screen"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          variants={sectionVariants('right')}
-        >
-          <EditAndDesign />
-        </motion.section>
+        
       </Suspense>
 
       {/* Contact Section */}
