@@ -287,9 +287,7 @@ const Home = () => {
               <span className="text-gray-800 bg-white text-center font-semibold py-1 px-3 rounded-2xl text-sm">
                 Web & App Development
               </span>
-              <span className="text-gray-800 bg-white text-center font-semibold py-1 px-3 rounded-2xl text-sm">
-                Video & Graphics
-              </span>
+              
             </div>
           </div>
 

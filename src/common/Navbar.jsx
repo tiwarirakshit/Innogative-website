@@ -5,10 +5,8 @@ import Headline from '../assets/headerline.png';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState(null);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const dropdownRef = useRef(null);
   const timeoutRef = useRef(null);
   const navigate = useNavigate();
 
@@ -48,52 +46,6 @@ const Navbar = () => {
     setActiveLink(linkName);
     setIsOpen(false);
     setIsMobileDropdownOpen(false);
-  };
-
-  const handleCompanyClick = () => {
-    navigate('/company');
-    setActiveLink('/company');
-    setIsDropdownOpen(false);
-    setIsOpen(false);
-  };
-
-  const toggleMobileDropdown = (e) => {
-    e.stopPropagation();
-    setIsMobileDropdownOpen(!isMobileDropdownOpen);
-  };
-
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    timeoutRef.current = setTimeout(() => {
-      setIsDropdownOpen(true);
-    }, 200);
-  };
-
-  const handleMouseLeave = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    timeoutRef.current = setTimeout(() => {
-      setIsDropdownOpen(false);
-    }, 300);
-  };
-
-  const handleDropdownMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    setIsDropdownOpen(true);
-  };
-
-  const handleDropdownMouseLeave = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    timeoutRef.current = setTimeout(() => {
-      setIsDropdownOpen(false);
-    }, 300);
   };
 
   const NavLink = ({ to, children }) => (
@@ -143,52 +95,7 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-16 z-[1000]">
           <NavLink to="/works">Works</NavLink>
           <NavLink to="/services">Services</NavLink>
-
-          {/* Company Dropdown */}
-          <div 
-            className="relative group"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            ref={dropdownRef}
-          >
-            <button
-              className={`hover:text-orange-500 transition-colors duration-200 ${activeLink === '/company' ? 'text-orange-500' : ''}`}
-            >
-              Company
-            </button>
-            {isDropdownOpen && (
-              <div
-                className="absolute top-12 left-[-200px] bg-[#121214] text-white p-8 rounded-lg shadow-lg w-[30vw] flex space-x-12 z-50 justify-center items-center transition-opacity duration-300"
-                onMouseEnter={handleDropdownMouseEnter}
-                onMouseLeave={handleDropdownMouseLeave}
-              >
-                <button className=" bg-yellow-400 text-black py-4 px-8 rounded-full flex items-center space-x-2 hover:bg-yellow-500 transition-colors duration-200"
-                onClick={()=>navigate('/contact')}>
-                  <span>&#10132;</span>
-                  <span>Let's Talk</span>
-                </button>
-                <div className="flex flex-col space-y-4">
-                  <h4 className="font-bold text-gray-500 text-lg">Behind the Brand</h4>
-                  <Link 
-                    to="/company" 
-                    className="hover:text-yellow-400 transition-colors duration-200" 
-                    onClick={handleCompanyClick}
-                  >
-                    About Us
-                  </Link>
-                  <Link 
-                    to="/team-and-advisors" 
-                    className="hover:text-yellow-400 transition-colors duration-200" 
-                    onClick={() => setIsDropdownOpen(false)}
-                  >
-                    Team and Advisors
-                  </Link>
-                </div>
-              </div>
-            )}
-          </div>
-
-         
+          <NavLink to="/about">About</NavLink>
           <NavLink to="/contact">Contact Us</NavLink>
         </div>
 
@@ -204,13 +111,6 @@ const Navbar = () => {
             <span className="inline-flex items-center justify-center bg-white text-black rounded-full h-7 w-7">&#10132;</span>
             <span>Get in touch</span>
           </Link>
-          {activeLink === "/contact-button" && (
-            <img
-              src={Headline}
-              alt="Underline"
-              className="absolute w-24 h-2"
-            />
-          )}
         </div>
       </div>
 
@@ -226,10 +126,7 @@ const Navbar = () => {
             </button>
             
             <div className="flex flex-col space-y-6">
-              {[
-                { to: '/works', text: 'Works' },
-                { to: '/services', text: 'Services' }
-              ].map(({ to, text }) => (
+              {[{ to: '/works', text: 'Works' }, { to: '/services', text: 'Services' }, { to: '/about', text: 'About' }].map(({ to, text }) => (
                 <div key={to} className="border-b border-gray-800 pb-4">
                   <Link
                     to={to}
@@ -239,53 +136,9 @@ const Navbar = () => {
                     onClick={() => handleLinkClick(to)}
                   >
                     {text}
-                    <span className="text-sm">+</span>
                   </Link>
                 </div>
               ))}
-
-              {/* Company Dropdown for Mobile */}
-              <div className="border-b border-gray-800 pb-4">
-                <button
-                  onClick={toggleMobileDropdown}
-                  className={`text-xl flex justify-between items-center w-full transition-colors duration-200 ${
-                    activeLink === '/company' ? 'text-orange-500' : 'hover:text-orange-500'
-                  }`}
-                >
-                  Company
-                  <span className="text-sm">{isMobileDropdownOpen ? '-' : '+'}</span>
-                </button>
-                {isMobileDropdownOpen && (
-                  <div className="mt-4 pl-4 space-y-4">
-                    <Link 
-                      to="/company" 
-                      className="block text-gray-300 hover:text-orange-500 transition-colors duration-200" 
-                      onClick={() => { handleLinkClick('/company'); toggleMenu(); }}
-                    >
-                      About Us
-                    </Link>
-                    <Link 
-                      to="/team-and-advisors" 
-                      className="block text-gray-300 hover:text-orange-500 transition-colors duration-200" 
-                      onClick={() => { handleLinkClick('/team-and-advisors'); toggleMenu(); }}
-                    >
-                      Team and Advisors
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-              <div className="border-b border-gray-800 pb-4">
-                <Link
-                  to="/graphics"
-                  className={`text-xl block transition-colors duration-200 ${
-                    activeLink === '/graphics' ? 'text-orange-500' : 'hover:text-orange-500'
-                  }`}
-                  onClick={() => handleLinkClick('/graphics')}
-                >
-                  Video/Graphics
-                </Link>
-              </div>
 
               <div className="border-b border-gray-800 pb-4">
                 <Link

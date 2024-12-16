@@ -1,6 +1,7 @@
 import React, { useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Principles from "../components/Principles";
+import LeadershipTeam from "../components/TeamMembers";
 
 const AboutUs = () => {
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ const AboutUs = () => {
         </a>
       </div>
 
-      <div className="min-h-screen pt-20 ">
+      <div className="min-h-screen pt-16 ">
         {/* Section 1: Hero Section */}
         <section className="bg-black text-white lg:p-8  pt-4">
           <div className="container mx-auto w-10/12">
@@ -204,6 +205,9 @@ const AboutUs = () => {
             </div>
           </div>
         </section>
+
+        {/* Section 5: Leadership Team */}
+        <LeadershipTeam />
       </div>
     </>
   );

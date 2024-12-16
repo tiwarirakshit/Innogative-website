@@ -13,6 +13,7 @@ import ProjectPage from './components/ProjectPage';
 import projectData from './data.json';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import AboutUs from './pages/AboutUs';
 import Services from './pages/Services'; // Import Services
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/graphics" element={<VideoAndGraphics />} />
         <Route path="/team-and-advisors" element={<TeamAndAdvisors />} />
-
+        <Route path="/about" element={<AboutUs />} />
         <Route 
           path="/services" 
           element={<Services setIsNavbarVisible={setIsNavbarVisible} />}  // Pass the setter function to Services
