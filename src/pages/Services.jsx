@@ -107,9 +107,6 @@ const Services = ({ setIsNavbarVisible }) => {
 
     const handleMouseLeave = () => {
       if (circle) {
-        circle.style.width = "15px";
-        circle.style.height = "15px";
-        circle.style.border = "2px solid orange";
         circle.style.backgroundColor = "transparent";
         circle.style.fontSize = "0";
         const span = circle.querySelector("span");
@@ -123,6 +120,9 @@ const Services = ({ setIsNavbarVisible }) => {
       target.addEventListener("mouseenter", handleMouseEnter);
       target.addEventListener("mouseleave", handleMouseLeave);
     });
+        circle.style.width = "15px";
+        circle.style.height = "15px";
+        circle.style.border = "2px solid orange";
 
     return () => {
       hoverTargets.forEach((target) => {

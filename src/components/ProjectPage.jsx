@@ -215,7 +215,7 @@ const ProjectPage = ({ projects }) => {
         </div>
         
         {/* Main Project Image with Slideshow */}
-        <div className="relative w-full aspect-video mb-8 overflow-hidden rounded-2xl group">
+        <div className="relative w-full  aspect-video mb-8 overflow-hidden rounded-2xl group">
           {allImages.map((image, index) => (
             <img 
               key={index}
@@ -266,7 +266,7 @@ const ProjectPage = ({ projects }) => {
                   key={index}
                   onClick={() => handleImageClick(index)}
                   className={`
-                    relative w-64 flex-none aspect-[4/3] overflow-hidden rounded-xl snap-start cursor-pointer
+                    relative w-64 flex-none aspect-[6/3] md:aspect-[4/3] lg:aspect-[4/3] overflow-hidden rounded-xl snap-start cursor-pointer
                     ${currentImageIndex === index ? 'ring-2 ring-blue-500' : ''}
                   `}
                   style={{ userSelect: 'none' }}

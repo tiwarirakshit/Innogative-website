@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AwardsAndFactsSection from "../components/AwardsSection";
+
 import Form from "../components/formSection";
 import Cases from "../components/CasesSection";
 import Noise from "../assets/noise.jpg";
@@ -12,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { ArrowRight, Shield, FileText } from "lucide-react";
 import MediaShowcase from "../components/MediaShowCase";
+import FadeInSection from "../components/FadeInSection";
 
 const testimonialsettings = {
   dots: true,
@@ -72,7 +74,7 @@ const services = [
     title: "Website/App Development",
     description:
       "Recapture users and reignite growth by implementing a user-focused product redesign that enhances functionality and user experience. This leads to improved user retention, increased app usage, and a competitive edge by aligning with current user expectations.",
-      image:
+    image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
     image2:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
@@ -81,7 +83,7 @@ const services = [
     title: "MVP Development",
     description:
       "Start generating revenue sooner by developing a functional MVP that prioritizes core features for quick market entry. This approach leads to early monetization opportunities, faster time-to-market, and enhanced adaptability through user feedback.",
-      image:
+    image:
       "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80&w=800",
     image2:
       "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=800",
@@ -92,7 +94,7 @@ const websiteDesign = {
   title: "Social Media Management",
   description:
     "Get an eye-catching, optimized website that communicates your values and engages your audience, driving conversions with a compelling online presence.",
-    image:
+  image:
     "https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&fit=crop&q=80&w=800",
   image2:
     "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&q=80&w=800",
@@ -243,8 +245,10 @@ const Home = () => {
           Let's Talk
         </span>
       </Link>
-
-      <div id="banner" className="h-screen bg-[#121214] w-full relative">
+      <div
+        id="banner"
+        className="h-[60vh] md:h-screen lg:h-screen bg-[#121214] w-full relative"
+      >
         <div className="absolute z-[100] w-full h-full flex flex-col items-center justify-center opacity-1 px-4">
           <p className="text-white text-4xl md:text-6xl lg:text-8xl hover-target text-center">
             Innogative
@@ -264,6 +268,7 @@ const Home = () => {
         ></video>
       </div>
 
+      <FadeInSection>
       <div
         id="home"
         className="min-h-screen flex items-center justify-center bg-customblack py-12 px-4"
@@ -287,7 +292,6 @@ const Home = () => {
               <span className="text-gray-800 bg-white text-center font-semibold py-1 px-3 rounded-2xl text-sm">
                 Web & App Development
               </span>
-              
             </div>
           </div>
 
@@ -322,7 +326,9 @@ const Home = () => {
           </Slider>
         </section>
       </div>
+      </FadeInSection>
 
+      <FadeInSection>
       <section id="other" className="p-4 md:p-8">
         <div className="max-w-7xl mx-auto">
           <p className="text-xl md:text-2xl font-semibold tracking-widest mb-4">
@@ -397,7 +403,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-
+            <div className="flex justify-center items-center">
             <button
               className="w-48 h-48   rounded-full bg-orange-500 relative overflow-hidden group transition-colors duration-700 hover:bg-transparent"
               onClick={() => navigate("/services")}
@@ -407,12 +413,19 @@ const Home = () => {
                 <ArrowRight height={18} /> All Services
               </span>
             </button>
+            </div>
+            
           </div>
         </div>
       </section>
+      </FadeInSection>
 
-      <Cases />
+      <FadeInSection>
+        <Cases />
 
+      </FadeInSection>
+
+      <FadeInSection>
       <section className="mt-20 p-4 md:p-8">
         <div className="text-left mb-10 mx-auto w-full md:w-10/12">
           <p className="text-xl md:text-2xl">Industries</p>
@@ -554,10 +567,11 @@ const Home = () => {
               </a>
             </div>
           </div>
-          
         </div>
       </section>
+      </FadeInSection>
 
+      <FadeInSection>
       <section className="bg-[#121214] text-white mt-20 p-4 md:p-8 lg:px-32 pt-20">
         <div className="text-4xl md:text-7xl font-semibold">
           <p>
@@ -618,14 +632,18 @@ const Home = () => {
           </button>
         </div>
       </section>
+      </FadeInSection>
 
-      <AwardsAndFactsSection />
+      <FadeInSection>
+        <AwardsAndFactsSection />
 
-      
+      </FadeInSection>
+
+      <FadeInSection>
       <div id="contact" className="relative z-10 pointer-events-auto">
         <Form />
       </div>
-      
+      </FadeInSection>
     </>
   );
 };
