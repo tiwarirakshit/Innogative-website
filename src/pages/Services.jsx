@@ -232,6 +232,7 @@ const Services = ({ setIsNavbarVisible }) => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={sectionVariants('left')}
+          className="bg-white"
         >
           
           <DesignServices />

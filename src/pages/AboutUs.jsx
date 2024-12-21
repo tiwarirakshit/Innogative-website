@@ -5,6 +5,9 @@ import LeadershipTeam from "../components/TeamMembers";
 
 const AboutUs = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[])
 
   // Mouse follow effect with proper cleanup
   useEffect(() => {
@@ -60,7 +63,7 @@ const AboutUs = () => {
         </a>
       </div>
 
-      <div className="min-h-screen pt-16 ">
+      <div className="min-h-screen pt-20 bg-white ">
         {/* Section 1: Hero Section */}
         <section className="bg-black text-white lg:p-8  pt-4">
           <div className="container mx-auto w-10/12">

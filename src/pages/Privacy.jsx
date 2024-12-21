@@ -1,9 +1,106 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { Shield, Lock, Eye, UserCheck } from 'lucide-react';
+import { Link } from "react-router-dom";
 
 const Privacy = () => {
+  useEffect(() => {
+    const circle = document.getElementById("custom-circle");
+    let mouseX = 0,
+      mouseY = 0;
+    let circleX = 0,
+      circleY = 0;
+    const speed = 0.2;
+
+    const handleMouseMove = (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+
+    const smoothMove = () => {
+      circleX += (mouseX - circleX) * speed;
+      circleY += (mouseY - circleY) * speed;
+
+      if (circle) {
+        circle.style.left = `${circleX}px`;
+        circle.style.top = `${circleY}px`;
+      }
+
+      requestAnimationFrame(smoothMove);
+    };
+
+    smoothMove();
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  useEffect(() => {
+    const circle = document.getElementById("custom-circle");
+    const sections = ["banner", "home", "other"];
+    circle.classList.add("other-style");
+  }, []);
+
+  useEffect(() => {
+    const circle = document.getElementById("custom-circle");
+    const hoverTargets = document.querySelectorAll(".hover-target");
+
+    const handleMouseEnter = (e) => {
+      if (circle) {
+        circle.style.width = "80px";
+        circle.style.height = "80px";
+        circle.style.border = "2px solid orange";
+        circle.style.backgroundColor = "transparent";
+        circle.style.fontSize = "14px";
+        const span = circle.querySelector("span");
+        if (span) {
+          span.style.display = "block";
+          span.textContent = e.target.getAttribute("data-text") || "Let's Talk";
+        }
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (circle) {
+        circle.style.width = "15px";
+        circle.style.height = "15px";
+        circle.style.border = "2px solid orange";
+        circle.style.backgroundColor = "transparent";
+        circle.style.fontSize = "0";
+        const span = circle.querySelector("span");
+        if (span) {
+          span.style.display = "none";
+        }
+      }
+    };
+
+    hoverTargets.forEach((target) => {
+      target.addEventListener("mouseenter", handleMouseEnter);
+      target.addEventListener("mouseleave", handleMouseLeave);
+    });
+
+    return () => {
+      hoverTargets.forEach((target) => {
+        target.removeEventListener("mouseenter", handleMouseEnter);
+        target.removeEventListener("mouseleave", handleMouseLeave);
+      });
+    };
+  }, []);
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <>
+    <Link
+            to="#contact"
+            id="custom-circle"
+            className="custom-circle z-[5000] hidden md:block"
+          >
+            <span className="h-full w-full flex items-center justify-center mt-12 text-lg">
+              {" "}
+              Let's Talk
+            </span>
+          </Link>
+    <div className=" px-4 sm:px-6 lg:px-8 py-12 pt-20 bg-white">
       <div className="bg-white rounded-2xl shadow-lg p-8">
         <div className="text-center mb-12">
           <Shield className="w-16 h-16 text-blue-600 mx-auto mb-4" />
@@ -63,6 +160,7 @@ const Privacy = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

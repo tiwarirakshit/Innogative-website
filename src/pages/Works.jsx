@@ -196,7 +196,7 @@ const Works = () => {
         className="custom-circle z-[5000] hidden md:block"
       >
       </Link>
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 mb-10">
+      <section className=" px-4 sm:px-6 lg:px-28 py-16  bg-white">
         <div className="mb-4 flex items-center text-sm text-gray-500 mt-10">
           <Link to="/">Home</Link>
           <ChevronRight className="w-4 h-4 mx-2" />

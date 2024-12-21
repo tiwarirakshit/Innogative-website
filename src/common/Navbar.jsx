@@ -68,7 +68,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className={`fixed w-full z-[1000] ${isSticky ? 'bg-gray-800' : 'bg-[#121214]'} text-white py-4 transition-colors duration-300`}>
+    <nav className={`fixed w-full z-[1000] ${isSticky ? 'bg-gray-800' : 'bg-[#121214]'} text-white py-4 transition-colors duration-300 overflow-x-hidden`}>
       <div className="container flex justify-between items-center w-11/12 mx-auto">
         {/* Logo */}
         <div className="text-2xl font-bold cursor-pointer z-[1000]">

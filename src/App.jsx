@@ -21,7 +21,7 @@ function App() {
 
   return (
     <Router>
-      {isNavbarVisible && <Navbar />} {/* Conditionally render the Navbar */}
+      {isNavbarVisible && <Navbar />} 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/works" element={<Works />} />

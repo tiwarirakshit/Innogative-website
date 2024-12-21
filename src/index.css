@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: #1a1a1d;
+}
+
 @font-face {
     font-family: 'SyneReg';
     src: url('./assets/fonts/Syne-Regular.ttf') format('truetype'); /* Adjust the path if needed */

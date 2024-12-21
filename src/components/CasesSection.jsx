@@ -4,37 +4,39 @@ import { useNavigate, Link } from "react-router-dom";
 import { ArrowRight } from 'lucide-react';
 
 export default function Cases() {
-  
+
   const projects = projectData.projects.slice(0, 4);
   const navigate = useNavigate();
 
   return (
     <section className=" px-4 py-16 bg-white">
       <div className="relative z-10 pointer-events-auto max-w-7xl mx-auto">
-      <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-2">
-        <h3 className="text-gray-600 text-xl font-medium">
-          Selected works
-        </h3>
-        
-        <div className="max-w-3xl">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-            See{' '}
-            <span className="text-blue-500">the results</span>
-            <br className="hidden md:block" />
-            of our work
-            <br className="hidden md:block" />
-            across{' '}
-            <span className="text-blue-500 relative">
-              industries
-              <div className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500/20 rounded-full"></div>
-            </span>
-          </h2>
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-2">
+          <h3 className="text-gray-600 text-xl font-medium">
+            Selected works
+          </h3>
+
+          <div className="max-w-3xl">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+              See{' '}
+              <span className="text-blue-500">the results</span>
+              <br className="hidden md:block" />
+              of our work
+              <br className="hidden md:block" />
+              across{' '}
+              <span className="text-blue-500 relative">
+                industries
+                <div className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500/20 rounded-full"></div>
+              </span>
+            </h2>
+          </div>
         </div>
-      </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((item, index) => (
-            <div key={item.id} className="group relative">
+            <Link key={item.id} className="group relative"
+              to={`/works/${item.id}`}
+            >
               <div className="relative overflow-hidden rounded-lg aspect-video md:aspect-square lg:aspect-video ">
                 <img
                   src={item.imageUrl}
@@ -94,7 +96,7 @@ export default function Cases() {
                 </div>
                 <p className="text-gray-600 mb-4">{item.description}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
@@ -102,7 +104,7 @@ export default function Cases() {
           <button className="w-48 h-48   rounded-full bg-orange-500 relative overflow-hidden group transition-colors duration-700 hover:bg-transparent" onClick={() => navigate("/works")}>
             <span className="absolute inset-0 w-full h-full bg-yellow-300 scale-0 group-hover:scale-100 transition-transform duration-700 ease-in-out rounded-full origin-center" />
             <span className="relative z-10 flex items-center justify-center w-full h-full text-black text-xl">
-            <ArrowRight height={18} />  All Projects
+              <ArrowRight height={18} />  All Projects
             </span>
           </button>
         </div>

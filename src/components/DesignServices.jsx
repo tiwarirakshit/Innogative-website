@@ -39,7 +39,7 @@ const DesignServices = () => {
   const [hoverIndex, setHoverIndex] = useState(null);
 
   return (
-    <section className="w-10/12 mx-auto py-20 bg-gray-50">
+    <section className="px-2 lg:px-24 py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-6xl font-bold">

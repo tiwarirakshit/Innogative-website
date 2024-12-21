@@ -16,8 +16,9 @@ const Projects = ({ projects }) => {
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
-          <div 
+          <Link 
             key={index} 
+            to={`/works/${project.id}`} 
             className={`bg-white rounded-lg shadow-lg overflow-hidden ${index % 2 === 1 ? 'md:translate-y-16' : ''}`}
           >
             <div className="relative">
@@ -44,17 +45,16 @@ const Projects = ({ projects }) => {
                     </button>
                   ))}
                 </div>
-                <Link 
-                  to={`/works/${project.id}`} 
+                <div
                   className="inline-flex items-center gap-1 bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition text-sm"
                 >
                   <ArrowUpRight className='w-5 h-5 ' />
                   See case
-                </Link>
+                </div>
               </div>
               <p className="text-gray-600 text-sm">{project.description}</p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

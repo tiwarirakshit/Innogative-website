@@ -271,7 +271,7 @@ const Home = () => {
       <FadeInSection>
       <div
         id="home"
-        className="min-h-screen flex items-center justify-center bg-customblack py-12 px-4"
+        className="min-h-screen flex items-center justify-center bg-customblack py-12 px-4 w-full overflow-hidden"
       >
         <section className="text-white w-full md:w-10/12 mx-auto">
           <div className="fixed top-0 left-0 w-full h-screen z-[0] opacity-[0.03]">
@@ -329,7 +329,7 @@ const Home = () => {
       </FadeInSection>
 
       <FadeInSection>
-      <section id="other" className="p-4 md:p-8">
+      <section id="other" className="p-4 md:p-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <p className="text-xl md:text-2xl font-semibold tracking-widest mb-4">
             Services
@@ -426,7 +426,7 @@ const Home = () => {
       </FadeInSection>
 
       <FadeInSection>
-      <section className="mt-20 p-4 md:p-8">
+      <section className=" p-4 md:p-8 bg-white">
         <div className="text-left mb-10 mx-auto w-full md:w-10/12">
           <p className="text-xl md:text-2xl">Industries</p>
           <h2 className="text-4xl md:text-7xl font-bold text-gray-800 w-full md:w-1/2 tracking-wide">
@@ -572,7 +572,7 @@ const Home = () => {
       </FadeInSection>
 
       <FadeInSection>
-      <section className="bg-[#121214] text-white mt-20 p-4 md:p-8 lg:px-32 pt-20">
+      <section className="bg-[#121214] text-white p-4 md:p-8 lg:px-32 pt-20 w-full overflow-hidden">
         <div className="text-4xl md:text-7xl font-semibold">
           <p>
             What do <span className="text-orange-500">people say</span>

@@ -3,6 +3,10 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, Play } from 'lucide-react';
 
 const ProjectPage = ({ projects }) => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[])
   const { id } = useParams();
   const navigate = useNavigate();
   const project = projects.find(p => p.id === parseInt(id));
@@ -161,7 +165,7 @@ const ProjectPage = ({ projects }) => {
 
   if (!project) {
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-900">Project not found</h2>
           <p className="mt-4 text-gray-600">The project you're looking for doesn't exist.</p>
@@ -185,12 +189,12 @@ const ProjectPage = ({ projects }) => {
       <Link
         to="#contact"
         id="custom-circle"
-        className="custom-circle z-[5000] hidden md:block"
+        className="custom-circle z-[5000] hidden md:block bg-white"
       >
       </Link>
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <article className=" px-4 sm:px-6 lg:px-28 py-16 bg-white">
         {/* Breadcrumb */}
-        <div className="mb-4 flex items-center text-sm text-gray-500 mt-10">
+        <div className="mb-4 flex items-center text-sm text-gray-500 mt-10 ">
           <Link to="/" className="hover:text-gray-900 transition-colors">Home</Link>
           <ChevronRight className="w-4 h-4 mx-2" />
           <Link to="/works" className="hover:text-gray-900 transition-colors">Projects</Link>
