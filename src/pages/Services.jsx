@@ -2,7 +2,7 @@ import React, { useEffect, useRef, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from "react-router-dom";
-import StickyNavbar from '../common/StickyNavbar';
+import StickyNavbar from '../common/tickyNavbar';
 
 const DesignServices = lazy(() => import('../components/DesignServices'));
 const Features = lazy(() => import('../components/Features'));
