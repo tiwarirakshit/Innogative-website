@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, lazy, Suspense } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from "react-router-dom";
-import StickyNavbar from '../common/StickyNavbar';
+import StickyNavbar from '../common/stickyNavbar';
 
 const DesignServices = lazy(() => import('../components/DesignServices'));
 const Features = lazy(() => import('../components/Features'));
