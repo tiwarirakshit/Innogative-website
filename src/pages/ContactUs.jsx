@@ -4,6 +4,8 @@ const ContactUs = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+
   useEffect(() => {
     const circle = document.getElementById('custom-circle');
     let mouseX = 0, mouseY = 0;
@@ -38,6 +40,8 @@ const ContactUs = () => {
       });
     };
   }, []);
+
+  
   return (
     <>
 <a href="#contact" id="custom-circle" className="custom-circle other-style z-[5000]">

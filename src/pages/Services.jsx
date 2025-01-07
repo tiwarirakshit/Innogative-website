@@ -1,24 +1,20 @@
-import React, { useEffect, useRef, Suspense, lazy } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef, lazy, Suspense } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from "react-router-dom";
 import StickyNavbar from '../common/StickyNavbar';
 
 const DesignServices = lazy(() => import('../components/DesignServices'));
 const Features = lazy(() => import('../components/Features'));
-
 const DevelopmentServices = lazy(() => import('../components/DevelopmentServices'));
 const Form = lazy(() => import('../components/formSection'));
-
 const PersonalBranding = lazy(() => import('../components/PersonalBranding'));
-const EditAndDesign = lazy(() => import('../components/EditAndDesign'));
+
 const Services = ({ setIsNavbarVisible }) => {
   const contactRef = useRef(null);
 
   const scrollToContact = () => {
     contactRef.current.scrollIntoView({ behavior: 'smooth' });
   };
-
 
   useEffect(() => {
     // Scroll to top on component mount
@@ -45,122 +41,51 @@ const Services = ({ setIsNavbarVisible }) => {
     };
   }, [setIsNavbarVisible]);
 
-
-  useEffect(() => {
-    const circle = document.getElementById("custom-circle");
-    let mouseX = 0,
-      mouseY = 0;
-    let circleX = 0,
-      circleY = 0;
-    const speed = 0.2;
-
-    const handleMouseMove = (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-
-    const smoothMove = () => {
-      circleX += (mouseX - circleX) * speed;
-      circleY += (mouseY - circleY) * speed;
-
-      if (circle) {
-        circle.style.left = `${circleX}px`;
-        circle.style.top = `${circleY}px`;
-      }
-
-      requestAnimationFrame(smoothMove);
-    };
-
-    smoothMove();
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
-  useEffect(() => {
-    const circle = document.getElementById("custom-circle");
-   
-    circle.classList.add("other-style");
-  }, []);
-
-  useEffect(() => {
-    const circle = document.getElementById("custom-circle");
-    const hoverTargets = document.querySelectorAll(".hover-target");
-
-    const handleMouseEnter = (e) => {
-      if (circle) {
-        circle.style.width = "80px";
-        circle.style.height = "80px";
-        circle.style.border = "2px solid orange";
-        circle.style.backgroundColor = "transparent";
-        circle.style.fontSize = "14px";
-        const span = circle.querySelector("span");
-        if (span) {
-          span.style.display = "block";
-          span.textContent = e.target.getAttribute("data-text") || "Let's Talk";
+   useEffect(() => {
+      const circle = document.getElementById('custom-circle');
+      let mouseX = 0, mouseY = 0;
+      let circleX = 0, circleY = 0;
+      const speed = 0.2;
+  
+      const handleMouseMove = (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      };
+  
+      document.addEventListener('mousemove', handleMouseMove);
+  
+      const smoothMove = () => {
+        circleX += (mouseX - circleX) * speed;
+        circleY += (mouseY - circleY) * speed;
+  
+        if (circle) {
+          circle.style.left = `${circleX}px`;
+          circle.style.top = `${circleY}px`;
         }
-      }
-    };
+  
+        requestAnimationFrame(smoothMove);
+      };
+  
+      smoothMove();
+  
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMove);
+      };
+    }, []);
 
-    const handleMouseLeave = () => {
-      if (circle) {
-        circle.style.backgroundColor = "transparent";
-        circle.style.fontSize = "0";
-        const span = circle.querySelector("span");
-        if (span) {
-          span.style.display = "none";
-        }
-      }
-    };
-
-    hoverTargets.forEach((target) => {
-      target.addEventListener("mouseenter", handleMouseEnter);
-      target.addEventListener("mouseleave", handleMouseLeave);
-    });
-        circle.style.width = "15px";
-        circle.style.height = "15px";
-        circle.style.border = "2px solid orange";
-
-    return () => {
-      hoverTargets.forEach((target) => {
-        target.removeEventListener("mouseenter", handleMouseEnter);
-        target.removeEventListener("mouseleave", handleMouseLeave);
-      });
-    };
-  }, []);
-  const sectionVariants = (direction) => ({
-    hidden: { opacity: 0, x: direction === 'left' ? -100 : 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-  });
   return (
     <>
-    <Link
-        to="#contact"
-        id="custom-circle"
-        className="custom-circle z-[5000] hidden md:block"
-      >
-      </Link>
+      <a href="#contact" id="custom-circle" className="custom-circle other-style z-[5000]">
+        <span>Let's Talk</span>
+      </a>
+
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 py-32">
-        
-        <motion.div
-          className="max-w-[1400px] w-full mx-auto px-6 md:px-12 lg:px-24 "
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
+        <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 lg:px-24">
           <div className="flex flex-col gap-16 max-w-6xl mx-auto">
             <div className="relative">
               <Sparkles className="text-white absolute -top-8 -left-4 w-8 h-8" />
-              <motion.h1
-                className="text-5xl md:text-7xl font-bold text-white leading-tight max-w-4xl"
-                initial={{ x: -200 }}
-                animate={{ x: 0 }}
-                transition={{ duration: 1 }}
-              >
+              <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight max-w-4xl">
                 Get all the <span className="text-orange-500">benefits</span>
                 <br />
                 <span className="text-white">of</span> working with
@@ -182,14 +107,11 @@ const Services = ({ setIsNavbarVisible }) => {
                     </svg>
                   </div>
                 </span>
-              </motion.h1>
+              </h1>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <motion.div
-                className="relative group justify-self-start md:justify-self-center"
-                whileHover={{ scale: 1.1 }}
-              >
+              <div className="relative group justify-self-start md:justify-self-center">
                 <div className="w-48 h-48 bg-[#e5fb52] rounded-full flex items-center justify-center cursor-pointer transition-transform duration-300">
                   <button
                     onClick={scrollToContact}
@@ -199,22 +121,17 @@ const Services = ({ setIsNavbarVisible }) => {
                     <ArrowRight className="w-5 h-5" />
                   </button>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                className="max-w-xl"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-              >
+              <div className="max-w-xl">
                 <p className="text-white text-xl leading-relaxed">
                   Learn more about the team of professionals who care about your
                   product as much as you do and the fields we can help you with.
                 </p>
-              </motion.div>
+              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Sticky Navbar */}
@@ -222,65 +139,33 @@ const Services = ({ setIsNavbarVisible }) => {
         <StickyNavbar onVisibilityChange={setIsNavbarVisible} />
       </section>
 
-
-     {/* Lazy-loaded sections with animations */}
-     <Suspense fallback={<div>Loading...</div>}>
-     <motion.section
-          id="web"
-          initial="hidden"
-          
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          variants={sectionVariants('left')}
-          className="bg-white"
-        >
-          
+      {/* Lazy-loaded sections */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <section id="web" className="bg-white">
           <DesignServices />
-          
-        </motion.section>
+        </section>
 
-        <motion.section
-          id="personal"
-          initial="hidden"
-          
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          variants={sectionVariants('right')}
-        >
+        <section id="personal">
           <PersonalBranding />
-        </motion.section>
+        </section>
 
-        <motion.section
-          id="development"
-          className="min-h-screen"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          variants={sectionVariants('left')}
-        >
+        <section id="development" className="min-h-screen">
           <DevelopmentServices />
-        </motion.section>
-
-        
+        </section>
       </Suspense>
 
       {/* Contact Section */}
       <Suspense fallback={<div>Loading...</div>}>
-        <motion.section
+        <section
           id="contact"
           ref={contactRef}
           className="min-h-screen bg-white"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          variants={sectionVariants('left')}
         >
           <Form />
-        </motion.section>
+        </section>
       </Suspense>
     </>
   );
 };
-
 
 export default Services;

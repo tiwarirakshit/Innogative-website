@@ -126,6 +126,8 @@ const VideoAndGraphics = () => {
       document.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
+
+  
   return (
     <>
      <a href="#contact" id="custom-circle" className="custom-circle other-style z-[5000]">
