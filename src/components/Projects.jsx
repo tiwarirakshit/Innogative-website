@@ -1,6 +1,6 @@
-import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from "react";
+import { ArrowUpRight } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Projects = ({ projects }) => {
   const navigate = useNavigate();
@@ -16,19 +16,23 @@ const Projects = ({ projects }) => {
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
-          <Link 
-            key={index} 
-            to={`/works/${project.id}`} 
-            className={`bg-white rounded-lg shadow-lg overflow-hidden ${index % 2 === 1 ? 'md:translate-y-16' : ''}`}
+          <Link
+            key={index}
+            to={`/works/${project.id}`}
+            className={`bg-white rounded-lg shadow-lg overflow-hidden ${
+              index % 2 === 1 ? "md:translate-y-16" : ""
+            }`}
           >
             <div className="relative">
-              <img 
-                src={project.imageUrl} 
-                alt={project.title} 
-                className="w-full h-64 object-cover" 
+              <img
+                src={project.imageUrl}
+                alt={project.title}
+                className="w-full h-64 object-cover"
               />
-              <div 
-                className={`absolute inset-0 bg-gradient-to-tr from-${getGradientColor(index)} to-transparent opacity-50`}
+              <div
+                className={`absolute inset-0 bg-gradient-to-tr from-${getGradientColor(
+                  index
+                )} to-transparent opacity-50`}
               />
             </div>
             <div className="p-4 pt-2">
@@ -45,10 +49,8 @@ const Projects = ({ projects }) => {
                     </button>
                   ))}
                 </div>
-                <div
-                  className="inline-flex items-center gap-1 bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition text-sm"
-                >
-                  <ArrowUpRight className='w-5 h-5 ' />
+                <div className="inline-flex items-center gap-1 bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition text-sm">
+                  <ArrowUpRight className="w-5 h-5 " />
                   See case
                 </div>
               </div>
@@ -62,7 +64,14 @@ const Projects = ({ projects }) => {
 };
 
 const getGradientColor = (index) => {
-  const colors = ['yellow-400', 'pink-500', 'blue-500', 'green-500', 'purple-500', 'red-500'];
+  const colors = [
+    "yellow-400",
+    "pink-500",
+    "blue-500",
+    "green-500",
+    "purple-500",
+    "red-500",
+  ];
   return colors[index % colors.length];
 };
 
