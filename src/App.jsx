@@ -15,6 +15,9 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import AboutUs from './pages/AboutUs';
 import Services from './pages/Services'; // Import Services
+import AdminLogin from './pages/Login';         // /admin
+import AdminPanel from './pages/AdminPanel';   // /admin-panel
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
@@ -25,13 +28,22 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/works" element={<Works />} />
-        <Route path="/works/:id" element={<ProjectPage projects={projectData.projects} />} />
+        <Route path="/works/:id" element={<ProjectPage />} />
         <Route path="/company" element={<Company />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/graphics" element={<VideoAndGraphics />} />
         <Route path="/team-and-advisors" element={<TeamAndAdvisors />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route
+          path="/admin-panel"
+          element={
+            <ProtectedRoute>
+              <AdminPanel />
+            </ProtectedRoute>
+          }
+        />
         <Route 
           path="/services" 
           element={<Services setIsNavbarVisible={setIsNavbarVisible} />}  // Pass the setter function to Services

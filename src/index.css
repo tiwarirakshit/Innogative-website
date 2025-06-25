@@ -73,6 +73,15 @@ body{
   border: 2px solid orange; /* Orange border */
   color: transparent;  /* Hide the text */
 }
+@media (max-width: 768px) {
+  .other-style {
+    border: 0px !important;
+  }
+  .custom-circle{
+    display: none !important;
+    position: static !important;
+  }
+}
 
 /* Hover effect remains the same for both styles */
 .custom-circle:hover {

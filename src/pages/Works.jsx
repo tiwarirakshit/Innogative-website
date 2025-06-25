@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
-import projectData from '../data.json';
 import Projects from '../components/Projects';
 import Form from '../components/formSection';
 
@@ -31,6 +30,15 @@ const Works = () => {
   const [loading, setLoading] = useState(false);
   const loader = useRef(null);
 
+  const [allProjects, setAllProjects] = useState([]); // ✅ FIXED: declared inside component
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/projects') // ✅ replace with your deployed URL later
+      .then(res => res.json())
+      .then(data => setAllProjects(data.projects))
+      .catch(error => console.error('Error fetching projects:', error));
+  }, []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -46,7 +54,7 @@ const Works = () => {
     }
   }, [searchParams]);
 
-  const filteredProjects = projectData.projects.filter((project) => {
+  const filteredProjects = allProjects.filter((project) => {
     const categoryMatch =
       activeCategory === 'All projects' || project.type.includes(activeCategory);
     const industryMatch =
@@ -58,7 +66,6 @@ const Works = () => {
     const target = entries[0];
     if (target.isIntersecting && !loading) {
       setLoading(true);
-      // Simulate loading delay
       setTimeout(() => {
         setVisibleProjects((prev) => Math.min(prev + 4, filteredProjects.length));
         setLoading(false);
@@ -74,7 +81,7 @@ const Works = () => {
     };
     const observer = new IntersectionObserver(handleObserver, option);
     if (loader.current) observer.observe(loader.current);
-    
+
     return () => {
       if (loader.current) observer.unobserve(loader.current);
     };
@@ -88,7 +95,7 @@ const Works = () => {
       searchParams.set('filter', category);
     }
     setSearchParams(searchParams);
-    setVisibleProjects(8); // Reset visible projects when changing category
+    setVisibleProjects(8);
   };
 
   const handleIndustryChange = (industry) => {
@@ -99,7 +106,7 @@ const Works = () => {
       searchParams.set('filter', industry);
     }
     setSearchParams(searchParams);
-    setVisibleProjects(8); // Reset visible projects when changing industry
+    setVisibleProjects(8);
   };
 
   useEffect(() => {
@@ -194,17 +201,17 @@ const Works = () => {
         to="#contact"
         id="custom-circle"
         className="custom-circle z-[5000] hidden md:block"
-      >
-      </Link>
-      <section className=" px-4 sm:px-6 lg:px-28 py-16  bg-white">
+      ></Link>
+
+      <section className="px-4 sm:px-6 lg:px-28 py-16 bg-white">
         <div className="mb-4 flex items-center text-sm text-gray-500 mt-10">
           <Link to="/">Home</Link>
           <ChevronRight className="w-4 h-4 mx-2" />
           <span>Projects</span>
         </div>
-        
+
         <h1 className="text-6xl font-bold mb-12">Explore our projects</h1>
-        
+
         <div className="mb-6">
           <ul className="flex flex-wrap gap-3">
             {projectCategories.map((category) => (
@@ -223,9 +230,9 @@ const Works = () => {
             ))}
           </ul>
         </div>
-        
+
         <div className="w-full h-px bg-gray-200 mb-6"></div>
-        
+
         <div className="mb-12">
           <ul className="flex flex-wrap gap-3">
             {industryFilters.map((industry) => (
@@ -244,11 +251,13 @@ const Works = () => {
             ))}
           </ul>
         </div>
-        
+
         <Projects projects={filteredProjects.slice(0, visibleProjects)} />
-        
+
         {filteredProjects.length === 0 && (
-          <p className="text-gray-500 text-center mt-8">No projects found matching the selected filters.</p>
+          <p className="text-gray-500 text-center mt-8">
+            No projects found matching the selected filters.
+          </p>
         )}
 
         {visibleProjects < filteredProjects.length && (
@@ -258,7 +267,6 @@ const Works = () => {
         )}
       </section>
 
-      {/* Full-width Form section */}
       <section className="w-full bg-gray-100 py-16">
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <Form />

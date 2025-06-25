@@ -2,14 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, Play } from 'lucide-react';
 
-const ProjectPage = ({ projects }) => {
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  },[])
+const ProjectPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const project = projects.find(p => p.id === parseInt(id));
+  const [project, setProject] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   const scrollContainerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -17,70 +15,74 @@ const ProjectPage = ({ projects }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const slideInterval = useRef(null);
 
-  // Combine main image with additional images for slideshow
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const fetchProject = async () => {
+      try {
+        const res = await fetch('http://localhost:5000/api/projects');
+        const data = await res.json();
+        const found = data.projects.find(p => p.id.toString() === id);
+        setProject(found);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching project:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchProject();
+  }, [id]);
+
   const allImages = project ? [project.imageUrl, ...(project.images || [])] : [];
 
   useEffect(() => {
-    // Start the slideshow
     if (allImages.length > 1) {
       slideInterval.current = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => 
+        setCurrentImageIndex((prevIndex) =>
           prevIndex === allImages.length - 1 ? 0 : prevIndex + 1
         );
-      }, 5000); // Change image every 5 seconds
+      }, 5000);
     }
-
-    return () => {
-      if (slideInterval.current) {
-        clearInterval(slideInterval.current);
-      }
-    };
+    return () => clearInterval(slideInterval.current);
   }, [allImages.length]);
 
-  // Reset slideshow when changing projects
   useEffect(() => {
     setCurrentImageIndex(0);
   }, [project]);
 
   useEffect(() => {
-    const circle = document.getElementById("custom-circle");
-    let mouseX = 0,
-      mouseY = 0;
-    let circleX = 0,
-      circleY = 0;
+    const circle = document.getElementById('custom-circle');
+    let mouseX = 0, mouseY = 0;
+    let circleX = 0, circleY = 0;
     const speed = 0.2;
-
+  
     const handleMouseMove = (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
     };
-
-    document.addEventListener("mousemove", handleMouseMove);
-
-    const smoothMove = () => {
+  
+    document.addEventListener('mousemove', handleMouseMove);
+  
+    const animate = () => {
       circleX += (mouseX - circleX) * speed;
       circleY += (mouseY - circleY) * speed;
-
       if (circle) {
         circle.style.left = `${circleX}px`;
         circle.style.top = `${circleY}px`;
       }
-
-      requestAnimationFrame(smoothMove);
+      requestAnimationFrame(animate);
     };
-
-    smoothMove();
-
+  
+    animate();
+  
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
-
-  useEffect(() => {
-    const circle = document.getElementById("custom-circle");
-    const sections = ["banner", "home", "other"];
-    circle.classList.add("other-style");
-  }, []);
+  
 
   useEffect(() => {
     const circle = document.getElementById("custom-circle");
@@ -134,10 +136,7 @@ const ProjectPage = ({ projects }) => {
     setScrollLeft(scrollContainerRef.current.scrollLeft);
   };
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
+  const handleMouseUp = () => setIsDragging(false);
   const handleMouseMove = (e) => {
     if (!isDragging) return;
     e.preventDefault();
@@ -145,53 +144,37 @@ const ProjectPage = ({ projects }) => {
     const walk = (x - startX) * 2;
     scrollContainerRef.current.scrollLeft = scrollLeft - walk;
   };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-  };
-
+  const handleMouseLeave = () => setIsDragging(false);
   const handleImageClick = (index) => {
     setCurrentImageIndex(index);
-    // Reset the interval when manually changing images
-    if (slideInterval.current) {
-      clearInterval(slideInterval.current);
-      slideInterval.current = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => 
-          prevIndex === allImages.length - 1 ? 0 : prevIndex + 1
-        );
-      }, 5000);
-    }
+    clearInterval(slideInterval.current);
+    slideInterval.current = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev === allImages.length - 1 ? 0 : prev + 1));
+    }, 5000);
   };
 
+  const handleTypeClick = (type) => {
+    navigate(`/works?filter=${encodeURIComponent(type)}`);
+  };
+
+  if (loading) return <div className="p-10 text-center">Loading...</div>;
   if (!project) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-900">Project not found</h2>
           <p className="mt-4 text-gray-600">The project you're looking for doesn't exist.</p>
-          <Link 
-            to="/works" 
-            className="mt-8 inline-block bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors"
-          >
-            Back to Projects
-          </Link>
+          <Link to="/works" className="mt-8 inline-block bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors">Back to Projects</Link>
         </div>
       </div>
     );
   }
 
-  const handleTypeClick = (type) => {
-    navigate(`/works?filter=${encodeURIComponent(type)}`);
-  };
-
   return (
     <>
-      <Link
-        to="#contact"
-        id="custom-circle"
-        className="custom-circle z-[5000] hidden md:block bg-white"
-      >
-      </Link>
+    <a href="#contact" id="custom-circle" className="custom-circle other-style z-[5000]">
+      <span>Let's Talk</span>
+    </a>
       <article className=" px-4 sm:px-6 lg:px-28 py-16 bg-white">
         {/* Breadcrumb */}
         <div className="mb-4 flex items-center text-sm text-gray-500 mt-10 ">
