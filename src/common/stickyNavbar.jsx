@@ -40,6 +40,7 @@ const StickyNavbar = ({ onVisibilityChange }) => {
     { id: 'web', label: 'Web Services' },
     { id: 'personal', label: 'Personal Branding' },
     { id: 'development', label: 'Development Services' },
+    { id: 'innovation', label: 'Technology Innovation' },
     { id: 'contact', label: 'Get in Touch' },
   ];
 
