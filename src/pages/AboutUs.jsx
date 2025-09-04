@@ -210,7 +210,7 @@ const AboutUs = () => {
         </section>
 
         {/* Section 5: Leadership Team */}
-        <LeadershipTeam />
+        {/* <LeadershipTeam /> */}
       </div>
     </>
   );

@@ -10,6 +10,9 @@ import {
   FaEnvelope
 } from "react-icons/fa";
 
+import Founder from '../assets/founder.jpeg';
+
+
 export default function Form() {
   const initialFormState = {
     name: "",
@@ -142,8 +145,7 @@ export default function Form() {
       title: "Project Talk",
       email: "director@innogative.in",
       showIcons: true,
-      image:
-        "https://phenomenonstudio.com/wp-content/webp-express/webp-images/uploads/2024/10/ks.png.webp",
+      image: Founder,
     }
   ];
 

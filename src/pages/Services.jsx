@@ -8,6 +8,7 @@ const Features = lazy(() => import('../components/Features'));
 const DevelopmentServices = lazy(() => import('../components/DevelopmentServices'));
 const Form = lazy(() => import('../components/formSection'));
 const PersonalBranding = lazy(() => import('../components/PersonalBranding'));
+const TechnologyInnovation = lazy(() => import('../components/TechnologyInnovation'));
 
 const Services = ({ setIsNavbarVisible }) => {
   const contactRef = useRef(null);
@@ -151,6 +152,10 @@ const Services = ({ setIsNavbarVisible }) => {
 
         <section id="development" className="min-h-screen">
           <DevelopmentServices />
+        </section>
+
+        <section id="innovation" className="min-h-screen">
+          <TechnologyInnovation />
         </section>
       </Suspense>
 
